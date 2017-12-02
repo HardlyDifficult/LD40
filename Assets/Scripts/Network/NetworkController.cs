@@ -33,14 +33,17 @@ public class NetworkController : MonoBehaviour
   protected void OnJoinedRoom()
   {
     PhotonPlayer[] playerList = PhotonNetwork.playerList;
-    // TODO
+    Vector3 position = ballPrefab.transform.position;
     if (playerList.Length == 1)
     {
-      //ballPrefab.RequestOwnership();
+      position.z = zPositionPlayer1;
     }
     else
     {
-      //ball2.RequestOwnership();
+      position.z = zPositionPlayer2;
     }
+
+    PhotonView ball = Instantiate(ballPrefab, position, transform.rotation);
+    ball.RequestOwnership();
   }
 }

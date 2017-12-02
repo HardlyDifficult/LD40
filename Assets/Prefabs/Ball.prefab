@@ -78,7 +78,7 @@ MonoBehaviour:
   synchronization: 0
   onSerializeTransformOption: 3
   onSerializeRigidBodyOption: 2
-  ownershipTransfer: 0
+  ownershipTransfer: 2
   ObservedComponents:
   - {fileID: 0}
   ObservedComponentsFoldoutOpen: 1
@@ -98,8 +98,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   raycastDistance: 7
-  powerMeter: {fileID: 0}
-  arcMeter: {fileID: 0}
   strength: 100
   maxY: 20
   timeTillBallReset: 20
