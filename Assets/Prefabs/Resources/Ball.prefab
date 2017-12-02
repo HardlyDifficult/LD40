@@ -26,6 +26,7 @@ GameObject:
   - component: {fileID: 198508992453801974}
   - component: {fileID: 114377261397569104}
   - component: {fileID: 114058309920250334}
+  - component: {fileID: 114847681560141812}
   m_Layer: 0
   m_Name: Ball
   m_TagString: Untagged
@@ -167,12 +168,25 @@ MonoBehaviour:
   strength: 100
   maxY: 20
   wandPowerTranslation: 1
+  wandPowerRotation: 50
+  wandArcTranslation: 1
   wandArcRotation: 50
   wandRotationTarget: {fileID: 0}
   ballBody: {fileID: 0}
   wand: {fileID: 0}
   timeTillBallReset: 20
   resetWhenBelowY: -10
+--- !u!114 &114847681560141812
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1098487601202060}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37b65ff48c7083a4a85933449d239e6a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!135 &135502485847157746
 SphereCollider:
   m_ObjectHideFlags: 1

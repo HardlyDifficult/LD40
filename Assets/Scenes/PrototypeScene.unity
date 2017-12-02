@@ -1025,7 +1025,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7fb8e6c8cad256469357a22d304752a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ballPrefab: {fileID: 1995911005466580, guid: 429239052a32dfc4f8738287fab48158, type: 2}
   zPositionPlayer1: -6
   zPositionPlayer2: 6
 --- !u!4 &520175188
@@ -1706,6 +1705,11 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 916500244}
     m_Modifications:
+    - target: {fileID: 114783771795774810, guid: 514585dfad2607e4482d2db4bd7c8f08,
+        type: 2}
+      propertyPath: ballPrefabList.Array.size
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 224425387465625606, guid: 514585dfad2607e4482d2db4bd7c8f08,
         type: 2}
       propertyPath: m_LocalPosition.x
@@ -1856,6 +1860,18 @@ Prefab:
       propertyPath: m_LocalPosition.y
       value: -30
       objectReference: {fileID: 0}
+    - target: {fileID: 114783771795774810, guid: 514585dfad2607e4482d2db4bd7c8f08,
+        type: 2}
+      propertyPath: ballPrefabList.Array.data[0]
+      value: 
+      objectReference: {fileID: 114847681560141812, guid: 991fdad31f1775341a7be6b17f7000f3,
+        type: 2}
+    - target: {fileID: 114783771795774810, guid: 514585dfad2607e4482d2db4bd7c8f08,
+        type: 2}
+      propertyPath: ballPrefabList.Array.data[1]
+      value: 
+      objectReference: {fileID: 114802350927408906, guid: 40c100c996fbdb3429fe08ed6690d564,
+        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 514585dfad2607e4482d2db4bd7c8f08, type: 2}
   m_IsPrefabParent: 0

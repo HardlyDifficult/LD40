@@ -44,7 +44,7 @@ public class NetworkController : MonoBehaviour
     }
     else
     {
-      return;
+      return; // TODO network next steps
       position.z = zPositionPlayer2;
     }
 
