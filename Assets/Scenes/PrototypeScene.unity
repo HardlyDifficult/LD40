@@ -413,7 +413,7 @@ MonoBehaviour:
   arcMeter: {fileID: 1384311357}
   strength: 100
   maxY: 20
-  timeTillBallReset: 3
+  timeTillBallReset: 6
 --- !u!23 &258084332
 MeshRenderer:
   m_ObjectHideFlags: 0

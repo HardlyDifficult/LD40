@@ -9,10 +9,10 @@ public class BallThrower : MonoBehaviour
   float raycastDistance = 1;
 
   [SerializeField]
-  PowerMeter powerMeter;
+  PowerMeter powerMeter = null;
 
   [SerializeField]
-  ArcMeter arcMeter;
+  ArcMeter arcMeter = null;
 
   [SerializeField]
   float strength = 100;
@@ -25,7 +25,10 @@ public class BallThrower : MonoBehaviour
   float? whenBallWasReleased;
 
   [SerializeField]
-  float timeTillBallReset = 3;
+  float timeTillBallReset = 6;
+
+  [SerializeField]
+  float resetWhenBelowY = -10;
 
   Vector3 ballInitialPosition;
 
@@ -40,7 +43,9 @@ public class BallThrower : MonoBehaviour
   {
     if (whenBallWasReleased != null)
     {
-      if (Time.timeSinceLevelLoad - whenBallWasReleased > timeTillBallReset)
+      if (Time.timeSinceLevelLoad - whenBallWasReleased > timeTillBallReset
+        || Input.GetMouseButtonDown(1)
+        || transform.position.y <= resetWhenBelowY)
       {
         whenBallWasReleased = null;
         transform.position = ballInitialPosition;
