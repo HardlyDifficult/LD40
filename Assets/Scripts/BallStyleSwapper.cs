@@ -7,7 +7,7 @@ public class BallStyleSwapper : MonoBehaviour
   protected void Awake()
   {
     PhotonView photonView = GetComponent<PhotonView>();
-    if(photonView.isMine == false)
+    if (photonView.isMine == false)
     {
       return;
     }
@@ -17,7 +17,10 @@ public class BallStyleSwapper : MonoBehaviour
 
   protected void OnDestroy()
   {
-    ChangeBall.instance.onBallPreferenceChange -= Instance_onBallPreferenceChange;
+    if (ChangeBall.instance != null)
+    {
+      ChangeBall.instance.onBallPreferenceChange -= Instance_onBallPreferenceChange;
+    }
   }
 
   protected void Start()
