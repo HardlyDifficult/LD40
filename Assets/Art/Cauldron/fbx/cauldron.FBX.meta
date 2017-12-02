@@ -9,19 +9,24 @@ ModelImporter:
     100002: //RootNode
     100004: Cauldron_Handle_01
     100006: Cauldron_Handle_02
+    100008: Cauldron_collider
     400000: Cauldron
     400002: //RootNode
     400004: Cauldron_Handle_01
     400006: Cauldron_Handle_02
+    400008: Cauldron_collider
     2300000: Cauldron
     2300002: Cauldron_Handle_01
     2300004: Cauldron_Handle_02
+    2300006: Cauldron_collider
     3300000: Cauldron
     3300002: Cauldron_Handle_01
     3300004: Cauldron_Handle_02
+    3300006: Cauldron_collider
     4300000: Cauldron
     4300002: Cauldron_Handle_01
     4300004: Cauldron_Handle_02
+    4300006: Cauldron_collider
   externalObjects:
   - first:
       type: UnityEngine:Material
