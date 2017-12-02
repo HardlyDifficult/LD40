@@ -9,12 +9,6 @@ public class BallThrower : MonoBehaviour
   float raycastDistance = 1;
 
   [SerializeField]
-  PowerMeter powerMeter = null;
-
-  [SerializeField]
-  ArcMeter arcMeter = null;
-
-  [SerializeField]
   float strength = 100;
 
   [SerializeField]
@@ -58,7 +52,7 @@ public class BallThrower : MonoBehaviour
       }
     }
 
-    arcMeter.UpdateArc();
+    UIController.instance.arcMeter.UpdateArc();
 
     MoveBallLeftAndRight();
 
@@ -69,21 +63,21 @@ public class BallThrower : MonoBehaviour
   {
     if (Input.GetMouseButtonUp(0))
     { // Throw
-      float power = powerMeter.currentValue;
+      float power = UIController.instance.powerMeter.currentValue;
       // TODO launch
 
       Vector3 direction = transform.position;
-      direction.y = maxY * arcMeter.currentValue;
+      direction.y = maxY * UIController.instance.arcMeter.currentValue;
       direction.z = 10;
       body.AddForce(direction * power * strength);
       body.useGravity = true;
 
       whenBallWasReleased = Time.timeSinceLevelLoad;
-      powerMeter.Reset();
+      UIController.instance.powerMeter.Reset();
     }
     else if (Input.GetMouseButton(0))
     { // Power
-      powerMeter.Charge();
+      UIController.instance.powerMeter.Charge();
     }
   }
 
