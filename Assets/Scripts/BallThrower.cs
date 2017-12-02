@@ -26,8 +26,11 @@ public class BallThrower : MonoBehaviour
 
   Vector3 ballInitialPosition;
 
+  PhotonView photonView;
+
   protected void Awake()
   {
+    photonView = GetComponent<PhotonView>();
     ballInitialPosition = transform.position;
     body = GetComponent<Rigidbody>();
     body.useGravity = false;
@@ -35,6 +38,11 @@ public class BallThrower : MonoBehaviour
 
   protected void Update()
   {
+    if (photonView.isMine == false)
+    {
+      return;
+    }
+
     if (whenBallWasReleased != null)
     {
       if (Time.timeSinceLevelLoad - whenBallWasReleased > timeTillBallReset

@@ -47,9 +47,13 @@ public class NetworkController : MonoBehaviour
     }
     else
     {
+      return;
       position.z = zPositionPlayer2;
     }
 
-    PhotonNetwork.Instantiate(ballPrefab.name, position, transform.rotation, 0);
+    GameObject ball = PhotonNetwork.Instantiate(ballPrefab.name, position, transform.rotation, 0);
+    PhotonView view = ball.GetComponent<PhotonView>();
+    view.RequestOwnership();
+    Debug.Assert(view.isMine);
   }
 }
