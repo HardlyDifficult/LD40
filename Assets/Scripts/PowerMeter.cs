@@ -40,7 +40,6 @@ public class PowerMeter : MonoBehaviour
     }
 
     currentValue += delta;
-    print($"{currentValue} with delta {delta}");
 
     if (currentValue < 0
       || currentValue > 1)
