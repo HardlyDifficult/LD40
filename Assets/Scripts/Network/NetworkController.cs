@@ -5,15 +5,18 @@ using UnityEngine;
 public class NetworkController : MonoBehaviour
 {
   [SerializeField]
-  GameObject ballPrefab;
-
-  [SerializeField]
   float zPositionPlayer1;
 
   [SerializeField]
   float zPositionPlayer2;
 
   RoomOptions roomOptions;
+
+  /// <summary>
+  /// Must be in Resources
+  /// </summary>
+  [SerializeField]
+  BallThrower playerPrefab;
 
   protected void Awake()
   {
@@ -40,18 +43,18 @@ public class NetworkController : MonoBehaviour
 
     print($"Welcome!  There are a total of {playerList.Length} players in the room");
 
-    Vector3 position = ballPrefab.transform.position;
+    Vector3 position = playerPrefab.transform.position;
     if (playerList.Length == 1)
     {
       position.z = zPositionPlayer1;
     }
     else
     {
-      return;
+      return; // TODO network next steps
       position.z = zPositionPlayer2;
     }
 
-    GameObject ball = PhotonNetwork.Instantiate(ballPrefab.name, position, transform.rotation, 0);
+    GameObject ball = PhotonNetwork.Instantiate(playerPrefab.name, position, transform.rotation, 0);
     PhotonView view = ball.GetComponent<PhotonView>();
     view.RequestOwnership();
     Debug.Assert(view.isMine);
