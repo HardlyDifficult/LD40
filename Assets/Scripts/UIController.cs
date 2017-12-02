@@ -28,4 +28,16 @@ public class UIController : MonoBehaviour
 
     instance = null;
   }
+
+  public void EnableThrowUI()
+  {
+    powerMeter.gameObject.SetActive(true);
+    arcMeter.gameObject.SetActive(true);
+  }
+
+  public void DisableThrowUI()
+  {
+    powerMeter.gameObject.SetActive(false);
+    arcMeter.gameObject.SetActive(false);
+  }
 }

@@ -1025,7 +1025,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7fb8e6c8cad256469357a22d304752a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ballPrefab: {fileID: 1098487601202060, guid: 991fdad31f1775341a7be6b17f7000f3, type: 2}
+  ballPrefab: {fileID: 1995911005466580, guid: 429239052a32dfc4f8738287fab48158, type: 2}
   zPositionPlayer1: -6
   zPositionPlayer2: 6
 --- !u!4 &520175188
