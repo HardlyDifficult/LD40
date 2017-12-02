@@ -15,12 +15,24 @@ public class BallStyleSwapper : MonoBehaviour
     ChangeBall.instance.onBallPreferenceChange += Instance_onBallPreferenceChange;
   }
 
+  protected void OnDestroy()
+  {
+    ChangeBall.instance.onBallPreferenceChange -= Instance_onBallPreferenceChange;
+  }
+
+  protected void Start()
+  {
+    GetComponentInParent<BallThrower>().RegisterBall(gameObject);
+  }
+
   void Instance_onBallPreferenceChange()
   {
     GameObject newBall = Instantiate(ChangeBall.instance.currentBallPrefab, transform.position, transform.rotation);
+    newBall.transform.SetParent(transform.parent);
     Rigidbody myBody = GetComponent<Rigidbody>();
     Rigidbody newBody = newBall.GetComponent<Rigidbody>();
     newBody.velocity = myBody.velocity;
+    newBody.useGravity = myBody.useGravity;
     Destroy(gameObject);
   }
 }

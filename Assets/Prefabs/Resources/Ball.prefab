@@ -20,7 +20,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4447601624992560}
   - component: {fileID: 135502485847157746}
-  - component: {fileID: 114393052248500428}
   - component: {fileID: 54951838576589964}
   - component: {fileID: 199901959679016828}
   - component: {fileID: 198508992453801974}
@@ -153,29 +152,6 @@ MonoBehaviour:
   instantiationId: -1
   currentMasterID: -1
   isRuntimeInstantiated: 0
---- !u!114 &114393052248500428
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1098487601202060}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d206f492140538c48aeb76bc4bfdeda9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  raycastDistance: 7
-  strength: 100
-  maxY: 20
-  wandPowerTranslation: 1
-  wandPowerRotation: 50
-  wandArcTranslation: 1
-  wandArcRotation: 50
-  wandRotationTarget: {fileID: 0}
-  ballBody: {fileID: 0}
-  wand: {fileID: 0}
-  timeTillBallReset: 20
-  resetWhenBelowY: -10
 --- !u!114 &114847681560141812
 MonoBehaviour:
   m_ObjectHideFlags: 1

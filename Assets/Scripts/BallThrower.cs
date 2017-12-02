@@ -13,23 +13,22 @@ public class BallThrower : MonoBehaviour
 
   [SerializeField]
   float maxY = 50;
-    
+
   [SerializeField]
   float wandPowerTranslation = 0.1f;
-    
+
   [SerializeField]
   float wandPowerRotation = 50;
-    
+
   [SerializeField]
   float wandArcTranslation = 1;
-    
+
   [SerializeField]
   float wandArcRotation = 10;
-    
+
   [SerializeField]
   GameObject wandRotationTarget;
 
-  [SerializeField]
   Rigidbody ballBody;
 
   [SerializeField]
@@ -42,7 +41,7 @@ public class BallThrower : MonoBehaviour
 
   [SerializeField]
   float resetWhenBelowY = -10;
-    
+
   Vector3 ballInitialPosition;
 
   PhotonView photonView;
@@ -52,17 +51,24 @@ public class BallThrower : MonoBehaviour
   protected void Awake()
   {
     photonView = GetComponent<PhotonView>();
-    if (ballBody == null)
-    {
-      ballBody = GetComponent<Rigidbody>();
-    }
-    ballParticleSystem = ballBody.GetComponent<ParticleSystem>();
-    ballInitialPosition = ballBody.transform.position;
-    ballBody.useGravity = false;
+
+
+    GameObject ball = PhotonNetwork.Instantiate(ChangeBall.instance.currentBallPrefab.name, transform.position, transform.rotation, 0);
+    ball.transform.SetParent(transform);
+    ballInitialPosition = ball.transform.position;
+    ball.GetComponent<Rigidbody>().useGravity = false;
+
     if (wand != null)
     {
       //ballBody.gameObject.SetActive(false);
     }
+  }
+
+  public void RegisterBall(
+    GameObject ball)
+  {
+    ballBody = ball.GetComponent<Rigidbody>();
+    ballParticleSystem = ball.GetComponent<ParticleSystem>();
   }
 
   protected void Update()

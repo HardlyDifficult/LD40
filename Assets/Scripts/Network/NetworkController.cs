@@ -12,6 +12,12 @@ public class NetworkController : MonoBehaviour
 
   RoomOptions roomOptions;
 
+  /// <summary>
+  /// Must be in Resources
+  /// </summary>
+  [SerializeField]
+  BallThrower playerPrefab;
+
   protected void Awake()
   {
     roomOptions = new RoomOptions()
@@ -37,7 +43,7 @@ public class NetworkController : MonoBehaviour
 
     print($"Welcome!  There are a total of {playerList.Length} players in the room");
 
-    Vector3 position = ChangeBall.instance.currentBallPrefab.transform.position;
+    Vector3 position = playerPrefab.transform.position;
     if (playerList.Length == 1)
     {
       position.z = zPositionPlayer1;
@@ -48,7 +54,7 @@ public class NetworkController : MonoBehaviour
       position.z = zPositionPlayer2;
     }
 
-    GameObject ball = PhotonNetwork.Instantiate(ChangeBall.instance.currentBallPrefab.name, position, transform.rotation, 0);
+    GameObject ball = PhotonNetwork.Instantiate(playerPrefab.name, position, transform.rotation, 0);
     PhotonView view = ball.GetComponent<PhotonView>();
     view.RequestOwnership();
     Debug.Assert(view.isMine);
