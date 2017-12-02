@@ -5,7 +5,7 @@ using UnityEngine;
 public class NetworkController : MonoBehaviour
 {
   [SerializeField]
-  PhotonView ballPrefab;
+  GameObject ballPrefab;
 
   [SerializeField]
   float zPositionPlayer1;
@@ -13,26 +13,33 @@ public class NetworkController : MonoBehaviour
   [SerializeField]
   float zPositionPlayer2;
 
+  RoomOptions roomOptions;
+
   protected void Awake()
   {
+    roomOptions = new RoomOptions()
+    {
+      MaxPlayers = 2
+    };
     PhotonNetwork.ConnectUsingSettings("0.1");
   }
 
   protected void OnJoinedLobby()
   {
-    PhotonNetwork.JoinRandomRoom();
+    PhotonNetwork.JoinRandomRoom(roomOptions.CustomRoomProperties, roomOptions.MaxPlayers);
   }
 
   protected void OnPhotonRandomJoinFailed()
   {
-    RoomOptions roomOptions = new RoomOptions();
-    roomOptions.MaxPlayers = 2;
     PhotonNetwork.CreateRoom(null, roomOptions, TypedLobby.Default);
   }
 
   protected void OnJoinedRoom()
   {
     PhotonPlayer[] playerList = PhotonNetwork.playerList;
+
+    print($"Welcome!  There are a total of {playerList.Length} players in the room");
+
     Vector3 position = ballPrefab.transform.position;
     if (playerList.Length == 1)
     {
@@ -43,7 +50,6 @@ public class NetworkController : MonoBehaviour
       position.z = zPositionPlayer2;
     }
 
-    PhotonView ball = Instantiate(ballPrefab, position, transform.rotation);
-    ball.RequestOwnership();
+    PhotonNetwork.Instantiate(ballPrefab.name, position, transform.rotation, 0);
   }
 }

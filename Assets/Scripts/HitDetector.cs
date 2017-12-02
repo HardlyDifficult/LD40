@@ -26,6 +26,9 @@ public class HitDetector : MonoBehaviour
   protected void OnTriggerExit(
     Collider collider)
   {
-    StopCoroutine(winCheckRoutine);
+    if (winCheckRoutine != null)
+    {
+      StopCoroutine(winCheckRoutine);
+    }
   }
 }
