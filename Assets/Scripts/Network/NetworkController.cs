@@ -5,9 +5,6 @@ using UnityEngine;
 public class NetworkController : MonoBehaviour
 {
   [SerializeField]
-  GameObject ballPrefab;
-
-  [SerializeField]
   float zPositionPlayer1;
 
   [SerializeField]
@@ -40,7 +37,7 @@ public class NetworkController : MonoBehaviour
 
     print($"Welcome!  There are a total of {playerList.Length} players in the room");
 
-    Vector3 position = ballPrefab.transform.position;
+    Vector3 position = ChangeBall.instance.currentBallPrefab.transform.position;
     if (playerList.Length == 1)
     {
       position.z = zPositionPlayer1;
@@ -51,7 +48,7 @@ public class NetworkController : MonoBehaviour
       position.z = zPositionPlayer2;
     }
 
-    GameObject ball = PhotonNetwork.Instantiate(ballPrefab.name, position, transform.rotation, 0);
+    GameObject ball = PhotonNetwork.Instantiate(ChangeBall.instance.currentBallPrefab.name, position, transform.rotation, 0);
     PhotonView view = ball.GetComponent<PhotonView>();
     view.RequestOwnership();
     Debug.Assert(view.isMine);
