@@ -33,13 +33,14 @@ public class NetworkController : MonoBehaviour
   protected void OnJoinedRoom()
   {
     PhotonPlayer[] playerList = PhotonNetwork.playerList;
+    // TODO
     if (playerList.Length == 1)
     {
-      ballPrefab.RequestOwnership();
+      //ballPrefab.RequestOwnership();
     }
     else
     {
-      ball2.RequestOwnership();
+      //ball2.RequestOwnership();
     }
   }
 }
