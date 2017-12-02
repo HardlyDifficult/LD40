@@ -26,7 +26,7 @@ GameObject:
   - component: {fileID: 198508992453801974}
   - component: {fileID: 114377261397569104}
   m_Layer: 0
-  m_Name: Ball1
+  m_Name: Ball
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -82,8 +82,8 @@ MonoBehaviour:
   ObservedComponents:
   - {fileID: 0}
   ObservedComponentsFoldoutOpen: 1
-  viewIdField: 2
-  instantiationId: 2
+  viewIdField: 0
+  instantiationId: -1
   currentMasterID: -1
   isRuntimeInstantiated: 0
 --- !u!114 &114393052248500428
