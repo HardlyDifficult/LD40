@@ -7,7 +7,13 @@ public class SetActiveOnTurn : MonoBehaviour
   [SerializeField]
   bool onMyTurnSetActiveTo;
 
-  int playerId;
+  int playerId
+  {
+    get
+    {
+      return (int)PhotonNetwork.player.CustomProperties["PlayerId"];
+    }
+  }
   TurnController turnController;
 
   public bool isMyTurn
@@ -22,7 +28,6 @@ public class SetActiveOnTurn : MonoBehaviour
 
   protected void Awake()
   {
-    playerId = (int)PhotonNetwork.player.CustomProperties["PlayerId"];
     turnController = GameObject.FindObjectOfType<TurnController>();
     turnController.onTurnChange += TurnController_onTurnChange;
   }
