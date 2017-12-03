@@ -60,6 +60,8 @@ public class BallThrower : MonoBehaviour
 
   GameObject ball;
 
+  GameObject ballVisuals;
+
   ParticleSystem ballParticleSystem;
 
   TurnController turnController;
@@ -88,7 +90,8 @@ public class BallThrower : MonoBehaviour
       ball.GetComponent<Rigidbody>().useGravity = false;
       ballBody = ball.GetComponent<Rigidbody>();
       ballParticleSystem = ball.GetComponent<ParticleSystem>();
-      ball.SetActive(false);
+      ballVisuals = ball.transform.GetChild(0).gameObject;
+      ballVisuals.SetActive(false);
     }
     onPlayerSpawn?.Invoke(photonView);
 
@@ -155,7 +158,7 @@ public class BallThrower : MonoBehaviour
     {
       wand.transform.position = myPosition;
       Vector3 target = wandRotationTarget ? wandRotationTarget.transform.position : myPosition + new Vector3(0, -1, 0);
-      target = Quaternion.AngleAxis(power * wandPowerRotation + arc * wandArcRotation, Vector3.right) * target;
+      target = Quaternion.AngleAxis(power * wandPowerRotation + arc * wandArcRotation, Vector3.left) * target;
       wand.transform.LookAt(target);
     }
 
@@ -289,7 +292,7 @@ public class BallThrower : MonoBehaviour
       float power = UIController.instance.powerMeter.currentValue;
       float arc = UIController.instance.arcMeter.currentValue;
 
-      ballBody?.gameObject.SetActive(true);
+      ballVisuals?.SetActive(true);
       Vector3 direction = ballBody.transform.position;
       direction.y = maxY * arc;
       direction.z = -direction.z;

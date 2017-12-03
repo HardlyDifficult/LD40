@@ -16,7 +16,7 @@ public class NumberOfPlayersText : MonoBehaviour
   protected void OnLobbyStatisticsUpdate()
   {
     List<TypedLobbyInfo> lobbyList = PhotonNetwork.LobbyStatistics;
-    int totalPlayers = 0;
+    int totalPlayers = 1; // Add me
     for (int i = 0; i < lobbyList.Count; i++)
     {
       TypedLobbyInfo lobbyInfo = lobbyList[i];

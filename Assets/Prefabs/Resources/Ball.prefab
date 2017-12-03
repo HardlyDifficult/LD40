@@ -21,12 +21,11 @@ GameObject:
   - component: {fileID: 4447601624992560}
   - component: {fileID: 135502485847157746}
   - component: {fileID: 54951838576589964}
-  - component: {fileID: 199901959679016828}
-  - component: {fileID: 198508992453801974}
   - component: {fileID: 114377261397569104}
   - component: {fileID: 114058309920250334}
   - component: {fileID: 114527935861073160}
   - component: {fileID: 114507805046713568}
+  - component: {fileID: 114307449421838372}
   m_Layer: 8
   m_Name: Ball
   m_TagString: Untagged
@@ -34,6 +33,36 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1994660285101768
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4387396508124070}
+  - component: {fileID: 199005283589510154}
+  - component: {fileID: 198521200962422014}
+  m_Layer: 8
+  m_Name: Visuals
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4387396508124070
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1994660285101768}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4447601624992560}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4447601624992560
 Transform:
   m_ObjectHideFlags: 1
@@ -43,7 +72,8 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 1.1999998, y: 0, z: -7.3199997}
   m_LocalScale: {x: 0.33196753, y: 0.33196753, z: 0.33196753}
-  m_Children: []
+  m_Children:
+  - {fileID: 4387396508124070}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -127,6 +157,18 @@ MonoBehaviour:
     InterpolateOption: 0
     InterpolateMoveTowardsSpeed: 1
     InterpolateLerpSpeed: 0
+--- !u!114 &114307449421838372
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1098487601202060}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e4cae99b23c31844b965be912888b49, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  childGameObject: {fileID: 1994660285101768}
 --- !u!114 &114377261397569104
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -150,9 +192,10 @@ MonoBehaviour:
   - {fileID: 114058309920250334}
   - {fileID: 114527935861073160}
   - {fileID: 114507805046713568}
+  - {fileID: 114307449421838372}
   ObservedComponentsFoldoutOpen: 1
-  viewIdField: 0
-  instantiationId: -1
+  viewIdField: 2
+  instantiationId: 2
   currentMasterID: -1
   isRuntimeInstantiated: 0
 --- !u!114 &114507805046713568
@@ -191,12 +234,12 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
---- !u!198 &198508992453801974
+--- !u!198 &198521200962422014
 ParticleSystem:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1098487601202060}
+  m_GameObject: {fileID: 1994660285101768}
   serializedVersion: 5
   lengthInSec: 5
   simulationSpeed: 1
@@ -251,7 +294,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: -711874189
+  randomSeed: 1172403475
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -3508,13 +3551,13 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     vectorLabel1_3: W
---- !u!199 &199901959679016828
+--- !u!199 &199005283589510154
 ParticleSystemRenderer:
   serializedVersion: 4
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1098487601202060}
+  m_GameObject: {fileID: 1994660285101768}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
