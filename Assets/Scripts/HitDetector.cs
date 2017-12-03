@@ -6,6 +6,15 @@ public class HitDetector : MonoBehaviour
 {
   Coroutine winCheckRoutine;
 
+  [SerializeField]
+  ParticleSystem[] particlesPlayOnHit;
+
+  void Start()
+  {
+    // enable this for quick tests
+    //winCheckRoutine = StartCoroutine(WinCheck());
+  }
+
   protected void OnTriggerEnter(
     Collider collider)
   {
@@ -20,6 +29,10 @@ public class HitDetector : MonoBehaviour
   {
     yield return new WaitForSeconds(1);
     print("Nailed it!");
+    for (int i = 0; i < particlesPlayOnHit.Length; i++)
+    {
+      particlesPlayOnHit[i]?.Play();
+    }
     winCheckRoutine = null;
   }
 
