@@ -7,6 +7,8 @@ public class Player : MonoBehaviour
 
   TurnController turnController;
 
+  PhotonView photonView;
+
   public bool isMyTurn
   {
     get
@@ -18,6 +20,7 @@ public class Player : MonoBehaviour
   protected void Awake()
   {
     turnController = GameObject.FindObjectOfType<TurnController>();
+    photonView = GetComponent<PhotonView>();
     NetworkController network = GameObject.FindObjectOfType<NetworkController>();
     network.onGameBegin += Network_onGameBegin;
   }
@@ -32,9 +35,14 @@ public class Player : MonoBehaviour
   {
     if (PhotonNetwork.isMasterClient)
     {
-      isPlayer0 = true;
+      isPlayer0 = photonView.isMine;
     }
     else
+    {
+      isPlayer0 = !photonView.isMine;
+    }
+
+    if (isPlayer0 == false && photonView.isMine)
     { // Player 2 goes to the other side of the table
       Vector3 position = transform.position;
       position.z = -position.z;
