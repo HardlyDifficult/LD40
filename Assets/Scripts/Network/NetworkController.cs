@@ -35,8 +35,10 @@ public class NetworkController : MonoBehaviour
     PhotonNetwork.JoinRandomRoom(roomOptions.CustomRoomProperties, roomOptions.MaxPlayers);
   }
 
-  protected void OnPhotonRandomJoinFailed()
+  protected void OnPhotonRandomJoinFailed(object[] codeAndMsg)
   {
+    print($"{nameof(OnPhotonRandomJoinFailed)} code {codeAndMsg[0]} message {codeAndMsg[1]}");
+
     PhotonNetwork.CreateRoom(null, roomOptions, TypedLobby.Default);
   }
 
@@ -116,6 +118,7 @@ public class NetworkController : MonoBehaviour
   { // codeAndMsg[0] is short ErrorCode. codeAndMsg[1] is string debug msg. }
     print(nameof(OnPhotonCreateRoomFailed) + " " + codeAndMsg[1]);
   }
+
   void OnPhotonJoinRoomFailed(object[] codeAndMsg)
   { // codeAndMsg[0] is short ErrorCode. codeAndMsg[1] is string debug msg. }
     print(nameof(OnPhotonJoinRoomFailed) + " " + codeAndMsg[1]);
@@ -145,14 +148,10 @@ public class NetworkController : MonoBehaviour
   {
     print($"{nameof(OnFailedToConnectToPhoton)} cause: {cause}");
   }
+
   void OnPhotonPlayerDisconnected(PhotonPlayer otherPlayer)
   {
     print($"{nameof(OnPhotonPlayerDisconnected)}: {otherPlayer}");
-  }
-
-  void OnPhotonRandomJoinFailed(object[] codeAndMsg)
-  { // codeAndMsg[0] is short ErrorCode. codeAndMsg[1] is string debug msg. }
-    print($"{nameof(OnPhotonRandomJoinFailed)} debug message: {codeAndMsg[1]}");
   }
 
   void OnPhotonMaxCccuReached()
