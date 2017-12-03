@@ -197,8 +197,9 @@ GameObject:
   - component: {fileID: 7683125}
   - component: {fileID: 7683124}
   - component: {fileID: 7683123}
+  - component: {fileID: 7683126}
   m_Layer: 0
-  m_Name: Floor
+  m_Name: FloorCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -215,6 +216,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c29bcccccc7c5064287de1ec69a6b2c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  howLongTillDestroy: 2
 --- !u!65 &7683124
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -240,6 +242,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7683126
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 7683122}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c29bcccccc7c5064287de1ec69a6b2c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  howLongTillDestroy: 2
 --- !u!1001 &16887629
 Prefab:
   m_ObjectHideFlags: 0
