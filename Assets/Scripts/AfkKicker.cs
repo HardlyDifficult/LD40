@@ -52,8 +52,9 @@ public class AfkKicker : MonoBehaviour
   IEnumerator TimeoutThenKick()
   {
     yield return new WaitForSeconds(10);
+    print("You have been warned");
     AfkWarningMessage.instance.SetActive(true);
-    yield return new WaitForSeconds(3);
+    yield return new WaitForSeconds(10);
 
     SceneManager.LoadScene("Menu");
   }
