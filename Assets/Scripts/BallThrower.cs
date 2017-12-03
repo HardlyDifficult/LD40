@@ -36,6 +36,13 @@ public class BallThrower : MonoBehaviour
 
   [SerializeField]
   GameObject wand;
+    
+  [SerializeField]
+  LineRenderer[] trajectoryLines;
+  [SerializeField]
+  MeshFilter trajectoryPlane;
+  [SerializeField]
+  Vector2 trajectoryPowerRange = new Vector2(0.0f, 1.0f);
 
   float? whenBallWasReleased;
 
@@ -140,6 +147,123 @@ public class BallThrower : MonoBehaviour
       target = Quaternion.AngleAxis(power * wandPowerRotation + arc * wandArcRotation, Vector3.right) * target;
       wand.transform.LookAt(target);
     }
+
+    UpdateTrajectoryLines();
+  }
+
+  const int TrajectoryLinePointsCount = 100;
+  Vector3[] TrajectoryLinePoints = new Vector3[TrajectoryLinePointsCount];
+  Vector3[] TrajectoryPlanePoints;
+  private void UpdateTrajectoryLines()
+  {
+    if (whenBallWasReleased != null)
+    {
+      for (int i = 0; i < trajectoryLines.Length; i++)
+      {
+        trajectoryLines[i]?.gameObject.SetActive(false);
+      }
+      trajectoryPlane?.gameObject.SetActive(false);
+      return;
+    }
+    // init plane mesh topology
+    Mesh plane;
+    bool updatePlaneTriangles = false;
+    if (TrajectoryPlanePoints == null || TrajectoryPlanePoints.Length != trajectoryLines.Length * TrajectoryLinePointsCount)
+    {
+      TrajectoryPlanePoints = new Vector3[trajectoryLines.Length * TrajectoryLinePointsCount];
+      updatePlaneTriangles = true;
+      plane = trajectoryPlane.mesh = new Mesh();
+    }
+    else
+    {
+      plane = trajectoryPlane.mesh;
+    }
+    // parameters for the simple physics sim
+    float mass = ballBody.mass;
+    float dt = Time.fixedDeltaTime;
+    Vector3 gravity = Physics.gravity;
+    const float lineTime = 3.0f;
+    Vector3[] linePoints = TrajectoryLinePoints;
+    const float lineDt = lineTime / (TrajectoryLinePointsCount - 1);
+    float radius = ballBody.GetComponent<SphereCollider>()?.radius ?? 1.0f;
+    const int layerMask = ~(1 << 8);
+    for (int li = 0; li < trajectoryLines.Length; li++)
+    {
+      float power = UIController.instance.powerMeter.currentValue;
+      float arc = UIController.instance.arcMeter.currentValue;
+      float powerLine = trajectoryPowerRange.x + (trajectoryPowerRange.y - trajectoryPowerRange.x) * li / Math.Max(1, trajectoryLines.Length - 1);
+      power = Math.Max(power, powerLine);
+      Vector3 position = ballBody.transform.position;
+      position.z = ballInitialPosition.z - wandPowerTranslation * power - wandArcTranslation * arc;
+      Vector3 velocity = Vector3.zero;
+      Vector3 direction = position;
+      direction.y = maxY * arc;
+      direction.z = 10;
+      Vector3 dv = direction * (power * strength * dt / mass);
+      velocity += dv;
+      dv = gravity * (lineDt / mass);
+      int i = 0;
+      while (i < TrajectoryLinePointsCount - 1)
+      {
+        linePoints[i++] = position;
+        velocity += dv;
+        RaycastHit hitInfo;
+        if (velocity.y < 0.0f && Physics.SphereCast(position, radius, velocity, out hitInfo, velocity.magnitude * lineDt, layerMask))
+        {
+          position += velocity * ((radius+hitInfo.distance) / velocity.magnitude);
+          break;
+        }
+        else
+        {
+          position += velocity * lineDt;
+        }
+      }
+      while (i < TrajectoryLinePointsCount)
+      {
+        linePoints[i++] = position;
+      }
+      LineRenderer line = trajectoryLines[li];
+      if (line)
+      {
+        line.gameObject.SetActive(true);
+        line.useWorldSpace = true;
+        if (line.positionCount != TrajectoryLinePointsCount)
+          line.positionCount = TrajectoryLinePointsCount;
+        line.SetPositions(linePoints);
+      }
+      for (i = 0; i < TrajectoryLinePointsCount; i++)
+      {
+        TrajectoryPlanePoints[li * TrajectoryLinePointsCount + i] = linePoints[i];
+      }
+    }
+    plane.vertices = TrajectoryPlanePoints;
+    if (updatePlaneTriangles)
+    {
+      int[] planeFaces = new int[(trajectoryLines.Length - 1) * (TrajectoryLinePointsCount - 1) * 6];
+      int ind = 0;
+      for (int li = 0; li < trajectoryLines.Length-1; li++)
+      {
+        for (int i = 0; i < TrajectoryLinePointsCount-1; i++)
+        {
+          int v0 = li * TrajectoryLinePointsCount + i;
+          int v1 = v0 + 1;
+          int v2 = v0 + TrajectoryLinePointsCount + 1;
+          int v3 = v0 + TrajectoryLinePointsCount;
+          planeFaces[ind++] = v0;
+          planeFaces[ind++] = v1;
+          planeFaces[ind++] = v2;
+          planeFaces[ind++] = v0;
+          planeFaces[ind++] = v2;
+          planeFaces[ind++] = v3;
+        }
+      }
+      plane.triangles = planeFaces;
+    }
+    // make sure the vertices positions are in global space
+    trajectoryPlane.transform.position = Vector3.zero;
+    trajectoryPlane.transform.rotation = Quaternion.identity;
+    trajectoryPlane.transform.localScale = Vector3.one;
+    trajectoryPlane.gameObject.SetActive(true);
   }
 
   void ConsiderThrowing()
