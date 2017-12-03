@@ -15,6 +15,11 @@ public class Ball : MonoBehaviour
     turnController.onTurnChange += TurnController_onTurnChange;
   }
 
+  protected void Start()
+  {
+    TurnController_onTurnChange();
+  }
+
   protected void OnDestroy()
   {
     turnController.onTurnChange -= TurnController_onTurnChange;
