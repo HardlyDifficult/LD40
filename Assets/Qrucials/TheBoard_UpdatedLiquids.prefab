@@ -8326,6 +8326,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   particlesPlayOnHit:
   - {fileID: 198792443970203662}
+  particlesStopOnHit:
+  - {fileID: 198061694322551326}
+  objectsScaleDownOnHit:
+  - {fileID: 23323208950176576}
 --- !u!114 &114009874713144236
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -8365,6 +8369,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   particlesPlayOnHit:
   - {fileID: 198057871958096294}
+  particlesStopOnHit:
+  - {fileID: 198048190643467446}
+  objectsScaleDownOnHit:
+  - {fileID: 23555835395401418}
 --- !u!114 &114093475912669342
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -8378,6 +8386,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   particlesPlayOnHit:
   - {fileID: 198990468800029866}
+  particlesStopOnHit:
+  - {fileID: 198277888876580670}
+  objectsScaleDownOnHit:
+  - {fileID: 23094128302928336}
 --- !u!114 &114126900622274458
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -8391,6 +8403,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   particlesPlayOnHit:
   - {fileID: 198890354586968398}
+  particlesStopOnHit:
+  - {fileID: 198691727356550062}
+  objectsScaleDownOnHit:
+  - {fileID: 23066548961985008}
 --- !u!114 &114141887452991672
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -8417,6 +8433,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   particlesPlayOnHit:
   - {fileID: 198812770765750330}
+  particlesStopOnHit:
+  - {fileID: 198451157292176092}
+  objectsScaleDownOnHit:
+  - {fileID: 23246158891460716}
 --- !u!114 &114178345334151644
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -8443,6 +8463,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   particlesPlayOnHit:
   - {fileID: 198503225282355660}
+  particlesStopOnHit:
+  - {fileID: 198043805411675786}
+  objectsScaleDownOnHit:
+  - {fileID: 23815455714828474}
 --- !u!114 &114181963929434722
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -8456,6 +8480,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   particlesPlayOnHit:
   - {fileID: 198063326979055874}
+  particlesStopOnHit:
+  - {fileID: 198109207108228788}
+  objectsScaleDownOnHit:
+  - {fileID: 23900313511455140}
 --- !u!114 &114182947672879568
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -8482,6 +8510,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   particlesPlayOnHit:
   - {fileID: 198610991236411016}
+  particlesStopOnHit:
+  - {fileID: 198134770513948824}
+  objectsScaleDownOnHit:
+  - {fileID: 23053973363736380}
 --- !u!114 &114300240574623966
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -8495,6 +8527,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   particlesPlayOnHit:
   - {fileID: 198597776258659806}
+  particlesStopOnHit:
+  - {fileID: 198609305045408296}
+  objectsScaleDownOnHit:
+  - {fileID: 23949197944161422}
 --- !u!114 &114304816628375126
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -8508,6 +8544,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   particlesPlayOnHit:
   - {fileID: 198209114461694496}
+  particlesStopOnHit:
+  - {fileID: 198202683468817990}
+  objectsScaleDownOnHit:
+  - {fileID: 23268473995711590}
 --- !u!114 &114310619081858400
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -8560,6 +8600,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   particlesPlayOnHit:
   - {fileID: 198005824979656558}
+  particlesStopOnHit:
+  - {fileID: 198129143749178342}
+  objectsScaleDownOnHit:
+  - {fileID: 23018287072691830}
 --- !u!114 &114658157533742676
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -8573,6 +8617,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   particlesPlayOnHit:
   - {fileID: 198669843120321952}
+  particlesStopOnHit:
+  - {fileID: 198279627352628786}
+  objectsScaleDownOnHit:
+  - {fileID: 23588107539615346}
 --- !u!114 &114666501290089316
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -8586,6 +8634,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   particlesPlayOnHit:
   - {fileID: 198184337883379290}
+  particlesStopOnHit:
+  - {fileID: 198121647406743318}
+  objectsScaleDownOnHit:
+  - {fileID: 23647415351386796}
 --- !u!114 &114684421524757594
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -8599,6 +8651,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   particlesPlayOnHit:
   - {fileID: 198528961030024054}
+  particlesStopOnHit:
+  - {fileID: 198153302210417552}
+  objectsScaleDownOnHit:
+  - {fileID: 23060024702628894}
 --- !u!114 &114702929264892256
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -8664,6 +8720,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   particlesPlayOnHit:
   - {fileID: 198092579406479812}
+  particlesStopOnHit:
+  - {fileID: 198694771042489626}
+  objectsScaleDownOnHit:
+  - {fileID: 23203765420514908}
 --- !u!114 &114855970249423174
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -8690,6 +8750,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   particlesPlayOnHit:
   - {fileID: 198183170605908860}
+  particlesStopOnHit:
+  - {fileID: 198167122745988816}
+  objectsScaleDownOnHit:
+  - {fileID: 23164701388204300}
 --- !u!114 &114915027364416272
 MonoBehaviour:
   m_ObjectHideFlags: 1
