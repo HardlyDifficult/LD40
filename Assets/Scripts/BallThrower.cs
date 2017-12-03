@@ -57,7 +57,6 @@ public class BallThrower : MonoBehaviour
       GameObject ball = PhotonNetwork.Instantiate(GameManager.instance.currentBallPrefab.name, transform.position, transform.rotation, 0);
       PhotonView ballsView = ball.GetComponent<PhotonView>();
       ballsView.RequestOwnership();
-      ballInitialPosition = ball.transform.position;
       ball.GetComponent<Rigidbody>().useGravity = false;
       ballBody = ball.GetComponent<Rigidbody>();
       ballParticleSystem = ball.GetComponent<ParticleSystem>();
@@ -69,7 +68,12 @@ public class BallThrower : MonoBehaviour
       //ballBody.gameObject.SetActive(false);
     }
   }
-  
+
+  protected void Start()
+  {
+    ballInitialPosition = ballBody?.transform.position ?? Vector3.zero;
+  }
+
   protected void Update()
   {
     if (photonView.isMine == false)
@@ -122,7 +126,7 @@ public class BallThrower : MonoBehaviour
 
       // TODO launch
 
-      ballBody.gameObject.SetActive(true);
+      ballBody?.gameObject.SetActive(true);
       Vector3 direction = ballBody.transform.position;
       direction.y = maxY * arc;
       direction.z = 10;
@@ -153,7 +157,8 @@ public class BallThrower : MonoBehaviour
     Vector3 myPosition = wand ? wand.transform.position : ballBody.transform.position;
     myPosition.x = position.x;
     myPosition.z = ballInitialPosition.z - wandPowerTranslation * power - wandArcTranslation * arc;
-    if (whenBallWasReleased == null)
+    if (whenBallWasReleased == null
+      && ballBody != null)
     {
       ballBody.transform.position = myPosition;
     }
