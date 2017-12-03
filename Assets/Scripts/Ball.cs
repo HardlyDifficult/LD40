@@ -5,6 +5,7 @@ public class Ball : MonoBehaviour
 {
   TurnController turnController;
   int playerId;
+  GameObject visuals;
 
   public bool isMyTurn
   {
@@ -18,6 +19,7 @@ public class Ball : MonoBehaviour
 
   protected void Awake()
   {
+    visuals = transform.GetChild(0).gameObject;
     playerId = (int)PhotonNetwork.player.CustomProperties["PlayerId"];
     turnController = GameObject.FindObjectOfType<TurnController>();
     turnController.onTurnChange += TurnController_onTurnChange;
@@ -30,6 +32,6 @@ public class Ball : MonoBehaviour
 
   void TurnController_onTurnChange()
   {
-    gameObject.SetActive(isMyTurn);
+    visuals.SetActive(isMyTurn);
   }
 }

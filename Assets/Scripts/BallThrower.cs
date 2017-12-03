@@ -292,7 +292,6 @@ public class BallThrower : MonoBehaviour
       float power = UIController.instance.powerMeter.currentValue;
       float arc = UIController.instance.arcMeter.currentValue;
 
-      ballVisuals?.SetActive(true);
       Vector3 direction = ballBody.transform.position;
       direction.y = maxY * arc;
       direction.z = -direction.z;
