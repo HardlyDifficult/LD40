@@ -164,6 +164,7 @@ public class BallThrower : MonoBehaviour
       whenBallWasReleased = Time.timeSinceLevelLoad;
       UIController.instance.powerMeter.Reset();
       UIController.instance.DisableThrowUI();
+      turnController.numberOfActionsRemaining--;
     }
     else if (Input.GetMouseButton(0))
     { // Power
