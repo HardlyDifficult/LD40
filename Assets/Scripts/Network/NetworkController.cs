@@ -9,6 +9,9 @@ public class NetworkController : MonoBehaviour
   public event Action onGameBegin;
 
   [SerializeField]
+  GameObject showThisOnDisconnectBeforeReloadingTheScene;
+
+  [SerializeField]
   float zPositionPlayer1;
 
   [SerializeField]
@@ -129,7 +132,7 @@ public class NetworkController : MonoBehaviour
   IEnumerator ReloadScene()
   {
     print("Reloading scene...");
-    // TODO show a message
+    showThisOnDisconnectBeforeReloadingTheScene.SetActive(true);
     yield return new WaitForSeconds(3);
     SceneManager.LoadScene(SceneManager.GetActiveScene().name);
   }
