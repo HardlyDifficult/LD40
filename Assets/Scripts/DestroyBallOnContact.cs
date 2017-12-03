@@ -11,7 +11,7 @@ public class DestroyBallOnContact : MonoBehaviour
   float howLongTillDestroy = 2;
 
   protected void OnCollisionEnter(
-    Collider collision)
+    Collision collision)
   {
     if(collision.gameObject.layer != playerLayer)
     {
@@ -22,7 +22,7 @@ public class DestroyBallOnContact : MonoBehaviour
   }
 
   protected void OnCollisionExit(
-    Collider collision)
+    Collision collision)
   {
     StopAllCoroutines();
   }
