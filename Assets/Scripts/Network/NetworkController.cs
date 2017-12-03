@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class NetworkController : MonoBehaviour
 {
@@ -121,6 +122,16 @@ public class NetworkController : MonoBehaviour
   void OnPhotonPlayerDisconnected(PhotonPlayer otherPlayer)
   {
     print($"{nameof(OnPhotonPlayerDisconnected)}: {otherPlayer}");
+
+    StartCoroutine(ReloadScene());
+  }
+
+  IEnumerator ReloadScene()
+  {
+    print("Reloading scene...");
+    // TODO show a message
+    yield return new WaitForSeconds(3);
+    SceneManager.LoadScene(SceneManager.GetActiveScene().name);
   }
 
   void OnPhotonMaxCccuReached()

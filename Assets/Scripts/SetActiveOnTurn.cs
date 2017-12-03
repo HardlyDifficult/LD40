@@ -9,12 +9,8 @@ public class SetActiveOnTurn : MonoBehaviour
   
   TurnController turnController;
 
-  Player player;
-  
   protected void Awake()
   {
-    player = GetComponentInParent<Player>();
-
     turnController = GameObject.FindObjectOfType<TurnController>();
     turnController.onTurnChange += TurnController_onTurnChange;
   }
@@ -31,7 +27,7 @@ public class SetActiveOnTurn : MonoBehaviour
 
   void Refresh()
   {
-    bool active = player.isMyTurn == onMyTurnSetActiveTo;
+    bool active = (PhotonNetwork.isMasterClient == turnController.isCurrentlyPlayer0sTurn) == onMyTurnSetActiveTo;
     gameObject.SetActive(active);
   }
 }
