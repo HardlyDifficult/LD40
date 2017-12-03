@@ -9,6 +9,8 @@ public class TurnController : MonoBehaviour
 
   public event Action onActionPointsChange;
 
+  public Player player1, player2;
+
   int _numberOfActionsRemaining = actionPointsPerTurn;
 
   bool _isCurrentlyPlayer0sTurn = true;
@@ -23,7 +25,7 @@ public class TurnController : MonoBehaviour
     }
     set
     {
-      if(isCurrentlyPlayer0sTurn == value)
+      if (isCurrentlyPlayer0sTurn == value)
       {
         return;
       }
@@ -31,6 +33,18 @@ public class TurnController : MonoBehaviour
       _isCurrentlyPlayer0sTurn = value;
       _numberOfActionsRemaining = actionPointsPerTurn;
       onTurnChange?.Invoke();
+    }
+  }
+
+  internal void Register(bool isMasterClient, Player player)
+  {
+    if (isMasterClient)
+    {
+      player1 = player;
+    }
+    else
+    {
+      player2 = player;
     }
   }
 
@@ -42,7 +56,7 @@ public class TurnController : MonoBehaviour
     }
     set
     {
-      if(numberOfActionsRemaining == value)
+      if (numberOfActionsRemaining == value)
       {
         return;
       }

@@ -20,6 +20,7 @@ public class Player : MonoBehaviour
   protected void Awake()
   {
     turnController = GameObject.FindObjectOfType<TurnController>();
+    turnController.Register(PhotonNetwork.isMasterClient, this);
     photonView = GetComponent<PhotonView>();
     NetworkController network = GameObject.FindObjectOfType<NetworkController>();
     network.onGameBegin += Network_onGameBegin;
