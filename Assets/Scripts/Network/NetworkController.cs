@@ -67,10 +67,12 @@ public class NetworkController : MonoBehaviour
     if ((int)PhotonNetwork.player.CustomProperties["PlayerId"] == 0)
     {
       position.z = zPositionPlayer1;
+      print("You are Player 0");
     }
     else
     {
       position.z = zPositionPlayer2;
+      print("You are Player 1");
     }
 
     GameObject ball = PhotonNetwork.Instantiate(playerPrefab.name, position, transform.rotation, 0);
