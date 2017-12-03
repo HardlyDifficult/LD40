@@ -40,6 +40,11 @@ public class NetworkController : MonoBehaviour
     PhotonNetwork.CreateRoom(null, roomOptions, TypedLobby.Default);
   }
 
+  void OnPhotonJoinRoomFailed()
+  {
+    Debug.LogError("Join failed");
+  }
+
   protected void OnPhotonPlayerConnected(
     PhotonPlayer newPlayer)
   {
@@ -91,7 +96,7 @@ public class NetworkController : MonoBehaviour
     view.RequestOwnership();
     Debug.Assert(view.isMine);
 
-    if(playerList.Length > 1)
+    if (playerList.Length > 1)
     {
       onGameBegin?.Invoke();
     }
