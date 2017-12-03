@@ -26,7 +26,7 @@ public class ChangeBall : MonoBehaviour
   /// These must be in a Resources directory.
   /// </summary>
   [SerializeField]
-  BallStyleSwapper[] ballPrefabList = null;
+  GameObject[] ballPrefabList = null;
 
   int currentBallIndex;
 
