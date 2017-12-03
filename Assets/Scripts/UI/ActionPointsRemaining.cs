@@ -24,7 +24,10 @@ public class ActionPointsRemaining : MonoBehaviour
   protected void OnDestroy()
   {
     NetworkController networkController = GameObject.FindObjectOfType<NetworkController>();
-    networkController.onGameBegin -= NetworkController_onGameBegin;
+    if (networkController != null)
+    {
+      networkController.onGameBegin -= NetworkController_onGameBegin;
+    }
   }
 
   void NetworkController_onGameBegin()

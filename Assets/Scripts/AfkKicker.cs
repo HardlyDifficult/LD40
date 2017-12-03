@@ -5,8 +5,6 @@ using UnityEngine.SceneManagement;
 
 public class AfkKicker : MonoBehaviour
 {
-  GameObject afkWarningMessage;
-
   TurnController turnController;
 
   Coroutine routine;
@@ -15,7 +13,6 @@ public class AfkKicker : MonoBehaviour
 
   protected void Awake()
   {
-    afkWarningMessage = GameObject.Find("AFK");
     turnController = GameObject.FindObjectOfType<TurnController>();
     turnController.onTurnChange += TurnController_onTurnChange;
     turnController.onActionPointsChange += TurnController_onActionPointsChange;
@@ -42,7 +39,7 @@ public class AfkKicker : MonoBehaviour
   {
     if (routine != null)
     {
-      afkWarningMessage.SetActive(false);
+      AfkWarningMessage.instance.SetActive(false);
       StopCoroutine(routine);
     }
 
@@ -55,7 +52,7 @@ public class AfkKicker : MonoBehaviour
   IEnumerator TimeoutThenKick()
   {
     yield return new WaitForSeconds(10);
-    afkWarningMessage.SetActive(true);
+    AfkWarningMessage.instance.SetActive(true);
     yield return new WaitForSeconds(3);
 
     SceneManager.LoadScene("Menu");
