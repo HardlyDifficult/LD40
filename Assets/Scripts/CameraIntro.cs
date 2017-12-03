@@ -13,25 +13,22 @@ public class CameraIntro : MonoBehaviour
 
   Animator animator;
 
+  NetworkController networkController;
+
   protected void Awake()
   {
-    BallThrower.onPlayerSpawn += BallThrower_onPlayerSpawn;
+    networkController = GameObject.FindObjectOfType<NetworkController>();
+    networkController.onGameBegin += OnGameBegin;
     animator = GetComponent<Animator>();
   }
 
   protected void OnDestroy()
   {
-    BallThrower.onPlayerSpawn -= BallThrower_onPlayerSpawn;
+    networkController.onGameBegin -= OnGameBegin;
   }
 
-  void BallThrower_onPlayerSpawn(
-    PhotonView photonView)
+  void OnGameBegin()
   {
-    if (photonView.isMine == false)
-    {
-      return;
-    }
-
     int playerId = (int)PhotonNetwork.player.CustomProperties["PlayerId"];
     animator.Play(playerId == 0 ? player1Animation : player2Animation);
   }

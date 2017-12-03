@@ -1,9 +1,12 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class NetworkController : MonoBehaviour
 {
+  public event Action onGameBegin;
+
   [SerializeField]
   float zPositionPlayer1;
 
@@ -35,6 +38,14 @@ public class NetworkController : MonoBehaviour
   protected void OnPhotonRandomJoinFailed()
   {
     PhotonNetwork.CreateRoom(null, roomOptions, TypedLobby.Default);
+  }
+
+  protected void OnPhotonPlayerConnected(
+    PhotonPlayer newPlayer)
+  {
+    Debug.Assert(PhotonNetwork.playerList.Length == 2);
+
+    onGameBegin?.Invoke();
   }
 
   protected void OnJoinedRoom()
@@ -79,5 +90,10 @@ public class NetworkController : MonoBehaviour
     PhotonView view = ball.GetComponent<PhotonView>();
     view.RequestOwnership();
     Debug.Assert(view.isMine);
+
+    if(playerList.Length > 1)
+    {
+      onGameBegin?.Invoke();
+    }
   }
 }
