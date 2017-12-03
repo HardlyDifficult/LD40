@@ -15,11 +15,18 @@ public class CameraIntro : MonoBehaviour
 
   NetworkController networkController;
 
+  Player player;
+
   protected void Awake()
+  {
+    animator = GetComponent<Animator>();
+    player = GetComponentInParent<Player>();
+  }
+
+  protected void Start()
   {
     networkController = GameObject.FindObjectOfType<NetworkController>();
     networkController.onGameBegin += OnGameBegin;
-    animator = GetComponent<Animator>();
   }
 
   protected void OnDestroy()
@@ -29,7 +36,6 @@ public class CameraIntro : MonoBehaviour
 
   void OnGameBegin()
   {
-    int playerId = (int)PhotonNetwork.player.CustomProperties["PlayerId"];
-    animator.Play(playerId == 0 ? player1Animation : player2Animation);
+    animator.Play(player.isPlayer0 ? player1Animation : player2Animation);
   }
 }

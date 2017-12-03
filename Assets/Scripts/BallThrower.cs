@@ -56,8 +56,6 @@ public class BallThrower : MonoBehaviour
 
   PhotonView photonView;
 
-  int playerId;
-
   GameObject ball;
 
   GameObject ballVisuals;
@@ -66,21 +64,13 @@ public class BallThrower : MonoBehaviour
 
   TurnController turnController;
 
-  public bool isMyTurn
-  {
-    get
-    {
-      bool isPlayer0 = playerId == 0;
-      bool myTurn = turnController.isCurrentlyPlayer0sTurn == isPlayer0;
-      return myTurn;
-    }
-  }
-
+  Player player;
+  
   protected void Awake()
   {
+    player = GetComponentInParent<Player>();
     turnController = GameObject.FindObjectOfType<TurnController>();
     photonView = GetComponent<PhotonView>();
-    playerId = (int)PhotonNetwork.player.CustomProperties["PlayerId"];
 
     if (photonView.isMine)
     {
@@ -117,7 +107,7 @@ public class BallThrower : MonoBehaviour
   protected void Update()
   {
     if (photonView.isMine == false
-      || isMyTurn == false)
+      || player.isMyTurn == false)
     {
       return;
     }

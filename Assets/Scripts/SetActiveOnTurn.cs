@@ -6,28 +6,15 @@ public class SetActiveOnTurn : MonoBehaviour
 {
   [SerializeField]
   bool onMyTurnSetActiveTo;
-
-  int playerId
-  {
-    get
-    {
-      return (int)PhotonNetwork.player.CustomProperties["PlayerId"];
-    }
-  }
+  
   TurnController turnController;
 
-  public bool isMyTurn
-  {
-    get
-    {
-      bool isPlayer0 = playerId == 0;
-      bool myTurn = turnController.isCurrentlyPlayer0sTurn == isPlayer0;
-      return myTurn;
-    }
-  }
-
+  Player player;
+  
   protected void Awake()
   {
+    player = GetComponentInParent<Player>();
+
     turnController = GameObject.FindObjectOfType<TurnController>();
     turnController.onTurnChange += TurnController_onTurnChange;
   }
@@ -44,7 +31,7 @@ public class SetActiveOnTurn : MonoBehaviour
 
   void Refresh()
   {
-    bool active = isMyTurn == onMyTurnSetActiveTo;
+    bool active = player.isMyTurn == onMyTurnSetActiveTo;
     gameObject.SetActive(active);
   }
 }
