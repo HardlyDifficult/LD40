@@ -13,6 +13,11 @@ public class SetActiveOnGameBegin : MonoBehaviour
   {
     networkController = GameObject.FindObjectOfType<NetworkController>();
     networkController.onGameBegin += NetworkController_onGameBegin;
+
+    if(setActiveTo)
+    {
+      gameObject.SetActive(false);
+    }
   }
 
   void NetworkController_onGameBegin()
@@ -24,5 +29,4 @@ public class SetActiveOnGameBegin : MonoBehaviour
   {
     networkController.onGameBegin -= NetworkController_onGameBegin;
   }
-
 }
