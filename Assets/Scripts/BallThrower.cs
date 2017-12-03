@@ -140,7 +140,7 @@ public class BallThrower : MonoBehaviour
       ballBody?.gameObject.SetActive(true);
       Vector3 direction = ballBody.transform.position;
       direction.y = maxY * arc;
-      direction.z = 10;
+      direction.z = -direction.z;
       ballBody.AddForce(direction * power * strength);
       ballBody.useGravity = true;
 
