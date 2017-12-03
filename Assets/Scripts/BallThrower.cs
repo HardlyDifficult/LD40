@@ -5,6 +5,9 @@ using UnityEngine;
 
 public class BallThrower : MonoBehaviour
 {
+  public delegate void OnPlayerSpawn(PhotonView photonView);
+  public static event OnPlayerSpawn onPlayerSpawn;
+
   [SerializeField]
   float raycastDistance = 1;
 
@@ -61,7 +64,7 @@ public class BallThrower : MonoBehaviour
       ballBody = ball.GetComponent<Rigidbody>();
       ballParticleSystem = ball.GetComponent<ParticleSystem>();
     }
-
+    onPlayerSpawn?.Invoke(photonView);
 
     if (wand != null)
     {
