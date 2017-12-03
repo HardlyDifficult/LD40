@@ -27,7 +27,7 @@ public class NetworkController : MonoBehaviour
     {
       MaxPlayers = 2
     };
-    PhotonNetwork.ConnectUsingSettings("0.3");
+    PhotonNetwork.ConnectUsingSettings("0.4");
   }
 
   protected void OnJoinedLobby()
@@ -105,5 +105,63 @@ public class NetworkController : MonoBehaviour
     Debug.Assert(view.isMine);
 
     onGameBegin?.Invoke();
+  }
+
+  void OnLeftRoom()
+  {
+    print(nameof(OnLeftRoom));
+  }
+
+  void OnPhotonCreateRoomFailed(object[] codeAndMsg)
+  { // codeAndMsg[0] is short ErrorCode. codeAndMsg[1] is string debug msg. }
+    print(nameof(OnPhotonCreateRoomFailed) + " " + codeAndMsg[1]);
+  }
+  void OnPhotonJoinRoomFailed(object[] codeAndMsg)
+  { // codeAndMsg[0] is short ErrorCode. codeAndMsg[1] is string debug msg. }
+    print(nameof(OnPhotonJoinRoomFailed) + " " + codeAndMsg[1]);
+  }
+
+  void OnCreatedRoom()
+  {
+    print(nameof(OnCreatedRoom));
+  }
+
+  void OnLeftLobby()
+  {
+    print(nameof(OnLeftLobby));
+  }
+
+  void OnDisconnectedFromPhoton()
+  {
+    print(nameof(OnDisconnectedFromPhoton));
+  }
+
+  void OnConnectionFail(DisconnectCause cause)
+  {
+    print($"{nameof(OnConnectionFail)} cause: {cause}");
+  }
+
+  void OnFailedToConnectToPhoton(DisconnectCause cause)
+  {
+    print($"{nameof(OnFailedToConnectToPhoton)} cause: {cause}");
+  }
+  void OnPhotonPlayerDisconnected(PhotonPlayer otherPlayer)
+  {
+    print($"{nameof(OnPhotonPlayerDisconnected)}: {otherPlayer}");
+  }
+
+  void OnPhotonRandomJoinFailed(object[] codeAndMsg)
+  { // codeAndMsg[0] is short ErrorCode. codeAndMsg[1] is string debug msg. }
+    print($"{nameof(OnPhotonRandomJoinFailed)} debug message: {codeAndMsg[1]}");
+  }
+
+  void OnPhotonMaxCccuReached()
+  {
+    print(nameof(OnPhotonMaxCccuReached));
+  }
+
+  void OnCustomAuthenticationFailed(string debugMessage)
+  {
+    print(nameof(OnCustomAuthenticationFailed) + " " + debugMessage);
   }
 }
