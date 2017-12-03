@@ -37,10 +37,6 @@ public class BallThrower : MonoBehaviour
 
   readonly LinkedList<Vector3> positionList = new LinkedList<Vector3>();
 
-  LineRenderer line;
-
-  Coroutine indicatorRoutine;
-
   [SerializeField]
   GameObject wand;
 
@@ -80,8 +76,6 @@ public class BallThrower : MonoBehaviour
     {
       //ballBody.gameObject.SetActive(false);
     }
-
-    line = GetComponent<LineRenderer>();
   }
 
   protected void Start()
@@ -118,7 +112,6 @@ public class BallThrower : MonoBehaviour
     Shoot();
   }
   #endregion
-
 
   void Aim()
   {
@@ -203,28 +196,19 @@ public class BallThrower : MonoBehaviour
 
     direction += transform.forward * direction.magnitude;
 
+    direction = (direction + transform.forward * direction.magnitude) * throwStrength;
+
+    if (player.isPlayer0 == false)
+    {
+      direction.z = -direction.z;
+    }
+
     Debug.DrawRay(ball.transform.position, direction);
 
     ballBody.useGravity = true;
-    ballBody.AddForce((direction + transform.forward * direction.magnitude) * throwStrength, ForceMode.Impulse);
-
-    // Show throw indicator
-    if (indicatorRoutine != null) StopCoroutine(indicatorRoutine);
-    indicatorRoutine = StartCoroutine(ShowThrowIndicator());
+    ballBody.AddForce(direction, ForceMode.Impulse);
 
     turnController.numberOfActionsRemaining--;
-  }
-
-  IEnumerator ShowThrowIndicator()
-  {
-    line.enabled = true;
-
-    line.SetPosition(0, positionList.Last.Value);
-    line.SetPosition(1, positionList.First.Value);
-
-    yield return new WaitForSeconds(2);
-
-    line.enabled = false;
   }
 
   bool GetThrowMagnitude(
@@ -250,6 +234,15 @@ public class BallThrower : MonoBehaviour
   void SetBallPosition(
     Vector2 mousePosition)
   {
+    float maxX = this.maxX;
+    float minX = this.minX;
+
+    if (player.isPlayer0 == false)
+    {
+      maxX = this.minX;
+      minX = this.maxX;
+    }
+
     float percentX = mousePosition.x / Screen.width;
     float percentY = mousePosition.y / Screen.height;
 
