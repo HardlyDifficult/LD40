@@ -25,7 +25,19 @@ public class BallStyleSwapper : MonoBehaviour
 
   protected void Start()
   {
-    GetComponentInParent<BallThrower>().RegisterBall(gameObject);
+    BallThrower[] ballThrowerList = GameObject.FindObjectsOfType<BallThrower>();
+    BallThrower myBallThrower = null;
+    for (int i = 0; i < ballThrowerList.Length; i++)
+    {
+      myBallThrower = ballThrowerList[i];
+      if(myBallThrower.GetComponent<PhotonView>().isMine)
+      {
+        break;
+      }
+    }
+
+    transform.SetParent(myBallThrower.transform);
+    myBallThrower.RegisterBall(gameObject);
   }
 
   void Instance_onBallPreferenceChange()

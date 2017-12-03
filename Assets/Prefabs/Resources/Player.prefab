@@ -257,7 +257,6 @@ MonoBehaviour:
   wandArcTranslation: 1
   wandArcRotation: 50
   wandRotationTarget: {fileID: 1298251383061764}
-  ballBody: {fileID: 0}
   wand: {fileID: 1302372387979692}
   timeTillBallReset: 20
   resetWhenBelowY: -10
@@ -279,9 +278,8 @@ MonoBehaviour:
   synchronization: 3
   onSerializeTransformOption: 3
   onSerializeRigidBodyOption: 2
-  ownershipTransfer: 0
+  ownershipTransfer: 2
   ObservedComponents:
-  - {fileID: 0}
   - {fileID: 4465045656930814}
   ObservedComponentsFoldoutOpen: 1
   viewIdField: 0

@@ -52,8 +52,13 @@ public class BallThrower : MonoBehaviour
   {
     photonView = GetComponent<PhotonView>();
 
-
     GameObject ball = PhotonNetwork.Instantiate(ChangeBall.instance.currentBallPrefab.name, transform.position, transform.rotation, 0);
+    PhotonView ballsView = ball.GetComponent<PhotonView>();
+    if (photonView.isMine)
+    {
+      ballsView.RequestOwnership();
+    }
+
     ball.transform.SetParent(transform);
     ballInitialPosition = ball.transform.position;
     ball.GetComponent<Rigidbody>().useGravity = false;
