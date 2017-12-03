@@ -424,7 +424,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d206f492140538c48aeb76bc4bfdeda9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  throwStrength: 2
+  throwStrength: 10
   minX: -2
   maxX: 2
   minY: 0

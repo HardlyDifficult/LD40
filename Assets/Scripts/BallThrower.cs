@@ -211,6 +211,8 @@ public class BallThrower : MonoBehaviour
     // Show throw indicator
     if (indicatorRoutine != null) StopCoroutine(indicatorRoutine);
     indicatorRoutine = StartCoroutine(ShowThrowIndicator());
+
+    turnController.numberOfActionsRemaining--;
   }
 
   IEnumerator ShowThrowIndicator()
