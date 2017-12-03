@@ -54,11 +54,13 @@ public class BallThrower : MonoBehaviour
 
     if (photonView.isMine)
     {
-      GameObject ball = PhotonNetwork.Instantiate(ChangeBall.instance.currentBallPrefab.name, transform.position, transform.rotation, 0);
+      GameObject ball = PhotonNetwork.Instantiate(GameManager.instance.currentBallPrefab.name, transform.position, transform.rotation, 0);
       PhotonView ballsView = ball.GetComponent<PhotonView>();
       ballsView.RequestOwnership();
       ballInitialPosition = ball.transform.position;
       ball.GetComponent<Rigidbody>().useGravity = false;
+      ballBody = ball.GetComponent<Rigidbody>();
+      ballParticleSystem = ball.GetComponent<ParticleSystem>();
     }
 
 
@@ -67,14 +69,7 @@ public class BallThrower : MonoBehaviour
       //ballBody.gameObject.SetActive(false);
     }
   }
-
-  public void RegisterBall(
-    GameObject ball)
-  {
-    ballBody = ball.GetComponent<Rigidbody>();
-    ballParticleSystem = ball.GetComponent<ParticleSystem>();
-  }
-
+  
   protected void Update()
   {
     if (photonView.isMine == false)

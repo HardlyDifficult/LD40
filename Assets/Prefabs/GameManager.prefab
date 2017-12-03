@@ -51,3 +51,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe5436edd99f7bb44b913caba611afc1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sharedData: {fileID: 11400000, guid: 667d1c480f3d10641b5dd73a80c322b5, type: 2}
+  currentBallIndex: 0
