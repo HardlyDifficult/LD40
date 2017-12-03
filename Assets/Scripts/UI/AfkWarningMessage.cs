@@ -8,6 +8,6 @@ public class AfkWarningMessage : MonoBehaviour
   protected void Awake()
   {
     instance = gameObject;
+    gameObject.SetActive(false);
   }
-
 }
