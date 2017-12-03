@@ -10,7 +10,7 @@ public class Ball : MonoBehaviour
   protected void Awake()
   {
     player = GetComponentInParent<Player>();
-    visuals = transform.GetChild(0).gameObject;
+    visuals = transform.GetChild(player.isPlayer0 ? 0 : 1).gameObject;
     turnController = GameObject.FindObjectOfType<TurnController>();
     turnController.onTurnChange += TurnController_onTurnChange;
   }

@@ -115,7 +115,7 @@ public class BallThrower : MonoBehaviour
 
   void Aim()
   {
-    if (Input.GetMouseButton(0))
+    //if (Input.GetMouseButton(0))
     {
       if (!holdingBall)
       {

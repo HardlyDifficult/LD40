@@ -6,20 +6,34 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody))]
 public class PhotonShowHideChild : MonoBehaviour
 {
-  [SerializeField]
-  GameObject childGameObject;
-  
+  GameObject[] childGameObjectList;
+
+  protected void Awake()
+  {
+    childGameObjectList = new GameObject[transform.childCount];
+    for (int i = 0; i < childGameObjectList.Length; i++)
+    {
+      childGameObjectList[i] = transform.GetChild(i).gameObject;
+    }
+  }
+
   public void OnPhotonSerializeView(
     PhotonStream stream,
     PhotonMessageInfo info)
   {
     if (stream.isWriting == true)
     {
-      stream.SendNext(childGameObject.activeSelf);
+      for (int i = 0; i < childGameObjectList.Length; i++)
+      {
+        stream.SendNext(childGameObjectList[i].activeSelf);
+      }
     }
     else
     {
-      childGameObject.SetActive((bool)stream.ReceiveNext());
+      for (int i = 0; i < childGameObjectList.Length; i++)
+      {
+        childGameObjectList[i].SetActive((bool)stream.ReceiveNext());
+      }
     }
   }
 }
