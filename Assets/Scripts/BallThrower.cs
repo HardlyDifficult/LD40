@@ -49,11 +49,27 @@ public class BallThrower : MonoBehaviour
 
   PhotonView photonView;
 
+  int playerId;
+
   ParticleSystem ballParticleSystem;
+
+  TurnController turnController;
+
+  public bool isMyTurn
+  {
+    get
+    {
+      bool isPlayer0 = playerId == 0;
+      bool myTurn = turnController.isCurrentlyPlayer0sTurn == isPlayer0;
+      return myTurn;
+    }
+  }
 
   protected void Awake()
   {
+    turnController = GameObject.FindObjectOfType<TurnController>();
     photonView = GetComponent<PhotonView>();
+    playerId = (int)PhotonNetwork.player.CustomProperties["PlayerId"];
 
     if (photonView.isMine)
     {
@@ -79,7 +95,8 @@ public class BallThrower : MonoBehaviour
 
   protected void Update()
   {
-    if (photonView.isMine == false)
+    if (photonView.isMine == false
+      || isMyTurn == false)
     {
       return;
     }
@@ -107,7 +124,7 @@ public class BallThrower : MonoBehaviour
       plane.Raycast(ray, out enter);
       xPosition = ray.GetPoint(enter).x;
     }
-    
+
     Vector3 myPosition = wand ? wand.transform.position : ballBody.transform.position;
     myPosition.x = xPosition;
     myPosition.z = ballInitialPosition.z - wandPowerTranslation * power - wandArcTranslation * arc;
@@ -120,7 +137,7 @@ public class BallThrower : MonoBehaviour
     {
       wand.transform.position = myPosition;
       Vector3 target = wandRotationTarget ? wandRotationTarget.transform.position : myPosition + new Vector3(0, -1, 0);
-      target = Quaternion.AngleAxis(power * wandPowerRotation + arc * wandArcRotation, Vector3.left) * target;
+      target = Quaternion.AngleAxis(power * wandPowerRotation + arc * wandArcRotation, Vector3.right) * target;
       wand.transform.LookAt(target);
     }
   }
