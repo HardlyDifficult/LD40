@@ -36,7 +36,7 @@ public class BallThrower : MonoBehaviour
 
   [SerializeField]
   GameObject wand;
-    
+
   [SerializeField]
   LineRenderer[] trajectoryLines;
   [SerializeField]
@@ -57,6 +57,8 @@ public class BallThrower : MonoBehaviour
   PhotonView photonView;
 
   int playerId;
+
+  GameObject ball;
 
   ParticleSystem ballParticleSystem;
 
@@ -80,12 +82,13 @@ public class BallThrower : MonoBehaviour
 
     if (photonView.isMine)
     {
-      GameObject ball = PhotonNetwork.Instantiate(GameManager.instance.currentBallPrefab.name, transform.position, transform.rotation, 0);
+      ball = PhotonNetwork.Instantiate(GameManager.instance.currentBallPrefab.name, transform.position, transform.rotation, 0);
       PhotonView ballsView = ball.GetComponent<PhotonView>();
       ballsView.RequestOwnership();
       ball.GetComponent<Rigidbody>().useGravity = false;
       ballBody = ball.GetComponent<Rigidbody>();
       ballParticleSystem = ball.GetComponent<ParticleSystem>();
+      ball.SetActive(false);
     }
     onPlayerSpawn?.Invoke(photonView);
 
@@ -97,6 +100,14 @@ public class BallThrower : MonoBehaviour
 
   protected void Start()
   {
+    if (photonView.isMine)
+    {
+      if (wand != null)
+      {
+        ballBody.transform.position = wand.transform.position;
+      }
+    }
+
     ballInitialPosition = wand ? wand.transform.position : ballBody.transform.position;
   }
 
@@ -210,7 +221,7 @@ public class BallThrower : MonoBehaviour
         RaycastHit hitInfo;
         if (velocity.y < 0.0f && Physics.SphereCast(position, radius, velocity, out hitInfo, velocity.magnitude * lineDt, layerMask))
         {
-          position += velocity * ((radius+hitInfo.distance) / velocity.magnitude);
+          position += velocity * ((radius + hitInfo.distance) / velocity.magnitude);
           break;
         }
         else
@@ -241,9 +252,9 @@ public class BallThrower : MonoBehaviour
     {
       int[] planeFaces = new int[(trajectoryLines.Length - 1) * (TrajectoryLinePointsCount - 1) * 6];
       int ind = 0;
-      for (int li = 0; li < trajectoryLines.Length-1; li++)
+      for (int li = 0; li < trajectoryLines.Length - 1; li++)
       {
-        for (int i = 0; i < TrajectoryLinePointsCount-1; i++)
+        for (int i = 0; i < TrajectoryLinePointsCount - 1; i++)
         {
           int v0 = li * TrajectoryLinePointsCount + i;
           int v1 = v0 + 1;

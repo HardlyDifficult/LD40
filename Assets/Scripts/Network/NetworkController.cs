@@ -50,7 +50,7 @@ public class NetworkController : MonoBehaviour
   {
     Debug.Assert(PhotonNetwork.playerList.Length == 2);
 
-    onGameBegin?.Invoke();
+    OnGameBegin();
   }
 
   protected void OnJoinedRoom()
@@ -58,7 +58,6 @@ public class NetworkController : MonoBehaviour
     PhotonPlayer[] playerList = PhotonNetwork.playerList;
     print($"Welcome!  There are a total of {playerList.Length} players in the room");
 
-    Vector3 position = playerPrefab.transform.position;
     if (playerList.Length == 1)
     {
       //PhotonNetwork.player.SetCustomProperties(
@@ -69,8 +68,8 @@ public class NetworkController : MonoBehaviour
     }
     else
     {
-      int otherPlayerId = (int)playerList[0].CustomProperties["PlayerId"];
-      if (otherPlayerId == 0)
+      int? otherPlayerId = (int?)playerList[0].CustomProperties["PlayerId"];
+      if (otherPlayerId == null || otherPlayerId.Value == 0)
       {
         PhotonNetwork.player.CustomProperties.Add("PlayerId", 1);
       }
@@ -80,6 +79,15 @@ public class NetworkController : MonoBehaviour
       }
     }
 
+    if (playerList.Length > 1)
+    {
+      OnGameBegin();
+    }
+  }
+
+  void OnGameBegin()
+  {
+    Vector3 position = playerPrefab.transform.position;
     if ((int)PhotonNetwork.player.CustomProperties["PlayerId"] == 0)
     {
       position.z = zPositionPlayer1;
@@ -96,9 +104,6 @@ public class NetworkController : MonoBehaviour
     view.RequestOwnership();
     Debug.Assert(view.isMine);
 
-    if (playerList.Length > 1)
-    {
-      onGameBegin?.Invoke();
-    }
+    onGameBegin?.Invoke();
   }
 }
