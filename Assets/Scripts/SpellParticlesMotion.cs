@@ -22,6 +22,7 @@ public class SpellParticlesMotion : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        if (!particleSystem.isPlaying) return;
         var count = particleSystem.GetParticles(particles);
         Vector3 target = spellTarget;
 
