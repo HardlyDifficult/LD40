@@ -22,7 +22,7 @@ MonoBehaviour:
   ServerPort: 5055
   VoiceServerPort: 5055
   JoinLobby: 1
-  EnableLobbyStatistics: 0
+  EnableLobbyStatistics: 1
   PunLogging: 1
   NetworkLogging: 2
   RunInBackground: 1
