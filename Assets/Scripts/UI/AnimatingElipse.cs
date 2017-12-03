@@ -13,22 +13,33 @@ public class AnimatingElipse : MonoBehaviour
   [SerializeField]
   float timeBetweenDots = .5f;
 
-  protected void Start()
+
+  protected void Awake()
   {
     text = GetComponent<Text>();
     initialText = text.text;
+  }
 
+  protected void OnEnable()
+  {
     StartCoroutine(AnimateElipse());
+  }
+
+  protected void OnDisable()
+  {
+    StopAllCoroutines();
   }
 
   IEnumerator AnimateElipse()
   {
+    text.text = initialText;
     int numberOfDots = 0;
-    while(true)
+
+    while (true)
     {
       yield return new WaitForSeconds(timeBetweenDots);
       numberOfDots++;
-      if(numberOfDots > 3)
+      if (numberOfDots > 3)
       {
         numberOfDots = 0;
       }
