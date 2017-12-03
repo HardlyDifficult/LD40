@@ -27,7 +27,7 @@ public class NetworkController : MonoBehaviour
     {
       MaxPlayers = 2
     };
-    PhotonNetwork.ConnectUsingSettings("0.2");
+    PhotonNetwork.ConnectUsingSettings("0.3");
   }
 
   protected void OnJoinedLobby()
