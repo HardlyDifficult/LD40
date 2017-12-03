@@ -5,6 +5,9 @@ using UnityEngine;
 
 public class BallThrower : MonoBehaviour
 {
+  public delegate void OnPlayerSpawn(PhotonView photonView);
+  public static event OnPlayerSpawn onPlayerSpawn;
+
   [SerializeField]
   float raycastDistance = 1;
 
@@ -53,17 +56,38 @@ public class BallThrower : MonoBehaviour
 
   PhotonView photonView;
 
+  int playerId;
+
   ParticleSystem ballParticleSystem;
+
+  TurnController turnController;
+
+  public bool isMyTurn
+  {
+    get
+    {
+      bool isPlayer0 = playerId == 0;
+      bool myTurn = turnController.isCurrentlyPlayer0sTurn == isPlayer0;
+      return myTurn;
+    }
+  }
 
   protected void Awake()
   {
+    turnController = GameObject.FindObjectOfType<TurnController>();
     photonView = GetComponent<PhotonView>();
+    playerId = (int)PhotonNetwork.player.CustomProperties["PlayerId"];
 
-
-    GameObject ball = PhotonNetwork.Instantiate(ChangeBall.instance.currentBallPrefab.name, transform.position, transform.rotation, 0);
-    ball.transform.SetParent(transform);
-    ballInitialPosition = ball.transform.position;
-    ball.GetComponent<Rigidbody>().useGravity = false;
+    if (photonView.isMine)
+    {
+      GameObject ball = PhotonNetwork.Instantiate(GameManager.instance.currentBallPrefab.name, transform.position, transform.rotation, 0);
+      PhotonView ballsView = ball.GetComponent<PhotonView>();
+      ballsView.RequestOwnership();
+      ball.GetComponent<Rigidbody>().useGravity = false;
+      ballBody = ball.GetComponent<Rigidbody>();
+      ballParticleSystem = ball.GetComponent<ParticleSystem>();
+    }
+    onPlayerSpawn?.Invoke(photonView);
 
     if (wand != null)
     {
@@ -71,42 +95,19 @@ public class BallThrower : MonoBehaviour
     }
   }
 
-  public void RegisterBall(
-    GameObject ball)
+  protected void Start()
   {
-    ballBody = ball.GetComponent<Rigidbody>();
-    ballParticleSystem = ball.GetComponent<ParticleSystem>();
+    ballInitialPosition = wand ? wand.transform.position : ballBody.transform.position;
   }
 
   protected void Update()
   {
-    if (photonView.isMine == false)
+    if (photonView.isMine == false
+      || isMyTurn == false)
     {
       return;
     }
-
-    if (whenBallWasReleased != null)
-    {
-      if (Time.timeSinceLevelLoad - whenBallWasReleased > timeTillBallReset
-        || Input.GetMouseButtonDown(1)
-        || ballBody.transform.position.y <= resetWhenBelowY)
-      {
-        whenBallWasReleased = null;
-        ballBody.transform.position = ballInitialPosition;
-        ballBody.useGravity = false;
-        ballBody.velocity = Vector3.zero;
-        if (wand != null)
-        {
-          //ballBody.gameObject.SetActive(false);
-          if (ballParticleSystem)
-          {
-            ballParticleSystem.Simulate(1, true, true);
-            ballParticleSystem.Play();
-          }
-        }
-        UIController.instance.EnableThrowUI();
-      }
-    }
+    ConsiderReloading();
 
     if (whenBallWasReleased == null)
     {
@@ -115,9 +116,36 @@ public class BallThrower : MonoBehaviour
 
     MoveBallLeftAndRight();
 
-    if (whenBallWasReleased == null)
+    ConsiderThrowing();
+  }
+
+  void MoveBallLeftAndRight()
+  {
+    float power = UIController.instance.powerMeter.currentValue;
+    float arc = UIController.instance.arcMeter.currentValue;
+    float xPosition;
     {
-      ConsiderThrowing();
+      Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+      Plane plane = new Plane(Camera.main.transform.forward, raycastDistance);
+      float enter;
+      plane.Raycast(ray, out enter);
+      xPosition = ray.GetPoint(enter).x;
+    }
+
+    Vector3 myPosition = wand ? wand.transform.position : ballBody.transform.position;
+    myPosition.x = xPosition;
+    myPosition.z = ballInitialPosition.z - wandPowerTranslation * power - wandArcTranslation * arc;
+    if (whenBallWasReleased == null
+      && ballBody != null)
+    {
+      ballBody.transform.position = myPosition;
+    }
+    if (wand != null)
+    {
+      wand.transform.position = myPosition;
+      Vector3 target = wandRotationTarget ? wandRotationTarget.transform.position : myPosition + new Vector3(0, -1, 0);
+      target = Quaternion.AngleAxis(power * wandPowerRotation + arc * wandArcRotation, Vector3.right) * target;
+      wand.transform.LookAt(target);
     }
 
     UpdateTrajectoryLines();
@@ -240,23 +268,27 @@ public class BallThrower : MonoBehaviour
 
   void ConsiderThrowing()
   {
+    if (whenBallWasReleased != null)
+    {
+      return;
+    }
+
     if (Input.GetMouseButtonUp(0))
     { // Throw
       float power = UIController.instance.powerMeter.currentValue;
       float arc = UIController.instance.arcMeter.currentValue;
 
-      // TODO launch
-
-      ballBody.gameObject.SetActive(true);
+      ballBody?.gameObject.SetActive(true);
       Vector3 direction = ballBody.transform.position;
       direction.y = maxY * arc;
-      direction.z = 10;
+      direction.z = -direction.z;
       ballBody.AddForce(direction * power * strength);
       ballBody.useGravity = true;
 
       whenBallWasReleased = Time.timeSinceLevelLoad;
       UIController.instance.powerMeter.Reset();
       UIController.instance.DisableThrowUI();
+      turnController.numberOfActionsRemaining--;
     }
     else if (Input.GetMouseButton(0))
     { // Power
@@ -264,30 +296,31 @@ public class BallThrower : MonoBehaviour
     }
   }
 
-  void MoveBallLeftAndRight()
+  void ConsiderReloading()
   {
-    Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-    Plane plane = new Plane(Camera.main.transform.forward, raycastDistance);
-    float enter;
-    plane.Raycast(ray, out enter);
-    Vector3 position = ray.GetPoint(enter);
-
-    float power = UIController.instance.powerMeter.currentValue;
-    float arc = UIController.instance.arcMeter.currentValue;
-
-    Vector3 myPosition = wand ? wand.transform.position : ballBody.transform.position;
-    myPosition.x = position.x;
-    myPosition.z = ballInitialPosition.z - wandPowerTranslation * power - wandArcTranslation * arc;
     if (whenBallWasReleased == null)
     {
-      ballBody.transform.position = myPosition;
+      return;
     }
-    if (wand != null)
+
+    if (Time.timeSinceLevelLoad - whenBallWasReleased > timeTillBallReset
+      || Input.GetMouseButtonDown(1)
+      || ballBody.transform.position.y <= resetWhenBelowY)
     {
-      wand.transform.position = myPosition;
-      Vector3 target = wandRotationTarget ? wandRotationTarget.transform.position : myPosition + new Vector3(0, -1, 0);
-      target = Quaternion.AngleAxis(power * wandPowerRotation + arc * wandArcRotation, Vector3.left) * target;
-      wand.transform.LookAt(target);
+      whenBallWasReleased = null;
+      ballBody.transform.position = ballInitialPosition;
+      ballBody.useGravity = false;
+      ballBody.velocity = Vector3.zero;
+      if (wand != null)
+      {
+        //ballBody.gameObject.SetActive(false);
+        if (ballParticleSystem)
+        {
+          ballParticleSystem.Simulate(1, true, true);
+          ballParticleSystem.Play();
+        }
+      }
+      UIController.instance.EnableThrowUI();
     }
   }
 }
