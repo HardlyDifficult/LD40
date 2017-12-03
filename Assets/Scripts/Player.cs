@@ -28,7 +28,10 @@ public class Player : MonoBehaviour
   protected void OnDestroy()
   {
     NetworkController network = GameObject.FindObjectOfType<NetworkController>();
-    network.onGameBegin -= Network_onGameBegin;
+    if (network != null)
+    {
+      network.onGameBegin -= Network_onGameBegin;
+    }
   }
 
   void Network_onGameBegin()
