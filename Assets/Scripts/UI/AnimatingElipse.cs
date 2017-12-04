@@ -13,7 +13,6 @@ public class AnimatingElipse : MonoBehaviour
   [SerializeField]
   float timeBetweenDots = .5f;
 
-
   protected void Awake()
   {
     text = GetComponent<Text>();

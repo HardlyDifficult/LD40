@@ -32,6 +32,7 @@ public class GameManager : MonoBehaviour
     if(instance != null)
     {
       Destroy(gameObject);
+      return;
     }
 
     DontDestroyOnLoad(gameObject);
