@@ -120,7 +120,9 @@ public class Player : MonoBehaviour
 
     Wizards wizards = GameObject.FindObjectOfType<Wizards>();
     transform.SetParent((isFirstPlayer ? wizards.player1WandBone : wizards.player2WandBone).transform);
-    transform.localPosition = Vector3.zero;
+    transform.localPosition = new Vector3(0, .02067f, 0);
+    transform.localRotation = Quaternion.identity;
+    transform.localScale = Vector3.one * .02198f;
   }
   #endregion
 }
