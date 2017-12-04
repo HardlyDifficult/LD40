@@ -5,10 +5,13 @@ using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class ButtonReturnToMenu : MonoBehaviour
+public class ButtonLoadScene: MonoBehaviour
 {
-  public void GoToMenu()
+  [SerializeField]
+  string scene;
+
+  public void GoToScene()
   {
-    SceneManager.LoadScene("Menu");
+    SceneManager.LoadScene(scene);
   }
 }
