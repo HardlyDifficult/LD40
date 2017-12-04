@@ -33,7 +33,7 @@ public class CreditsRoll : MonoBehaviour
                 continue;
             }
 
-            string[] splitLine = splittedLine.Split(',');
+            string[] splitLine = splittedLine.Split(';');
             contributors.Add(new Contributor(splitLine[1], splitLine[2], 90, 50, 2f));
         }
     }
@@ -82,6 +82,8 @@ public class CreditsRoll : MonoBehaviour
             StartCoroutine(RollOne(this.CreateContributorGameObject(contributor)));
             yield return new WaitForSecondsRealtime(contributor.WaitBeforeNextInSeconds);
         }
+
+        StartCoroutine(RollCredits());
     }
 
     private IEnumerator RollOne(GameObject contributorGameObject)
@@ -92,10 +94,10 @@ public class CreditsRoll : MonoBehaviour
             float newHeight = textObject.rectTransform.localPosition.y + 10;
             Vector3 targetPosition = new Vector3(textObject.rectTransform.localPosition.x, newHeight, 0);
 
-            textObject.rectTransform.localPosition = 
-                Vector3.SmoothDamp(textObject.rectTransform.localPosition, 
-                    targetPosition, 
-                    ref velocity, 
+            textObject.rectTransform.localPosition =
+                Vector3.SmoothDamp(textObject.rectTransform.localPosition,
+                    targetPosition,
+                    ref velocity,
                     smoothTime);
 
             yield return new WaitForFixedUpdate();
@@ -119,10 +121,10 @@ public class Contributor
     public int ResponsibleSize { get; set; }
     public float WaitBeforeNextInSeconds { get; set; }
 
-    public Contributor(string contributor, 
-        string responsibleFor, 
-        int nameSize, 
-        int responsibleSize, 
+    public Contributor(string contributor,
+        string responsibleFor,
+        int nameSize,
+        int responsibleSize,
         float waitBeforeNextInSeconds)
     {
         this.NameSize = nameSize;
