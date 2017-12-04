@@ -117,14 +117,17 @@ public class BallThrower : MonoBehaviour
   {
     //if (Input.GetMouseButton(0))
     {
-      if (!holdingBall)
+      if (holdingBall == false
+        && Input.GetMouseButton(0))
       {
         holdingBall = true;
 
         ballBody.velocity = Vector3.zero;
         ballBody.useGravity = false;
       }
-      else
+      
+
+      if(holdingBall)
       {
         SetBallPosition(Input.mousePosition);
         positionList.AddFirst(ball.transform.position);
