@@ -5,12 +5,18 @@ public class TurnController : MonoBehaviour
 {
   #region Constants
   const int actionPointsPerTurn = 3;
+
+  const int pointsToWin = 8; 
   #endregion
 
   #region Data
+  public event Action<Player> onWin;
+   
   public event Action onActionPointsChange;
 
   public event Action onTurnChange;
+
+  public int player1Score, player2Score;
 
   int _numberOfActionsRemaining = actionPointsPerTurn;
 
@@ -72,6 +78,27 @@ public class TurnController : MonoBehaviour
     photonView = GetComponent<PhotonView>();
   }
   #endregion
+
+  public void Score(
+    int scoringPlayerId)
+  {
+    if (scoringPlayerId == 0)
+    {
+      player1Score++;
+      if(player1Score >= pointsToWin)
+      {
+        onWin?.Invoke(Player.player1);
+      }
+    }
+    else
+    {
+      player2Score++;
+      if (player2Score >= pointsToWin)
+      {
+        onWin?.Invoke(Player.player2);
+      }
+    }
+  }
 
   #region Private
   /// <summary>

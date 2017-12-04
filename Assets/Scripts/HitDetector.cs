@@ -24,11 +24,20 @@ public class HitDetector : MonoBehaviour
     public bool editorHit;
 #endif
 
-  void Start()
+  bool hasHit;
+
+  TurnController turnController;
+
+  protected void Awake()
   {
-    // enable this for quick tests
-    //winCheckRoutine = StartCoroutine(WinCheck());
+    turnController = GameObject.FindObjectOfType<TurnController>();
   }
+
+  //void Start()
+  //{
+  //  // enable this for quick tests
+  //  //winCheckRoutine = StartCoroutine(WinCheck());
+  //}
 
 #if UNITY_EDITOR
   void Update()
@@ -52,8 +61,14 @@ public class HitDetector : MonoBehaviour
 
   IEnumerator WinCheck()
   {
+    if(hasHit)
+    {
+      yield break;
+    }
     yield return new WaitForSeconds(1);
+    hasHit = true;
     print("Nailed it!");
+    turnController.Score(spellOnHitPlayerId == 0 ? 1 : 0);
     winCheckRoutine = null;
     if (spellOnHitId != -1)
     {

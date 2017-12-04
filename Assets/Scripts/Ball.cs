@@ -19,7 +19,7 @@ public class Ball : MonoBehaviour
 
   Rigidbody body;
 
-  ParticleSystem particles;
+  ParticleSystem[] particles;
 
   Vector3 originalBallPosition;
   #endregion
@@ -43,11 +43,11 @@ public class Ball : MonoBehaviour
 
   protected void Start()
   {
-    if(player == null)
+    if (player == null)
     {
       player = Player.remotePlayer;
     }
-    if(player.isFirstPlayer == false)
+    if (player.isFirstPlayer == false)
     {
       Vector3 position = transform.position;
       position.z = -position.z;
@@ -55,7 +55,7 @@ public class Ball : MonoBehaviour
     }
 
     ballModel = transform.GetChild(player.isFirstPlayer ? 0 : 1).gameObject;
-    particles = ballModel.GetComponent<ParticleSystem>();
+    particles = ballModel.GetComponentsInChildren<ParticleSystem>();
     originalBallPosition = transform.position;
   }
   #endregion
@@ -67,8 +67,11 @@ public class Ball : MonoBehaviour
     ballModel.SetActive(true);
     body.useGravity = false;
     body.velocity = Vector3.zero;
-    particles.Simulate(player.isFirstPlayer ? 1.5f : 0, true, true);
-    particles.Play();
+    for (int i = 0; i < particles.Length; i++)
+    {
+      particles[i].Simulate(player.isFirstPlayer ? 1.5f : 0, true, true);
+      particles[i].Play();
+    }
   }
 
   public void HideBall()
