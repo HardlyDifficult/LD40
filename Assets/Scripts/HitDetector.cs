@@ -7,6 +7,8 @@ public class HitDetector : MonoBehaviour
   public delegate void OnHit(Player scoringPlayer);
   public OnHit onHit;
 
+  public static event OnHit onHitSound;
+
   Coroutine winCheckRoutine;
 
   [SerializeField]
@@ -87,6 +89,10 @@ public class HitDetector : MonoBehaviour
     {
       particlesStopOnHit[i]?.Stop();
     }
+
+    Player player = spellOnHitPlayerId == 0 ? Player.player2 : Player.player1;
+    onHitSound?.Invoke(player);
+
     for (int t = 0; t < 50; ++t)
     {
       yield return new WaitForSeconds(0.1f);
@@ -96,7 +102,7 @@ public class HitDetector : MonoBehaviour
       }
     }
 
-    onHit?.Invoke(spellOnHitPlayerId == 0 ? Player.player2 : Player.player1);
+    onHit?.Invoke(player);
 
     for (int i = 0; i < objectsScaleDownOnHit.Length; i++)
     {

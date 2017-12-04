@@ -1,12 +1,19 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using UnityEngine;
 
-namespace Assets.Scripts.Sounds
+public class HitPotSound : MonoBehaviour
 {
-  class HitPotSound
+  AudioSource audioSource;
+
+  protected void Awake()
   {
+    audioSource = GetComponent<AudioSource>();
+    HitDetector.onHitSound += HitDetector_onHitAnything;
+  }
+
+  void HitDetector_onHitAnything(
+    Player scoringPlayer)
+  {
+    audioSource.Play();
   }
 }
