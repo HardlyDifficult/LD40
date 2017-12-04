@@ -5,41 +5,40 @@ using UnityEngine.UI;
 
 public class HoverButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler
 {
-    [SerializeField]
-    private UnityEvent clickEvent;
-    
-    [SerializeField]
-    private Color foreColor = Color.gray;
+  [SerializeField]
+  private UnityEvent clickEvent;
 
-    [SerializeField]
-    private Color hoverColor = Color.white;
+  [SerializeField]
+  private Color foreColor = Color.gray;
 
-    private Text buttonText;
+  [SerializeField]
+  private Color hoverColor = Color.white;
 
-    protected void Awake()
-    {
-        this.buttonText = this.GetComponentInChildren<Text>();
-    }
+  private Text buttonText;
 
-    public void OnPointerEnter(PointerEventData eventData)
-    {
-        Debug.Log("Changing color to hoverColor");
-        Debug.Log(this.hoverColor);
+  protected void Awake()
+  {
+    this.buttonText = this.GetComponentInChildren<Text>();
+    this.buttonText.color = this.foreColor; 
+  }
 
-        this.buttonText.color = this.hoverColor; // this doesnt work
-        //this.buttonText.color = Color.white; // this works
-    }
+  public void OnPointerEnter(PointerEventData eventData)
+  {
+    Debug.Log("Changing color to hoverColor");
+    Debug.Log(this.hoverColor);
 
-    public void OnPointerExit(PointerEventData eventData)
-    {
-        Debug.Log("Changing color to foreColor");
-        Debug.Log(this.foreColor);
-        this.buttonText.color = this.foreColor; // this doesnt work
-        //this.buttonText.color = Color.gray; // this works
-    }
+    this.buttonText.color = this.hoverColor; 
+  }
 
-    public void OnPointerClick(PointerEventData eventData)
-    {
-        this.clickEvent?.Invoke();
-    }
+  public void OnPointerExit(PointerEventData eventData)
+  {
+    Debug.Log("Changing color to foreColor");
+    Debug.Log(this.foreColor);
+    this.buttonText.color = this.foreColor; 
+  }
+
+  public void OnPointerClick(PointerEventData eventData)
+  {
+    this.clickEvent?.Invoke();
+  }
 }
