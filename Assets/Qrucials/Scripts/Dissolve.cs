@@ -4,56 +4,55 @@ using UnityEngine;
 
 public class Dissolve : MonoBehaviour
 {
-    private const float dissolveLength = 2;
-    private MeshRenderer[] renderers;
+  private const float dissolveLength = 2;
+  private MeshRenderer[] renderers;
 
-    private HitDetector detector;
+  private HitDetector detector;
 
-	private void Start ()
+  private void Start()
+  {
+    detector = GetComponentInChildren<HitDetector>();
+    renderers = GetComponentsInChildren<MeshRenderer>();
+
+    detector.onHit += OnDetectorHit;
+  }
+
+  private void OnDestroy()
+  {
+    detector.onHit -= OnDetectorHit;
+  }
+
+  public void OnDetectorHit(
+    Player scoringPlayer)
+  {
+    DissolvePot();
+  }
+
+  private void DissolvePot()
+  {
+    StartCoroutine(DissolveRoutine());
+  }
+
+  IEnumerator DissolveRoutine()
+  {
+    float startTime = Time.time;
+    float step = 0;
+
+    while (step < 1)
     {
-        detector = GetComponentInChildren<HitDetector>();
-        renderers = GetComponentsInChildren<MeshRenderer>();
+      Debug.Log(step);
 
-        HitDetector.onHit += OnDetectorHit;
-	}
+      float time = Time.time - startTime;
+      step = time / dissolveLength;
 
-    private void OnDestroy()
-    {
-        HitDetector.onHit -= OnDetectorHit;
-    }
-
-    public void OnDetectorHit(HitDetector hitDetectorWhichWasHit, Player scoringPlayer)
-    {
-        if (hitDetectorWhichWasHit == detector)
+      foreach (var render in renderers)
+      {
+        foreach (var mat in render.materials)
         {
-            DissolvePot();
+          mat.SetFloat("_DisVal", step);
         }
+      }
+      yield return null;
     }
-
-    private void DissolvePot()
-    {
-        StartCoroutine(DissolveRoutine());
-    }
-
-    IEnumerator DissolveRoutine()
-    {
-        float startTime = Time.time;
-        float step = 0;
-
-        while (step < 1)
-        {
-            Debug.Log(step);
-
-            step = Time.time / (startTime + dissolveLength);
-
-            foreach (var render in renderers)
-            {
-                foreach (var mat in render.materials)
-                {
-                    mat.SetFloat("_DisVal", step);
-                }
-            }
-            yield return null;
-        }
-    }
+  }
 }

@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class HitDetector : MonoBehaviour
 {
-  public delegate void OnHit(HitDetector hitDetectorWhichWasHit, Player scoringPlayer);
-  public static OnHit onHit;
+  public delegate void OnHit(Player scoringPlayer);
+  public OnHit onHit;
 
   Coroutine winCheckRoutine;
 
@@ -96,7 +96,7 @@ public class HitDetector : MonoBehaviour
       }
     }
 
-    onHit?.Invoke(this, spellOnHitPlayerId == 0 ? Player.player2 : Player.player1);
+    onHit?.Invoke(spellOnHitPlayerId == 0 ? Player.player2 : Player.player1);
 
     for (int i = 0; i < objectsScaleDownOnHit.Length; i++)
     {
