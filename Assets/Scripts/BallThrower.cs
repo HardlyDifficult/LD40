@@ -125,9 +125,9 @@ public class BallThrower : MonoBehaviour
         ballBody.velocity = Vector3.zero;
         ballBody.useGravity = false;
       }
-      
 
-      if(holdingBall)
+
+      if (holdingBall)
       {
         SetBallPosition(Input.mousePosition);
         positionList.AddFirst(ball.transform.position);
@@ -156,9 +156,9 @@ public class BallThrower : MonoBehaviour
         else
         {
           ThrowBall(direction);
+          holdingBall = false;
         }
 
-        holdingBall = false;
         positionList.Clear();
       }
     }
