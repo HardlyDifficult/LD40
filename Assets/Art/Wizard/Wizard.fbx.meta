@@ -1,0 +1,343 @@
+fileFormatVersion: 2
+guid: 3b191ef6ac6508d4aa38582c71ff24e9
+timeCreated: 1512414449
+licenseType: Free
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: Finger1-1.L
+    100002: Finger1-1.R
+    100004: Finger1-2.L
+    100006: Finger1-2.R
+    100008: Finger1-3.L
+    100010: Finger1-3.L_end
+    100012: Finger1-3.R
+    100014: Finger1-3.R_end
+    100016: Finger2-1.L
+    100018: Finger2-1.R
+    100020: Finger2-2.L
+    100022: Finger2-2.R
+    100024: Finger2-3.L
+    100026: Finger2-3.L_end
+    100028: Finger2-3.R
+    100030: Finger2-3.R_end
+    100032: Finger3-1.L
+    100034: Finger3-1.R
+    100036: Finger3-2.L
+    100038: Finger3-2.R
+    100040: Finger3-3.L
+    100042: Finger3-3.L_end
+    100044: Finger3-3.R
+    100046: Finger3-3.R_end
+    100048: Finger4-1.L
+    100050: Finger4-1.R
+    100052: Finger4-2.L
+    100054: Finger4-2.R
+    100056: Finger4-3.L
+    100058: Finger4-3.L_end
+    100060: Finger4-3.R
+    100062: Finger4-3.R_end
+    100064: Foot.L
+    100066: Foot.L_end
+    100068: Foot.R
+    100070: Foot.R_end
+    100072: Hand.L
+    100074: Hand.R
+    100076: Head
+    100078: Heel.L
+    100080: Heel.R
+    100082: Hip.L
+    100084: Hip.R
+    100086: Jaw
+    100088: Jaw_end
+    100090: LowerArm.L
+    100092: LowerArm.R
+    100094: LowerBody
+    100096: LowerLeg.L
+    100098: LowerLeg.R
+    100100: Neck
+    100102: Shoulder.L
+    100104: Shoulder.R
+    100106: Thumb1.L
+    100108: Thumb1.R
+    100110: Thumb2.L
+    100112: Thumb2.L_end
+    100114: Thumb2.R
+    100116: Thumb2.R_end
+    100118: UpperArm.L
+    100120: UpperArm.R
+    100122: UpperBody
+    100124: UpperLeg.L
+    100126: UpperLeg.R
+    100128: Wizard
+    100130: //RootNode
+    100132: Wizard_Rigg
+    400000: Finger1-1.L
+    400002: Finger1-1.R
+    400004: Finger1-2.L
+    400006: Finger1-2.R
+    400008: Finger1-3.L
+    400010: Finger1-3.L_end
+    400012: Finger1-3.R
+    400014: Finger1-3.R_end
+    400016: Finger2-1.L
+    400018: Finger2-1.R
+    400020: Finger2-2.L
+    400022: Finger2-2.R
+    400024: Finger2-3.L
+    400026: Finger2-3.L_end
+    400028: Finger2-3.R
+    400030: Finger2-3.R_end
+    400032: Finger3-1.L
+    400034: Finger3-1.R
+    400036: Finger3-2.L
+    400038: Finger3-2.R
+    400040: Finger3-3.L
+    400042: Finger3-3.L_end
+    400044: Finger3-3.R
+    400046: Finger3-3.R_end
+    400048: Finger4-1.L
+    400050: Finger4-1.R
+    400052: Finger4-2.L
+    400054: Finger4-2.R
+    400056: Finger4-3.L
+    400058: Finger4-3.L_end
+    400060: Finger4-3.R
+    400062: Finger4-3.R_end
+    400064: Foot.L
+    400066: Foot.L_end
+    400068: Foot.R
+    400070: Foot.R_end
+    400072: Hand.L
+    400074: Hand.R
+    400076: Head
+    400078: Heel.L
+    400080: Heel.R
+    400082: Hip.L
+    400084: Hip.R
+    400086: Jaw
+    400088: Jaw_end
+    400090: LowerArm.L
+    400092: LowerArm.R
+    400094: LowerBody
+    400096: LowerLeg.L
+    400098: LowerLeg.R
+    400100: Neck
+    400102: Shoulder.L
+    400104: Shoulder.R
+    400106: Thumb1.L
+    400108: Thumb1.R
+    400110: Thumb2.L
+    400112: Thumb2.L_end
+    400114: Thumb2.R
+    400116: Thumb2.R_end
+    400118: UpperArm.L
+    400120: UpperArm.R
+    400122: UpperBody
+    400124: UpperLeg.L
+    400126: UpperLeg.R
+    400128: Wizard
+    400130: //RootNode
+    400132: Wizard_Rigg
+    4300000: Wizard
+    7400000: Wizard_Rigg_Aiming
+    7400002: Wizard_Rigg_Idle
+    7400004: Wizard_Rigg_ThrowingToAiming
+    7400006: Wizard_Rigg_ThrowingToIdle
+    9500000: //RootNode
+    13700000: Wizard
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material
+    second: {fileID: 2100000, guid: afa1de5f7e6e53a4d81e5b8f805c8832, type: 2}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 0
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Wizard_Rigg_Aiming
+      takeName: Wizard_Rigg|Aiming
+      firstFrame: 0
+      lastFrame: 59
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Wizard_Rigg_Idle
+      takeName: Wizard_Rigg|Idle
+      firstFrame: 0
+      lastFrame: 59
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Wizard_Rigg_ThrowingToAiming
+      takeName: Wizard_Rigg|ThrowingToAiming
+      firstFrame: 0
+      lastFrame: 39
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Wizard_Rigg_ThrowingToIdle
+      takeName: Wizard_Rigg|ThrowingToIdle
+      firstFrame: 0
+      lastFrame: 39
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 5
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
