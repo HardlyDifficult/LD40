@@ -10,4 +10,7 @@ public class SharedData : ScriptableObject
   /// </summary>
   [SerializeField]
   public GameObject[] ballPrefabList = null;
+
+  [SerializeField]
+  public SpellInfo[] spellList = null;
 }

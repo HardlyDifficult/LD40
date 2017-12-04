@@ -33,6 +33,7 @@ public class CameraIntro : MonoBehaviour
 
   void OnGameBegin()
   {
+    animator.enabled = true;
     animator.Play(PhotonNetwork.isMasterClient ? player1Animation : player2Animation);
   }
 }

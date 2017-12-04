@@ -16,6 +16,14 @@ public class GameManager : MonoBehaviour
     }
   }
   public int currentBallIndex;
+    
+  public SpellInfo[] spells
+  {
+    get
+    {
+      return sharedData.spellList;
+    }
+  }
 
   protected void Awake()
   {
