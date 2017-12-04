@@ -59,6 +59,8 @@ public class BallThrower : MonoBehaviour
   {
     player = GetComponentInParent<Player>();
     turnController = GameObject.FindObjectOfType<TurnController>();
+    turnController.onTurnChange += TurnController_onTurnChange;
+    TurnController_onTurnChange();
     photonView = GetComponent<PhotonView>();
 
     if (photonView.isMine)
@@ -75,6 +77,15 @@ public class BallThrower : MonoBehaviour
     {
       //ballBody.gameObject.SetActive(false);
     }
+
+  }
+
+  void TurnController_onTurnChange()
+  {
+    if (player.isMyTurn)
+    {
+      Reload();
+    }
   }
 
   protected void Start()
@@ -88,6 +99,11 @@ public class BallThrower : MonoBehaviour
     }
 
     originalBallPosition = ball != null ? ball.transform.position : Vector3.zero;
+  }
+
+  protected void OnDestroy()
+  {
+    turnController.onTurnChange -= TurnController_onTurnChange;
   }
   #endregion
 
