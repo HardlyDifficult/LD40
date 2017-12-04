@@ -5,11 +5,18 @@ using UnityEngine.SceneManagement;
 
 public class AfkKicker : MonoBehaviour
 {
+  [SerializeField]
+  float timeBeforeWarning = 30;
+
+  [SerializeField]
+  float timeAfterWarning = 15;
+
   TurnController turnController;
 
   Coroutine routine;
 
   Player player;
+  PhotonView photonView;
 
   protected void Awake()
   {
@@ -18,6 +25,7 @@ public class AfkKicker : MonoBehaviour
     turnController.onActionPointsChange += TurnController_onActionPointsChange;
 
     player = GetComponentInParent<Player>();
+    photonView = player.GetComponent<PhotonView>();
   }
 
   protected void OnDestroy()
@@ -43,7 +51,7 @@ public class AfkKicker : MonoBehaviour
       StopCoroutine(routine);
     }
 
-    if (player.isMyTurn)
+    if (player.isMyTurn && photonView.isMine)
     {
       routine = StartCoroutine(TimeoutThenKick());
     }
@@ -51,10 +59,10 @@ public class AfkKicker : MonoBehaviour
 
   IEnumerator TimeoutThenKick()
   {
-    yield return new WaitForSeconds(10);
+    yield return new WaitForSeconds(timeBeforeWarning);
     print("You have been warned");
     AfkWarningMessage.instance.SetActive(true);
-    yield return new WaitForSeconds(10);
+    yield return new WaitForSeconds(timeAfterWarning);
 
     SceneManager.LoadScene("Menu");
   }

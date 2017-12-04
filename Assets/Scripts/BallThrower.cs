@@ -47,11 +47,11 @@ public class BallThrower : MonoBehaviour
 
   PhotonView photonView;
 
-  ParticleSystem ballParticleSystem;
-
   TurnController turnController;
 
   Player player;
+
+  Coroutine shotRoutine;
   #endregion
 
   #region Init
@@ -68,7 +68,6 @@ public class BallThrower : MonoBehaviour
       ballsView.RequestOwnership();
       ball.GetComponent<Rigidbody>().useGravity = false;
       ballBody = ball.GetComponent<Rigidbody>();
-      ballParticleSystem = ball.GetComponent<ParticleSystem>();
     }
     onPlayerSpawn?.Invoke(photonView);
 
@@ -96,7 +95,8 @@ public class BallThrower : MonoBehaviour
   protected void Update()
   {
     if (photonView.isMine == false
-      || player.isMyTurn == false)
+      || player.isMyTurn == false
+      || shotRoutine != null)
     {
       return;
     }
@@ -120,10 +120,7 @@ public class BallThrower : MonoBehaviour
       if (holdingBall == false
         && Input.GetMouseButton(0))
       {
-        holdingBall = true;
-
-        ballBody.velocity = Vector3.zero;
-        ballBody.useGravity = false;
+        Reload();
       }
 
 
@@ -138,6 +135,23 @@ public class BallThrower : MonoBehaviour
           positionList.RemoveLast();
         }
       }
+    }
+  }
+
+  private void Reload()
+  {
+    holdingBall = true;
+
+    ballBody.velocity = Vector3.zero;
+    ballBody.useGravity = false;
+    whenBallWasReleased = null;
+
+    ParticleSystem ballParticleSystem = ball.GetComponentInChildren<ParticleSystem>();
+    //if (ballParticleSystem)
+    {
+      ballParticleSystem.Simulate(player.isPlayer0 ? 1.5f : 0, true, true);
+      //ballParticleSystem.time = 0;
+      ballParticleSystem.Play();
     }
   }
 
@@ -166,29 +180,25 @@ public class BallThrower : MonoBehaviour
 
   void ConsiderReloading()
   {
-    return; // TODO
     if (whenBallWasReleased == null)
     {
       return;
     }
-
     if (Time.timeSinceLevelLoad - whenBallWasReleased > timeTillBallReset
       || Input.GetMouseButtonDown(1))
     {
-      whenBallWasReleased = null;
-      ballBody.transform.position = originalBallPosition;
-      ballBody.useGravity = false;
-      ballBody.velocity = Vector3.zero;
-      if (wand != null)
-      {
-        //ballBody.gameObject.SetActive(false);
-        if (ballParticleSystem)
-        {
-          ballParticleSystem.Simulate(1, true, true);
-          ballParticleSystem.Play();
-        }
-      }
-      UIController.instance.EnableThrowUI();
+      Reload();
+
+      //whenBallWasReleased = null;
+      //ballBody.transform.position = originalBallPosition;
+      //ballBody.useGravity = false;
+      //ballBody.velocity = Vector3.zero;
+      //if (wand != null)
+      //{
+      //  //ballBody.gameObject.SetActive(false);
+      // 
+      //}
+      //UIController.instance.EnableThrowUI();
     }
   }
 
@@ -211,7 +221,15 @@ public class BallThrower : MonoBehaviour
     ballBody.useGravity = true;
     ballBody.AddForce(direction, ForceMode.Impulse);
 
+    whenBallWasReleased = Time.timeSinceLevelLoad;
+    shotRoutine = StartCoroutine(Shot());
+  }
+
+  IEnumerator Shot()
+  {
+    yield return new WaitForSeconds(3);
     turnController.numberOfActionsRemaining--;
+    shotRoutine = null;
   }
 
   bool GetThrowMagnitude(
@@ -226,7 +244,7 @@ public class BallThrower : MonoBehaviour
     direction = positionList.First.Value - positionList.Last.Value;
 
     // Minimum strength of throw - Play with this value for results
-    if (direction.magnitude < .25)
+    if (direction.magnitude < .05)
       return false;
 
     Debug.Log(direction.magnitude);

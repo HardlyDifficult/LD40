@@ -347,6 +347,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1158b61762a27d46a5922e1a1101d30, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  timeBeforeWarning: 30
+  timeAfterWarning: 15
 --- !u!114 &114653638804178928
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -429,7 +431,7 @@ MonoBehaviour:
   minY: 0
   maxY: 1
   wand: {fileID: 1302372387979692}
-  timeTillBallReset: 10
+  timeTillBallReset: 6
 --- !u!114 &114815932758630666
 MonoBehaviour:
   m_ObjectHideFlags: 1
