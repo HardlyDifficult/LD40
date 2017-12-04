@@ -72,6 +72,8 @@ ModelImporter:
     100128: Wizard
     100130: //RootNode
     100132: Wizard_Rigg
+    100134: Wand
+    100136: Wand_end
     400000: Finger1-1.L
     400002: Finger1-1.R
     400004: Finger1-2.L
@@ -139,6 +141,8 @@ ModelImporter:
     400128: Wizard
     400130: //RootNode
     400132: Wizard_Rigg
+    400134: Wand
+    400136: Wand_end
     4300000: Wizard
     7400000: Wizard_Rigg_Aiming
     7400002: Wizard_Rigg_Idle

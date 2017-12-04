@@ -37,7 +37,7 @@ public class NetworkController : MonoBehaviour
       MaxPlayers = 2
     };
     PhotonNetwork.player.NickName = GameManager.instance.name;
-    PhotonNetwork.ConnectUsingSettings("0.8");
+    PhotonNetwork.ConnectUsingSettings("0.10");
   }
 
   protected void OnDestroy()
@@ -115,11 +115,18 @@ public class NetworkController : MonoBehaviour
     Vector3 position = playerPrefab.transform.position;
     position.z = zPositionPlayer;
 
-    GameObject ball = PhotonNetwork.Instantiate(playerPrefab.name, position, transform.rotation, 0);
-    PhotonView view = ball.GetComponent<PhotonView>();
+    GameObject player = PhotonNetwork.Instantiate(playerPrefab.name, position, transform.rotation, 0);
+    PhotonView view = player.GetComponent<PhotonView>();
     view.RequestOwnership();
     Debug.Assert(view.isMine);
 
+
+    StartCoroutine(StartGame());
+  }
+
+  private IEnumerator StartGame()
+  {
+    yield return new WaitForSeconds(1);
     onGameBegin?.Invoke();
   }
 

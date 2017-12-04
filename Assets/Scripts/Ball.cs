@@ -54,7 +54,7 @@ public class Ball : MonoBehaviour
       transform.position = position;
     }
 
-    ballModel = transform.GetChild(player.isFirstPlayer ? 0 : 1).gameObject;
+    ballModel = transform.GetChild(player.isFirstPlayer ? 1 : 0).gameObject;
     particles = ballModel.GetComponentsInChildren<ParticleSystem>();
     originalBallPosition = transform.position;
   }
