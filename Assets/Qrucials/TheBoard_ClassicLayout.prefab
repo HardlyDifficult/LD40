@@ -19,6 +19,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4808243083536676}
+  - component: {fileID: 114025454755784732}
   m_Layer: 0
   m_Name: Small Cauldron
   m_TagString: Untagged
@@ -69,6 +70,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4632673277176746}
+  - component: {fileID: 114371602379047520}
   m_Layer: 0
   m_Name: Large Cauldron
   m_TagString: Untagged
@@ -235,6 +237,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4177998469771574}
+  - component: {fileID: 114938965240158524}
   m_Layer: 0
   m_Name: Small Cauldron
   m_TagString: Untagged
@@ -250,6 +253,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4538771820838276}
+  - component: {fileID: 114504591022665574}
   m_Layer: 0
   m_Name: Small Cauldron
   m_TagString: Untagged
@@ -577,7 +581,7 @@ GameObject:
   - component: {fileID: 65475567949952902}
   - component: {fileID: 114122037110178876}
   m_Layer: 0
-  m_Name: HitDetector
+  m_Name: HitDetector_P1_S6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -815,7 +819,7 @@ GameObject:
   - component: {fileID: 65784152167724046}
   - component: {fileID: 114222284935699404}
   m_Layer: 0
-  m_Name: HitDetector
+  m_Name: HitDetector_P1_S2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -862,7 +866,7 @@ GameObject:
   - component: {fileID: 65590661720506120}
   - component: {fileID: 114915603032887634}
   m_Layer: 0
-  m_Name: HitDetector
+  m_Name: HitDetector_P0_S0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -879,7 +883,7 @@ GameObject:
   - component: {fileID: 65368807561361604}
   - component: {fileID: 114123300323776448}
   m_Layer: 0
-  m_Name: HitDetector
+  m_Name: HitDetector_P0_S7
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -911,6 +915,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4272615696732402}
+  - component: {fileID: 114180682584024122}
   m_Layer: 0
   m_Name: Large Cauldron
   m_TagString: Untagged
@@ -959,7 +964,7 @@ GameObject:
   - component: {fileID: 65222032885295718}
   - component: {fileID: 114640219810831348}
   m_Layer: 0
-  m_Name: HitDetector
+  m_Name: HitDetector_P1_S3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1197,7 +1202,7 @@ GameObject:
   - component: {fileID: 65077795585702032}
   - component: {fileID: 114987098380416698}
   m_Layer: 0
-  m_Name: HitDetector
+  m_Name: HitDetector_P1_S1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1214,7 +1219,7 @@ GameObject:
   - component: {fileID: 65579870064508120}
   - component: {fileID: 114519962013830710}
   m_Layer: 0
-  m_Name: HitDetector
+  m_Name: HitDetector_P0_S4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1246,7 +1251,7 @@ GameObject:
   - component: {fileID: 65033293663819208}
   - component: {fileID: 114211528398520818}
   m_Layer: 0
-  m_Name: HitDetector
+  m_Name: HitDetector_P1_S7
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1281,7 +1286,7 @@ GameObject:
   - component: {fileID: 65215921883300560}
   - component: {fileID: 114255575831111104}
   m_Layer: 0
-  m_Name: HitDetector
+  m_Name: HitDetector_P0_S2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1429,7 +1434,7 @@ GameObject:
   - component: {fileID: 65056059176457458}
   - component: {fileID: 114236159238827902}
   m_Layer: 0
-  m_Name: HitDetector
+  m_Name: HitDetector_P0_S1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1458,6 +1463,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4459608085447276}
+  - component: {fileID: 114131861639627518}
   m_Layer: 0
   m_Name: Small Cauldron
   m_TagString: Untagged
@@ -1494,7 +1500,7 @@ GameObject:
   - component: {fileID: 65506106185984092}
   - component: {fileID: 114764342345341550}
   m_Layer: 0
-  m_Name: HitDetector
+  m_Name: HitDetector_P1_S4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1659,6 +1665,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4954319610575952}
+  - component: {fileID: 114453537247227834}
   m_Layer: 0
   m_Name: Small Cauldron
   m_TagString: Untagged
@@ -1708,6 +1715,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4758823037895040}
+  - component: {fileID: 114071308878307518}
   m_Layer: 0
   m_Name: Small Cauldron
   m_TagString: Untagged
@@ -1726,7 +1734,7 @@ GameObject:
   - component: {fileID: 65119832115059470}
   - component: {fileID: 114273924238290042}
   m_Layer: 0
-  m_Name: HitDetector
+  m_Name: HitDetector_P0_S6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1829,7 +1837,7 @@ GameObject:
   - component: {fileID: 65255071738712572}
   - component: {fileID: 114424286284335950}
   m_Layer: 0
-  m_Name: HitDetector
+  m_Name: HitDetector_P1_S0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1882,7 +1890,7 @@ GameObject:
   - component: {fileID: 65681725679740140}
   - component: {fileID: 114656784485570042}
   m_Layer: 0
-  m_Name: HitDetector
+  m_Name: HitDetector_P0_S3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2085,6 +2093,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4073872709577568}
+  - component: {fileID: 114363635164253466}
   m_Layer: 0
   m_Name: Large Cauldron
   m_TagString: Untagged
@@ -2100,6 +2109,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4984518979943480}
+  - component: {fileID: 114480554744205406}
   m_Layer: 0
   m_Name: Small Cauldron
   m_TagString: Untagged
@@ -2118,7 +2128,7 @@ GameObject:
   - component: {fileID: 65846011461136388}
   - component: {fileID: 114994154167980508}
   m_Layer: 0
-  m_Name: HitDetector
+  m_Name: HitDetector_P1_S5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2167,6 +2177,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4213716096687086}
+  - component: {fileID: 114689707015830332}
   m_Layer: 0
   m_Name: Small Cauldron
   m_TagString: Untagged
@@ -2199,6 +2210,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4119553639920172}
+  - component: {fileID: 114908241667032036}
   m_Layer: 0
   m_Name: Large Cauldron
   m_TagString: Untagged
@@ -2214,6 +2226,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4619265705268880}
+  - component: {fileID: 114627886000632570}
   m_Layer: 0
   m_Name: Small Cauldron
   m_TagString: Untagged
@@ -2229,6 +2242,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4007499165315750}
+  - component: {fileID: 114594204838721332}
   m_Layer: 0
   m_Name: Small Cauldron
   m_TagString: Untagged
@@ -2282,7 +2296,7 @@ GameObject:
   - component: {fileID: 65782775370823500}
   - component: {fileID: 114592577120313098}
   m_Layer: 0
-  m_Name: HitDetector
+  m_Name: HitDetector_P0_S5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2430,6 +2444,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4593795556915256}
+  - component: {fileID: 114556258560170452}
   m_Layer: 0
   m_Name: Small Cauldron
   m_TagString: Untagged
@@ -2544,6 +2559,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4745640783361056}
+  - component: {fileID: 114163605392775868}
   m_Layer: 0
   m_Name: Small Cauldron
   m_TagString: Untagged
@@ -8313,6 +8329,32 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.55798304, y: 0.36736143, z: 0.6393771}
   m_Center: {x: 0.014607966, y: 0.48237032, z: -0.01451993}
+--- !u!114 &114025454755784732
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1018020297536646}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9de1c1ab42a84c042960a48b90212d59, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spellPlayerId: 0
+  spellId: 3
+  spellEnabled: 0
+  spellTransitionTime: 5
+  spellRandomizeTime: 10
+  displacementBias: {x: 0, y: 1, z: 0}
+  magnitudeMin: {x: 0.15, y: 0.1, z: 0.15}
+  magnitudeMax: {x: 0.3, y: 0.2, z: 0.3}
+  speedMin: {x: 0.4, y: 0.4, z: 0.4}
+  speedMax: {x: 0.6, y: 0.6, z: 0.6}
+  magnitude2Min: {x: 0.1, y: 0.05, z: 0.1}
+  magnitude2Max: {x: 0.2, y: 0.1, z: 0.2}
+  speed2Min: {x: 0.2, y: 0.2, z: 0.2}
+  speed2Max: {x: 0.5, y: 0.5, z: 0.5}
+  animator: {fileID: 0}
 --- !u!114 &114049591723358862
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -8324,8 +8366,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 215f8f649ec661b40aebd28abd5f44bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spellTarget: {x: 0, y: 2, z: 9}
+  spellTarget: {x: 0, y: 2, z: -9}
   targetForce: 1
+--- !u!114 &114071308878307518
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1568241433276676}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9de1c1ab42a84c042960a48b90212d59, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spellPlayerId: 0
+  spellId: 3
+  spellEnabled: 0
+  spellTransitionTime: 5
+  spellRandomizeTime: 10
+  displacementBias: {x: 0, y: 1, z: 0}
+  magnitudeMin: {x: 0.15, y: 0.1, z: 0.15}
+  magnitudeMax: {x: 0.3, y: 0.2, z: 0.3}
+  speedMin: {x: 0.4, y: 0.4, z: 0.4}
+  speedMax: {x: 0.6, y: 0.6, z: 0.6}
+  magnitude2Min: {x: 0.1, y: 0.05, z: 0.1}
+  magnitude2Max: {x: 0.2, y: 0.1, z: 0.2}
+  speed2Min: {x: 0.2, y: 0.2, z: 0.2}
+  speed2Max: {x: 0.5, y: 0.5, z: 0.5}
+  animator: {fileID: 0}
 --- !u!114 &114106126051343772
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -8337,7 +8405,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 215f8f649ec661b40aebd28abd5f44bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spellTarget: {x: 0, y: 2, z: -9}
+  spellTarget: {x: 0, y: 2, z: 9}
   targetForce: 1
 --- !u!114 &114113871642040916
 MonoBehaviour:
@@ -8350,7 +8418,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 215f8f649ec661b40aebd28abd5f44bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spellTarget: {x: 0, y: 2, z: -9}
+  spellTarget: {x: 0, y: 2, z: 9}
   targetForce: 1
 --- !u!114 &114117418799657092
 MonoBehaviour:
@@ -8363,7 +8431,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 215f8f649ec661b40aebd28abd5f44bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spellTarget: {x: 0, y: 2, z: -9}
+  spellTarget: {x: 0, y: 2, z: 9}
   targetForce: 1
 --- !u!114 &114122037110178876
 MonoBehaviour:
@@ -8382,6 +8450,9 @@ MonoBehaviour:
   - {fileID: 0}
   objectsScaleDownOnHit:
   - {fileID: 23115845450861126}
+  spellOnHitPlayerId: 1
+  spellOnHitId: 6
+  editorHit: 0
 --- !u!114 &114123300323776448
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -8399,6 +8470,35 @@ MonoBehaviour:
   - {fileID: 0}
   objectsScaleDownOnHit:
   - {fileID: 23095210344450144}
+  spellOnHitPlayerId: 0
+  spellOnHitId: 7
+  editorHit: 0
+--- !u!114 &114131861639627518
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1483335362386668}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9de1c1ab42a84c042960a48b90212d59, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spellPlayerId: 1
+  spellId: 3
+  spellEnabled: 0
+  spellTransitionTime: 5
+  spellRandomizeTime: 10
+  displacementBias: {x: 0, y: 1, z: 0}
+  magnitudeMin: {x: 0.15, y: 0.1, z: 0.15}
+  magnitudeMax: {x: 0.3, y: 0.2, z: 0.3}
+  speedMin: {x: 0.4, y: 0.4, z: 0.4}
+  speedMax: {x: 0.6, y: 0.6, z: 0.6}
+  magnitude2Min: {x: 0.1, y: 0.05, z: 0.1}
+  magnitude2Max: {x: 0.2, y: 0.1, z: 0.2}
+  speed2Min: {x: 0.2, y: 0.2, z: 0.2}
+  speed2Max: {x: 0.5, y: 0.5, z: 0.5}
+  animator: {fileID: 0}
 --- !u!114 &114132179126890266
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -8410,8 +8510,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 215f8f649ec661b40aebd28abd5f44bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spellTarget: {x: 0, y: 2, z: -9}
+  spellTarget: {x: 0, y: 2, z: 9}
   targetForce: 1
+--- !u!114 &114163605392775868
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1968653468692464}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9de1c1ab42a84c042960a48b90212d59, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spellPlayerId: 0
+  spellId: 3
+  spellEnabled: 0
+  spellTransitionTime: 5
+  spellRandomizeTime: 10
+  displacementBias: {x: 0, y: 1, z: 0}
+  magnitudeMin: {x: 0.15, y: 0.1, z: 0.15}
+  magnitudeMax: {x: 0.3, y: 0.2, z: 0.3}
+  speedMin: {x: 0.4, y: 0.4, z: 0.4}
+  speedMax: {x: 0.6, y: 0.6, z: 0.6}
+  magnitude2Min: {x: 0.1, y: 0.05, z: 0.1}
+  magnitude2Max: {x: 0.2, y: 0.1, z: 0.2}
+  speed2Min: {x: 0.2, y: 0.2, z: 0.2}
+  speed2Max: {x: 0.5, y: 0.5, z: 0.5}
+  animator: {fileID: 0}
 --- !u!114 &114174896611805996
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -8423,8 +8549,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 215f8f649ec661b40aebd28abd5f44bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spellTarget: {x: 0, y: 2, z: -9}
+  spellTarget: {x: 0, y: 2, z: 9}
   targetForce: 1
+--- !u!114 &114180682584024122
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1348462277942778}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9de1c1ab42a84c042960a48b90212d59, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spellPlayerId: 1
+  spellId: 3
+  spellEnabled: 0
+  spellTransitionTime: 5
+  spellRandomizeTime: 10
+  displacementBias: {x: 0, y: 1, z: 0}
+  magnitudeMin: {x: 0.15, y: 0.1, z: 0.15}
+  magnitudeMax: {x: 0.3, y: 0.2, z: 0.3}
+  speedMin: {x: 0.4, y: 0.4, z: 0.4}
+  speedMax: {x: 0.6, y: 0.6, z: 0.6}
+  magnitude2Min: {x: 0.1, y: 0.05, z: 0.1}
+  magnitude2Max: {x: 0.2, y: 0.1, z: 0.2}
+  speed2Min: {x: 0.2, y: 0.2, z: 0.2}
+  speed2Max: {x: 0.5, y: 0.5, z: 0.5}
+  animator: {fileID: 0}
 --- !u!114 &114211528398520818
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -8442,6 +8594,9 @@ MonoBehaviour:
   - {fileID: 0}
   objectsScaleDownOnHit:
   - {fileID: 23392943116020736}
+  spellOnHitPlayerId: 1
+  spellOnHitId: 7
+  editorHit: 0
 --- !u!114 &114222284935699404
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -8459,6 +8614,9 @@ MonoBehaviour:
   - {fileID: 0}
   objectsScaleDownOnHit:
   - {fileID: 23543954671898766}
+  spellOnHitPlayerId: 1
+  spellOnHitId: 2
+  editorHit: 0
 --- !u!114 &114236159238827902
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -8476,6 +8634,9 @@ MonoBehaviour:
   - {fileID: 0}
   objectsScaleDownOnHit:
   - {fileID: 23799819498207616}
+  spellOnHitPlayerId: 0
+  spellOnHitId: 1
+  editorHit: 0
 --- !u!114 &114255575831111104
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -8493,6 +8654,9 @@ MonoBehaviour:
   - {fileID: 0}
   objectsScaleDownOnHit:
   - {fileID: 23315002475085842}
+  spellOnHitPlayerId: 0
+  spellOnHitId: 2
+  editorHit: 0
 --- !u!114 &114273924238290042
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -8510,6 +8674,9 @@ MonoBehaviour:
   - {fileID: 0}
   objectsScaleDownOnHit:
   - {fileID: 23877008591692434}
+  spellOnHitPlayerId: 0
+  spellOnHitId: 7
+  editorHit: 0
 --- !u!114 &114281738120100926
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -8521,7 +8688,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 215f8f649ec661b40aebd28abd5f44bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spellTarget: {x: 0, y: 2, z: -9}
+  spellTarget: {x: 0, y: 2, z: 9}
   targetForce: 1
 --- !u!114 &114337256874728822
 MonoBehaviour:
@@ -8536,6 +8703,58 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spellTarget: {x: 0, y: 2, z: 9}
   targetForce: 1
+--- !u!114 &114363635164253466
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1700603358968936}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9de1c1ab42a84c042960a48b90212d59, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spellPlayerId: 0
+  spellId: 3
+  spellEnabled: 0
+  spellTransitionTime: 5
+  spellRandomizeTime: 10
+  displacementBias: {x: 0, y: 1, z: 0}
+  magnitudeMin: {x: 0.15, y: 0.1, z: 0.15}
+  magnitudeMax: {x: 0.3, y: 0.2, z: 0.3}
+  speedMin: {x: 0.4, y: 0.4, z: 0.4}
+  speedMax: {x: 0.6, y: 0.6, z: 0.6}
+  magnitude2Min: {x: 0.1, y: 0.05, z: 0.1}
+  magnitude2Max: {x: 0.2, y: 0.1, z: 0.2}
+  speed2Min: {x: 0.2, y: 0.2, z: 0.2}
+  speed2Max: {x: 0.5, y: 0.5, z: 0.5}
+  animator: {fileID: 0}
+--- !u!114 &114371602379047520
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1041827157775350}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9de1c1ab42a84c042960a48b90212d59, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spellPlayerId: 1
+  spellId: 3
+  spellEnabled: 0
+  spellTransitionTime: 5
+  spellRandomizeTime: 10
+  displacementBias: {x: 0, y: 1, z: 0}
+  magnitudeMin: {x: 0.15, y: 0.1, z: 0.15}
+  magnitudeMax: {x: 0.3, y: 0.2, z: 0.3}
+  speedMin: {x: 0.4, y: 0.4, z: 0.4}
+  speedMax: {x: 0.6, y: 0.6, z: 0.6}
+  magnitude2Min: {x: 0.1, y: 0.05, z: 0.1}
+  magnitude2Max: {x: 0.2, y: 0.1, z: 0.2}
+  speed2Min: {x: 0.2, y: 0.2, z: 0.2}
+  speed2Max: {x: 0.5, y: 0.5, z: 0.5}
+  animator: {fileID: 0}
 --- !u!114 &114424286284335950
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -8553,6 +8772,35 @@ MonoBehaviour:
   - {fileID: 0}
   objectsScaleDownOnHit:
   - {fileID: 23309763138660986}
+  spellOnHitPlayerId: 1
+  spellOnHitId: 0
+  editorHit: 0
+--- !u!114 &114453537247227834
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1555780804212780}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9de1c1ab42a84c042960a48b90212d59, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spellPlayerId: 1
+  spellId: 3
+  spellEnabled: 0
+  spellTransitionTime: 5
+  spellRandomizeTime: 10
+  displacementBias: {x: 0, y: 1, z: 0}
+  magnitudeMin: {x: 0.15, y: 0.1, z: 0.15}
+  magnitudeMax: {x: 0.3, y: 0.2, z: 0.3}
+  speedMin: {x: 0.4, y: 0.4, z: 0.4}
+  speedMax: {x: 0.6, y: 0.6, z: 0.6}
+  magnitude2Min: {x: 0.1, y: 0.05, z: 0.1}
+  magnitude2Max: {x: 0.2, y: 0.1, z: 0.2}
+  speed2Min: {x: 0.2, y: 0.2, z: 0.2}
+  speed2Max: {x: 0.5, y: 0.5, z: 0.5}
+  animator: {fileID: 0}
 --- !u!114 &114478730324133626
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -8564,8 +8812,60 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 215f8f649ec661b40aebd28abd5f44bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spellTarget: {x: 0, y: 2, z: 9}
+  spellTarget: {x: 0, y: 2, z: -9}
   targetForce: 1
+--- !u!114 &114480554744205406
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1715869724304044}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9de1c1ab42a84c042960a48b90212d59, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spellPlayerId: 1
+  spellId: 3
+  spellEnabled: 0
+  spellTransitionTime: 5
+  spellRandomizeTime: 10
+  displacementBias: {x: 0, y: 1, z: 0}
+  magnitudeMin: {x: 0.15, y: 0.1, z: 0.15}
+  magnitudeMax: {x: 0.3, y: 0.2, z: 0.3}
+  speedMin: {x: 0.4, y: 0.4, z: 0.4}
+  speedMax: {x: 0.6, y: 0.6, z: 0.6}
+  magnitude2Min: {x: 0.1, y: 0.05, z: 0.1}
+  magnitude2Max: {x: 0.2, y: 0.1, z: 0.2}
+  speed2Min: {x: 0.2, y: 0.2, z: 0.2}
+  speed2Max: {x: 0.5, y: 0.5, z: 0.5}
+  animator: {fileID: 0}
+--- !u!114 &114504591022665574
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1083040782809494}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9de1c1ab42a84c042960a48b90212d59, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spellPlayerId: 1
+  spellId: 3
+  spellEnabled: 0
+  spellTransitionTime: 5
+  spellRandomizeTime: 10
+  displacementBias: {x: 0, y: 1, z: 0}
+  magnitudeMin: {x: 0.15, y: 0.1, z: 0.15}
+  magnitudeMax: {x: 0.3, y: 0.2, z: 0.3}
+  speedMin: {x: 0.4, y: 0.4, z: 0.4}
+  speedMax: {x: 0.6, y: 0.6, z: 0.6}
+  magnitude2Min: {x: 0.1, y: 0.05, z: 0.1}
+  magnitude2Max: {x: 0.2, y: 0.1, z: 0.2}
+  speed2Min: {x: 0.2, y: 0.2, z: 0.2}
+  speed2Max: {x: 0.5, y: 0.5, z: 0.5}
+  animator: {fileID: 0}
 --- !u!114 &114519962013830710
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -8583,6 +8883,35 @@ MonoBehaviour:
   - {fileID: 0}
   objectsScaleDownOnHit:
   - {fileID: 23055905138601170}
+  spellOnHitPlayerId: 0
+  spellOnHitId: 4
+  editorHit: 0
+--- !u!114 &114556258560170452
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1930734348138522}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9de1c1ab42a84c042960a48b90212d59, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spellPlayerId: 0
+  spellId: 3
+  spellEnabled: 0
+  spellTransitionTime: 5
+  spellRandomizeTime: 10
+  displacementBias: {x: 0, y: 1, z: 0}
+  magnitudeMin: {x: 0.15, y: 0.1, z: 0.15}
+  magnitudeMax: {x: 0.3, y: 0.2, z: 0.3}
+  speedMin: {x: 0.4, y: 0.4, z: 0.4}
+  speedMax: {x: 0.6, y: 0.6, z: 0.6}
+  magnitude2Min: {x: 0.1, y: 0.05, z: 0.1}
+  magnitude2Max: {x: 0.2, y: 0.1, z: 0.2}
+  speed2Min: {x: 0.2, y: 0.2, z: 0.2}
+  speed2Max: {x: 0.5, y: 0.5, z: 0.5}
+  animator: {fileID: 0}
 --- !u!114 &114592577120313098
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -8600,6 +8929,61 @@ MonoBehaviour:
   - {fileID: 0}
   objectsScaleDownOnHit:
   - {fileID: 23736575368804086}
+  spellOnHitPlayerId: 0
+  spellOnHitId: 5
+  editorHit: 0
+--- !u!114 &114594204838721332
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1811890173418372}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9de1c1ab42a84c042960a48b90212d59, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spellPlayerId: 1
+  spellId: 3
+  spellEnabled: 0
+  spellTransitionTime: 5
+  spellRandomizeTime: 10
+  displacementBias: {x: 0, y: 1, z: 0}
+  magnitudeMin: {x: 0.15, y: 0.1, z: 0.15}
+  magnitudeMax: {x: 0.3, y: 0.2, z: 0.3}
+  speedMin: {x: 0.4, y: 0.4, z: 0.4}
+  speedMax: {x: 0.6, y: 0.6, z: 0.6}
+  magnitude2Min: {x: 0.1, y: 0.05, z: 0.1}
+  magnitude2Max: {x: 0.2, y: 0.1, z: 0.2}
+  speed2Min: {x: 0.2, y: 0.2, z: 0.2}
+  speed2Max: {x: 0.5, y: 0.5, z: 0.5}
+  animator: {fileID: 0}
+--- !u!114 &114627886000632570
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1807839462332838}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9de1c1ab42a84c042960a48b90212d59, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spellPlayerId: 0
+  spellId: 3
+  spellEnabled: 0
+  spellTransitionTime: 5
+  spellRandomizeTime: 10
+  displacementBias: {x: 0, y: 1, z: 0}
+  magnitudeMin: {x: 0.15, y: 0.1, z: 0.15}
+  magnitudeMax: {x: 0.3, y: 0.2, z: 0.3}
+  speedMin: {x: 0.4, y: 0.4, z: 0.4}
+  speedMax: {x: 0.6, y: 0.6, z: 0.6}
+  magnitude2Min: {x: 0.1, y: 0.05, z: 0.1}
+  magnitude2Max: {x: 0.2, y: 0.1, z: 0.2}
+  speed2Min: {x: 0.2, y: 0.2, z: 0.2}
+  speed2Max: {x: 0.5, y: 0.5, z: 0.5}
+  animator: {fileID: 0}
 --- !u!114 &114640219810831348
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -8617,6 +9001,9 @@ MonoBehaviour:
   - {fileID: 0}
   objectsScaleDownOnHit:
   - {fileID: 23134525509571186}
+  spellOnHitPlayerId: 1
+  spellOnHitId: 3
+  editorHit: 0
 --- !u!114 &114656784485570042
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -8634,6 +9021,9 @@ MonoBehaviour:
   - {fileID: 0}
   objectsScaleDownOnHit:
   - {fileID: 23106538322141010}
+  spellOnHitPlayerId: 0
+  spellOnHitId: 3
+  editorHit: 0
 --- !u!114 &114685937147922620
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -8645,8 +9035,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 215f8f649ec661b40aebd28abd5f44bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spellTarget: {x: 0, y: 2, z: -9}
+  spellTarget: {x: 0, y: 2, z: 9}
   targetForce: 1
+--- !u!114 &114689707015830332
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1799239749430782}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9de1c1ab42a84c042960a48b90212d59, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spellPlayerId: 0
+  spellId: 3
+  spellEnabled: 0
+  spellTransitionTime: 5
+  spellRandomizeTime: 10
+  displacementBias: {x: 0, y: 1, z: 0}
+  magnitudeMin: {x: 0.15, y: 0.1, z: 0.15}
+  magnitudeMax: {x: 0.3, y: 0.2, z: 0.3}
+  speedMin: {x: 0.4, y: 0.4, z: 0.4}
+  speedMax: {x: 0.6, y: 0.6, z: 0.6}
+  magnitude2Min: {x: 0.1, y: 0.05, z: 0.1}
+  magnitude2Max: {x: 0.2, y: 0.1, z: 0.2}
+  speed2Min: {x: 0.2, y: 0.2, z: 0.2}
+  speed2Max: {x: 0.5, y: 0.5, z: 0.5}
+  animator: {fileID: 0}
 --- !u!114 &114698864014641116
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -8658,7 +9074,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 215f8f649ec661b40aebd28abd5f44bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spellTarget: {x: 0, y: 2, z: 9}
+  spellTarget: {x: 0, y: 2, z: -9}
   targetForce: 1
 --- !u!114 &114764342345341550
 MonoBehaviour:
@@ -8677,6 +9093,9 @@ MonoBehaviour:
   - {fileID: 0}
   objectsScaleDownOnHit:
   - {fileID: 23971390014537194}
+  spellOnHitPlayerId: 1
+  spellOnHitId: 4
+  editorHit: 0
 --- !u!114 &114767334951613148
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -8688,7 +9107,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 215f8f649ec661b40aebd28abd5f44bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spellTarget: {x: 0, y: 2, z: 9}
+  spellTarget: {x: 0, y: 2, z: -9}
   targetForce: 1
 --- !u!114 &114775443211570692
 MonoBehaviour:
@@ -8701,7 +9120,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 215f8f649ec661b40aebd28abd5f44bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spellTarget: {x: 0, y: 2, z: 9}
+  spellTarget: {x: 0, y: 2, z: -9}
   targetForce: 1
 --- !u!114 &114803742284713800
 MonoBehaviour:
@@ -8714,8 +9133,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 215f8f649ec661b40aebd28abd5f44bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spellTarget: {x: 0, y: 2, z: 9}
+  spellTarget: {x: 0, y: 2, z: -9}
   targetForce: 1
+--- !u!114 &114908241667032036
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1806350969740072}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9de1c1ab42a84c042960a48b90212d59, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spellPlayerId: 0
+  spellId: 3
+  spellEnabled: 0
+  spellTransitionTime: 5
+  spellRandomizeTime: 10
+  displacementBias: {x: 0, y: 1, z: 0}
+  magnitudeMin: {x: 0.15, y: 0.1, z: 0.15}
+  magnitudeMax: {x: 0.3, y: 0.2, z: 0.3}
+  speedMin: {x: 0.4, y: 0.4, z: 0.4}
+  speedMax: {x: 0.6, y: 0.6, z: 0.6}
+  magnitude2Min: {x: 0.1, y: 0.05, z: 0.1}
+  magnitude2Max: {x: 0.2, y: 0.1, z: 0.2}
+  speed2Min: {x: 0.2, y: 0.2, z: 0.2}
+  speed2Max: {x: 0.5, y: 0.5, z: 0.5}
+  animator: {fileID: 0}
 --- !u!114 &114915603032887634
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -8733,6 +9178,35 @@ MonoBehaviour:
   - {fileID: 0}
   objectsScaleDownOnHit:
   - {fileID: 23534549705529678}
+  spellOnHitPlayerId: 0
+  spellOnHitId: 0
+  editorHit: 0
+--- !u!114 &114938965240158524
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1072027235558614}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9de1c1ab42a84c042960a48b90212d59, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spellPlayerId: 1
+  spellId: 3
+  spellEnabled: 0
+  spellTransitionTime: 5
+  spellRandomizeTime: 10
+  displacementBias: {x: 0, y: 1, z: 0}
+  magnitudeMin: {x: 0.15, y: 0.1, z: 0.15}
+  magnitudeMax: {x: 0.3, y: 0.2, z: 0.3}
+  speedMin: {x: 0.4, y: 0.4, z: 0.4}
+  speedMax: {x: 0.6, y: 0.6, z: 0.6}
+  magnitude2Min: {x: 0.1, y: 0.05, z: 0.1}
+  magnitude2Max: {x: 0.2, y: 0.1, z: 0.2}
+  speed2Min: {x: 0.2, y: 0.2, z: 0.2}
+  speed2Max: {x: 0.5, y: 0.5, z: 0.5}
+  animator: {fileID: 0}
 --- !u!114 &114978994203702970
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -8744,7 +9218,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 215f8f649ec661b40aebd28abd5f44bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spellTarget: {x: 0, y: 2, z: -9}
+  spellTarget: {x: 0, y: 2, z: 9}
   targetForce: 1
 --- !u!114 &114985374387368152
 MonoBehaviour:
@@ -8757,7 +9231,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 215f8f649ec661b40aebd28abd5f44bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spellTarget: {x: 0, y: 2, z: 9}
+  spellTarget: {x: 0, y: 2, z: -9}
   targetForce: 1
 --- !u!114 &114987098380416698
 MonoBehaviour:
@@ -8776,6 +9250,9 @@ MonoBehaviour:
   - {fileID: 0}
   objectsScaleDownOnHit:
   - {fileID: 23758615433795972}
+  spellOnHitPlayerId: 1
+  spellOnHitId: 1
+  editorHit: 0
 --- !u!114 &114994154167980508
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -8793,6 +9270,9 @@ MonoBehaviour:
   - {fileID: 0}
   objectsScaleDownOnHit:
   - {fileID: 23611215697932054}
+  spellOnHitPlayerId: 1
+  spellOnHitId: 5
+  editorHit: 0
 --- !u!198 &198034833218599236
 ParticleSystem:
   m_ObjectHideFlags: 1
@@ -8853,7 +9333,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: -923184014
+  randomSeed: -308666435
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -12170,7 +12650,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 974771464
+  randomSeed: 1363648962
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -31892,7 +32372,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 937324567
+  randomSeed: -2065665963
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -41771,7 +42251,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 2113995371
+  randomSeed: 556632256
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -45088,7 +45568,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: -1216171752
+  randomSeed: -1983225471
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -54967,7 +55447,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: -1052407239
+  randomSeed: 292465502
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -61565,7 +62045,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: -1005508021
+  randomSeed: -978989308
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -64882,7 +65362,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: -884190296
+  randomSeed: -436478183
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -78042,7 +78522,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 1676541229
+  randomSeed: 1973632984
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -87921,7 +88401,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: -1195611678
+  randomSeed: 1292399766
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -94519,7 +94999,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: -1593058716
+  randomSeed: -234036508
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -97836,7 +98316,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: -2147125425
+  randomSeed: -233673451
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -101153,7 +101633,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: -89873480
+  randomSeed: -1956969470
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -104470,7 +104950,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 1283298486
+  randomSeed: 505418273
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -111068,7 +111548,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 1489273505
+  randomSeed: -1241414365
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -114385,7 +114865,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: -855212530
+  randomSeed: 1786755203
   InitialModule:
     serializedVersion: 3
     enabled: 1

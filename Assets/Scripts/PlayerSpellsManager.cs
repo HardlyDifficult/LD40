@@ -16,6 +16,7 @@ public class PlayerSpellsManager : MonoBehaviour {
     const int PlayerCount = 2; // TODO: config
     public int SpellCount { get; private set; }
     public int LocalPlayerId { get; private set; }
+    public int RemotePlayerId { get { return 1 - LocalPlayerId; } }
 
     public SpellState[] player1SpellState;
     public SpellState[] player2SpellState;
@@ -23,6 +24,7 @@ public class PlayerSpellsManager : MonoBehaviour {
     public bool GetPlayerSpellStatus(int playerId, int spellId)
     {
         if (playerId == -1) playerId = LocalPlayerId;
+        if (playerId == -2) playerId = RemotePlayerId;
         SpellState[] playerSpellState = (playerId == 0) ? player1SpellState : player2SpellState;
         return playerSpellState[spellId].enabled;
     }
@@ -91,7 +93,7 @@ public class PlayerSpellsManager : MonoBehaviour {
         }
 #endif
     }
-
+    
     void OnGameBegin()
     {
         LocalPlayerId = PhotonNetwork.isMasterClient ? 0 : 1;
