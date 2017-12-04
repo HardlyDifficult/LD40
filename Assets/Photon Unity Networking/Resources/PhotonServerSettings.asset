@@ -43,4 +43,5 @@ MonoBehaviour:
   - RequestForPickupTimes
   - TaggedPlayer
   - SetActionPoints
+  - ThrowBall
   DisableAutoOpenWizard: 1

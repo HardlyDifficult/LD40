@@ -117,6 +117,10 @@ public class Player : MonoBehaviour
       position.z = -position.z;
       transform.position = position;
     }
+
+    Wizards wizards = GameObject.FindObjectOfType<Wizards>();
+    transform.SetParent((isFirstPlayer ? wizards.player1WandBone : wizards.player2WandBone).transform);
+    transform.localPosition = Vector3.zero;
   }
   #endregion
 }

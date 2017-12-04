@@ -37,7 +37,7 @@ public class NetworkController : MonoBehaviour
       MaxPlayers = 2
     };
     PhotonNetwork.player.NickName = GameManager.instance.name;
-    PhotonNetwork.ConnectUsingSettings("0.8");
+    PhotonNetwork.ConnectUsingSettings("0.9");
   }
 
   protected void OnDestroy()
@@ -119,10 +119,14 @@ public class NetworkController : MonoBehaviour
     PhotonView view = player.GetComponent<PhotonView>();
     view.RequestOwnership();
     Debug.Assert(view.isMine);
-    Wizards wizards = GameObject.FindObjectOfType<Wizards>();
-    player.transform.SetParent((Player.isPlayer1 ? wizards.player1WandBone : wizards.player2WandBone).transform);
-    player.transform.localPosition = Vector3.zero;
 
+
+    StartCoroutine(StartGame());
+  }
+
+  private IEnumerator StartGame()
+  {
+    yield return new WaitForSeconds(1);
     onGameBegin?.Invoke();
   }
 

@@ -160,7 +160,8 @@ public class BallThrower : MonoBehaviour
     Vector3 direction;
     if (GetThrowMagnitude(out direction))
     {
-      ThrowBall(direction);
+      photonView.RPC("ThrowBall", PhotonTargets.All, direction);
+      //ThrowBall(direction);
     }
 
     minPositionOfThrow = null;
@@ -168,36 +169,52 @@ public class BallThrower : MonoBehaviour
 
   public static float Sigmoid(double value) { return 1.0f / (1.0f + (float)Math.Exp(-value)); }
 
+  [PunRPC]
   void ThrowBall(
     Vector3 direction)
   {
-    float mag = direction.magnitude;
-    mag = Sigmoid(mag);
-    print(mag);
-    mag = Mathf.Clamp(mag, .25f, 1);
-
-    direction += transform.forward * mag;
-    direction = (direction + transform.forward * direction.magnitude) * throwStrength;
-
-    if (player.isFirstPlayer == false)
+    if (shotRoutine != null)
     {
-      direction.z = -direction.z;
+      return;
     }
 
-    Debug.DrawRay(ball.transform.position, direction);
-
-    ball.Throw(direction);
-
-    whenBallWasReleased = Time.timeSinceLevelLoad;
-    holdingBall = false;
-    Cursor.visible = true;
-    shotRoutine = StartCoroutine(Shot());
+    shotRoutine = StartCoroutine(Shot(direction));
   }
 
-  IEnumerator Shot()
+  IEnumerator Shot(
+    Vector3 direction)
   {
+    WizardController wizard = player.isFirstPlayer ? Wizards.wiz1 : Wizards.wiz2;
+    wizard.Shoot();
+
+    //yield return new WaitForSeconds(.1f);
+
+    if (ball != null)
+    {
+      float mag = direction.magnitude;
+      mag = Sigmoid(mag);
+      print(mag);
+      mag = Mathf.Clamp(mag, .25f, 1);
+
+      direction += transform.forward * mag;
+      direction = (direction + transform.forward * direction.magnitude) * throwStrength;
+
+      if (player.isFirstPlayer == false)
+      {
+        direction.z = -direction.z;
+      }
+
+      ball.Throw(direction);
+
+      whenBallWasReleased = Time.timeSinceLevelLoad;
+      holdingBall = false;
+      Cursor.visible = true;
+    }
     yield return new WaitForSeconds(3);
-    turnController.numberOfActionsRemaining--;
+    if (ball != null)
+    {
+      turnController.numberOfActionsRemaining--;
+    }
     shotRoutine = null;
   }
 

@@ -26,6 +26,14 @@ public class WizardController : MonoBehaviour
 
     networkController = GameObject.FindObjectOfType<NetworkController>();
     networkController.onGameBegin += NetworkController_onGameBegin;
+
+    if(isPlayer0)
+    {
+      Wizards.wiz1 = this;
+    } else
+    {
+      Wizards.wiz2 = this;
+    }
   }
 
   void NetworkController_onGameBegin()
@@ -45,5 +53,10 @@ public class WizardController : MonoBehaviour
     {
       animator.Play(startAim);
     }
+  }
+
+  public void Shoot()
+  {
+    animator.Play(turnController.numberOfActionsRemaining > 1 ? throwWithMore : lastThrow);
   }
 }
