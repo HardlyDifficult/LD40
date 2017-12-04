@@ -8271,7 +8271,7 @@ MonoBehaviour:
   particlesPlayOnHit:
   - {fileID: 198464263302899766}
   particlesStopOnHit:
-  - {fileID: 0}
+  - {fileID: 198948372733617486}
   objectsScaleDownOnHit:
   - {fileID: 23298488833550340}
   spellOnHitPlayerId: 1
@@ -8365,7 +8365,7 @@ MonoBehaviour:
   particlesPlayOnHit:
   - {fileID: 198919386498348710}
   particlesStopOnHit:
-  - {fileID: 0}
+  - {fileID: 198356913226061462}
   objectsScaleDownOnHit:
   - {fileID: 23963815876425936}
   spellOnHitPlayerId: 1
@@ -8542,7 +8542,7 @@ MonoBehaviour:
   particlesPlayOnHit:
   - {fileID: 198952919026714638}
   particlesStopOnHit:
-  - {fileID: 0}
+  - {fileID: 198006514046918744}
   objectsScaleDownOnHit:
   - {fileID: 23366655672186618}
   spellOnHitPlayerId: 0
@@ -8562,7 +8562,7 @@ MonoBehaviour:
   particlesPlayOnHit:
   - {fileID: 198753405236108664}
   particlesStopOnHit:
-  - {fileID: 0}
+  - {fileID: 198539427255007014}
   objectsScaleDownOnHit:
   - {fileID: 23597124349857930}
   spellOnHitPlayerId: 1
@@ -8595,7 +8595,7 @@ MonoBehaviour:
   particlesPlayOnHit:
   - {fileID: 198203898911758516}
   particlesStopOnHit:
-  - {fileID: 0}
+  - {fileID: 198443034711398410}
   objectsScaleDownOnHit:
   - {fileID: 23534593604497888}
   spellOnHitPlayerId: 0
@@ -8641,7 +8641,7 @@ MonoBehaviour:
   particlesPlayOnHit:
   - {fileID: 198545383766337868}
   particlesStopOnHit:
-  - {fileID: 0}
+  - {fileID: 198856432244193480}
   objectsScaleDownOnHit:
   - {fileID: 23842366466382728}
   spellOnHitPlayerId: 1
@@ -8865,7 +8865,7 @@ MonoBehaviour:
   particlesPlayOnHit:
   - {fileID: 198200226709282858}
   particlesStopOnHit:
-  - {fileID: 0}
+  - {fileID: 198485902044082238}
   objectsScaleDownOnHit:
   - {fileID: 23591851844122640}
   spellOnHitPlayerId: 0
@@ -8885,7 +8885,7 @@ MonoBehaviour:
   particlesPlayOnHit:
   - {fileID: 198328465231304492}
   particlesStopOnHit:
-  - {fileID: 0}
+  - {fileID: 198832076932562814}
   objectsScaleDownOnHit:
   - {fileID: 23805158714309696}
   spellOnHitPlayerId: 0
@@ -8905,7 +8905,7 @@ MonoBehaviour:
   particlesPlayOnHit:
   - {fileID: 198075100123065358}
   particlesStopOnHit:
-  - {fileID: 0}
+  - {fileID: 198039641062318740}
   objectsScaleDownOnHit:
   - {fileID: 23447794706396134}
   spellOnHitPlayerId: 1
@@ -8951,7 +8951,7 @@ MonoBehaviour:
   particlesPlayOnHit:
   - {fileID: 198814338179570648}
   particlesStopOnHit:
-  - {fileID: 0}
+  - {fileID: 198697858743631028}
   objectsScaleDownOnHit:
   - {fileID: 23718750129160866}
   spellOnHitPlayerId: 1
@@ -9099,7 +9099,7 @@ MonoBehaviour:
   particlesPlayOnHit:
   - {fileID: 198473353312618104}
   particlesStopOnHit:
-  - {fileID: 0}
+  - {fileID: 198242460805027586}
   objectsScaleDownOnHit:
   - {fileID: 23468766973994104}
   spellOnHitPlayerId: 0
@@ -9215,7 +9215,7 @@ MonoBehaviour:
   particlesPlayOnHit:
   - {fileID: 198022074769227118}
   particlesStopOnHit:
-  - {fileID: 0}
+  - {fileID: 198757283102984356}
   objectsScaleDownOnHit:
   - {fileID: 23275906182615912}
   spellOnHitPlayerId: 1
@@ -9261,7 +9261,7 @@ MonoBehaviour:
   particlesPlayOnHit:
   - {fileID: 198466798369616224}
   particlesStopOnHit:
-  - {fileID: 0}
+  - {fileID: 198249435986128418}
   objectsScaleDownOnHit:
   - {fileID: 23624843293473124}
   spellOnHitPlayerId: 0
@@ -9307,7 +9307,7 @@ MonoBehaviour:
   particlesPlayOnHit:
   - {fileID: 198205764710265912}
   particlesStopOnHit:
-  - {fileID: 0}
+  - {fileID: 198738143627229312}
   objectsScaleDownOnHit:
   - {fileID: 23967421558474374}
   spellOnHitPlayerId: 0
@@ -9351,7 +9351,7 @@ MonoBehaviour:
   particlesPlayOnHit:
   - {fileID: 198965293739917842}
   particlesStopOnHit:
-  - {fileID: 0}
+  - {fileID: 198738650734846370}
   objectsScaleDownOnHit:
   - {fileID: 23619078629582978}
   spellOnHitPlayerId: 0
@@ -9371,7 +9371,7 @@ MonoBehaviour:
   particlesPlayOnHit:
   - {fileID: 198650251607084770}
   particlesStopOnHit:
-  - {fileID: 0}
+  - {fileID: 198164766523036700}
   objectsScaleDownOnHit:
   - {fileID: 23983544161534526}
   spellOnHitPlayerId: 1
@@ -22633,7 +22633,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 2
-  randomSeed: 335266415
+  randomSeed: 2088732390
   InitialModule:
     serializedVersion: 3
     enabled: 1

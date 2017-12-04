@@ -37,7 +37,7 @@ public class NetworkController : MonoBehaviour
       MaxPlayers = 2
     };
     PhotonNetwork.player.NickName = GameManager.instance.name;
-    PhotonNetwork.ConnectUsingSettings("0.9");
+    PhotonNetwork.ConnectUsingSettings("0.10");
   }
 
   protected void OnDestroy()
