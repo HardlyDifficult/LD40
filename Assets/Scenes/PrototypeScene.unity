@@ -244,37 +244,6 @@ Prefab:
 Transform:
   m_PrefabParentObject: {fileID: 400004, guid: 25191ae6797a5984e82b86d0c70136f4, type: 3}
   m_PrefabInternal: {fileID: 16887629}
---- !u!1 &25506356 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1018020297536646, guid: 5742984c959059740b847dee9f738df0,
-    type: 2}
-  m_PrefabInternal: {fileID: 1002999993}
---- !u!114 &25506358
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 25506356}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9de1c1ab42a84c042960a48b90212d59, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  spellPlayerId: 1
-  spellId: 3
-  spellEnabled: 0
-  spellTransitionTime: 5
-  spellRandomizeTime: 10
-  displacementBias: {x: 0, y: 1, z: 0}
-  magnitudeMin: {x: 0.15, y: 0.1, z: 0.15}
-  magnitudeMax: {x: 0.3, y: 0.2, z: 0.3}
-  speedMin: {x: 0.4, y: 0.4, z: 0.4}
-  speedMax: {x: 0.6, y: 0.6, z: 0.6}
-  magnitude2Min: {x: 0.1, y: 0.05, z: 0.1}
-  magnitude2Max: {x: 0.2, y: 0.1, z: 0.2}
-  speed2Min: {x: 0.2, y: 0.2, z: 0.2}
-  speed2Max: {x: 0.5, y: 0.5, z: 0.5}
-  animator: {fileID: 0}
 --- !u!1 &36634741
 GameObject:
   m_ObjectHideFlags: 0
@@ -413,68 +382,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 18
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &115270506 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1568241433276676, guid: 5742984c959059740b847dee9f738df0,
-    type: 2}
-  m_PrefabInternal: {fileID: 1002999993}
---- !u!114 &115270508
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 115270506}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9de1c1ab42a84c042960a48b90212d59, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  spellPlayerId: 1
-  spellId: 3
-  spellEnabled: 0
-  spellTransitionTime: 5
-  spellRandomizeTime: 10
-  displacementBias: {x: 0, y: 1, z: 0}
-  magnitudeMin: {x: 0.15, y: 0.1, z: 0.15}
-  magnitudeMax: {x: 0.3, y: 0.2, z: 0.3}
-  speedMin: {x: 0.4, y: 0.4, z: 0.4}
-  speedMax: {x: 0.6, y: 0.6, z: 0.6}
-  magnitude2Min: {x: 0.1, y: 0.05, z: 0.1}
-  magnitude2Max: {x: 0.2, y: 0.1, z: 0.2}
-  speed2Min: {x: 0.2, y: 0.2, z: 0.2}
-  speed2Max: {x: 0.5, y: 0.5, z: 0.5}
-  animator: {fileID: 0}
---- !u!1 &115917311 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1811890173418372, guid: 5742984c959059740b847dee9f738df0,
-    type: 2}
-  m_PrefabInternal: {fileID: 1002999993}
---- !u!114 &115917313
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 115917311}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9de1c1ab42a84c042960a48b90212d59, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  spellPlayerId: 1
-  spellId: 3
-  spellEnabled: 0
-  spellTransitionTime: 5
-  spellRandomizeTime: 10
-  displacementBias: {x: 0, y: 1, z: 0}
-  magnitudeMin: {x: 0.15, y: 0.1, z: 0.15}
-  magnitudeMax: {x: 0.3, y: 0.2, z: 0.3}
-  speedMin: {x: 0.4, y: 0.4, z: 0.4}
-  speedMax: {x: 0.6, y: 0.6, z: 0.6}
-  magnitude2Min: {x: 0.1, y: 0.05, z: 0.1}
-  magnitude2Max: {x: 0.2, y: 0.1, z: 0.2}
-  speed2Min: {x: 0.2, y: 0.2, z: 0.2}
-  speed2Max: {x: 0.5, y: 0.5, z: 0.5}
-  animator: {fileID: 0}
 --- !u!1 &167107478
 GameObject:
   m_ObjectHideFlags: 0
@@ -498,7 +405,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 167107478}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 270, z: 0}
+  m_LocalPosition: {x: 0, y: 292.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 491218720}
@@ -711,6 +618,60 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 19
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &335528607
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 1579195965494366, guid: b37deb4345b713441acabd2cd52f0116,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 335528608}
+  - component: {fileID: 335528609}
+  m_Layer: 5
+  m_Name: YourSpells
+  m_TagString: AFK
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &335528608
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 224224827659567338, guid: b37deb4345b713441acabd2cd52f0116,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 335528607}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -471.40002, y: 306, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 826143559}
+  - {fileID: 402508236}
+  m_Father: {fileID: 916500244}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 54.6, y: -18.5}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &335528609
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 114428761755314732, guid: b37deb4345b713441acabd2cd52f0116,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 335528607}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea76fed103e75cc48834760aafe7ea9f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  colorPlayers:
+  - {r: 0.18039216, g: 0.56078434, b: 0.8078432, a: 1}
+  - {r: 1, g: 0.24705884, b: 0.2901961, a: 1}
+  spellPlayerId: -1
 --- !u!1001 &339332224
 Prefab:
   m_ObjectHideFlags: 0
@@ -785,7 +746,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 348565217}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 286.5, y: -237.00002, z: 0}
+  m_LocalPosition: {x: 324, y: -259.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 916500244}
@@ -1031,6 +992,84 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &402508235
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 1950887137896410, guid: b37deb4345b713441acabd2cd52f0116,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 402508236}
+  - component: {fileID: 402508238}
+  - component: {fileID: 402508237}
+  m_Layer: 5
+  m_Name: Text (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &402508236
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 224553030911075434, guid: b37deb4345b713441acabd2cd52f0116,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 402508235}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 200, y: -30.799988, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 335528608}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0.5}
+  m_AnchorMax: {x: 0, y: 0.5}
+  m_AnchoredPosition: {x: 250, y: -30.799988}
+  m_SizeDelta: {x: 500, y: 300}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &402508237
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 114245141848543836, guid: b37deb4345b713441acabd2cd52f0116,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 402508235}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 14
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 10
+    m_MaxSize: 40
+    m_Alignment: 3
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: details
+--- !u!222 &402508238
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 222092994371745910, guid: b37deb4345b713441acabd2cd52f0116,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 402508235}
 --- !u!1001 &408987972
 Prefab:
   m_ObjectHideFlags: 0
@@ -1303,37 +1342,6 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 491218719}
---- !u!1 &499743632 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1555780804212780, guid: 5742984c959059740b847dee9f738df0,
-    type: 2}
-  m_PrefabInternal: {fileID: 1002999993}
---- !u!114 &499743634
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 499743632}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9de1c1ab42a84c042960a48b90212d59, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  spellPlayerId: 1
-  spellId: 3
-  spellEnabled: 0
-  spellTransitionTime: 5
-  spellRandomizeTime: 10
-  displacementBias: {x: 0, y: 1, z: 0}
-  magnitudeMin: {x: 0.15, y: 0.1, z: 0.15}
-  magnitudeMax: {x: 0.3, y: 0.2, z: 0.3}
-  speedMin: {x: 0.4, y: 0.4, z: 0.4}
-  speedMax: {x: 0.6, y: 0.6, z: 0.6}
-  magnitude2Min: {x: 0.1, y: 0.05, z: 0.1}
-  magnitude2Max: {x: 0.2, y: 0.1, z: 0.2}
-  speed2Min: {x: 0.2, y: 0.2, z: 0.2}
-  speed2Max: {x: 0.5, y: 0.5, z: 0.5}
-  animator: {fileID: 0}
 --- !u!1 &510608342
 GameObject:
   m_ObjectHideFlags: 0
@@ -1944,37 +1952,84 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 762130167}
---- !u!1 &836501210 stripped
+--- !u!1 &826143558
 GameObject:
-  m_PrefabParentObject: {fileID: 1700603358968936, guid: 5742984c959059740b847dee9f738df0,
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 1356855266538538, guid: b37deb4345b713441acabd2cd52f0116,
     type: 2}
-  m_PrefabInternal: {fileID: 1002999993}
---- !u!114 &836501212
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 826143559}
+  - component: {fileID: 826143561}
+  - component: {fileID: 826143560}
+  m_Layer: 5
+  m_Name: Text
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &826143559
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 224036083197673570, guid: b37deb4345b713441acabd2cd52f0116,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 826143558}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 200, y: -8, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 335528608}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0.5}
+  m_AnchorMax: {x: 0, y: 0.5}
+  m_AnchoredPosition: {x: 250, y: -8}
+  m_SizeDelta: {x: 500, y: 40.6}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &826143560
 MonoBehaviour:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
+  m_PrefabParentObject: {fileID: 114607290462656188, guid: b37deb4345b713441acabd2cd52f0116,
+    type: 2}
   m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 836501210}
+  m_GameObject: {fileID: 826143558}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9de1c1ab42a84c042960a48b90212d59, type: 3}
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spellPlayerId: 1
-  spellId: 3
-  spellEnabled: 0
-  spellTransitionTime: 5
-  spellRandomizeTime: 10
-  displacementBias: {x: 0, y: 1, z: 0}
-  magnitudeMin: {x: 0.15, y: 0.1, z: 0.15}
-  magnitudeMax: {x: 0.3, y: 0.2, z: 0.3}
-  speedMin: {x: 0.4, y: 0.4, z: 0.4}
-  speedMax: {x: 0.6, y: 0.6, z: 0.6}
-  magnitude2Min: {x: 0.1, y: 0.05, z: 0.1}
-  magnitude2Max: {x: 0.2, y: 0.1, z: 0.2}
-  speed2Min: {x: 0.2, y: 0.2, z: 0.2}
-  speed2Max: {x: 0.5, y: 0.5, z: 0.5}
-  animator: {fileID: 0}
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 30
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 3
+    m_MaxSize: 40
+    m_Alignment: 3
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: You are under 0 spell
+--- !u!222 &826143561
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 222345447313036902, guid: b37deb4345b713441acabd2cd52f0116,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 826143558}
 --- !u!1001 &842766039
 Prefab:
   m_ObjectHideFlags: 0
@@ -2119,37 +2174,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 25191ae6797a5984e82b86d0c70136f4, type: 3}
   m_IsPrefabParent: 0
---- !u!1 &859870162 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1072027235558614, guid: 5742984c959059740b847dee9f738df0,
-    type: 2}
-  m_PrefabInternal: {fileID: 1002999993}
---- !u!114 &859870164
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 859870162}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9de1c1ab42a84c042960a48b90212d59, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  spellPlayerId: 1
-  spellId: 3
-  spellEnabled: 0
-  spellTransitionTime: 5
-  spellRandomizeTime: 10
-  displacementBias: {x: 0, y: 1, z: 0}
-  magnitudeMin: {x: 0.15, y: 0.1, z: 0.15}
-  magnitudeMax: {x: 0.3, y: 0.2, z: 0.3}
-  speedMin: {x: 0.4, y: 0.4, z: 0.4}
-  speedMax: {x: 0.6, y: 0.6, z: 0.6}
-  magnitude2Min: {x: 0.1, y: 0.05, z: 0.1}
-  magnitude2Max: {x: 0.2, y: 0.1, z: 0.2}
-  speed2Min: {x: 0.2, y: 0.2, z: 0.2}
-  speed2Max: {x: 0.5, y: 0.5, z: 0.5}
-  animator: {fileID: 0}
 --- !u!1 &916500240
 GameObject:
   m_ObjectHideFlags: 0
@@ -2233,7 +2257,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 916500240}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 488.5, y: 302, z: 0}
+  m_LocalPosition: {x: 526, y: 324.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 639051175}
@@ -2241,6 +2265,8 @@ RectTransform:
   - {fileID: 348565218}
   - {fileID: 1069331128}
   - {fileID: 167107479}
+  - {fileID: 335528608}
+  - {fileID: 1479487034}
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2262,6 +2288,84 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   powerMeter: {fileID: 0}
   arcMeter: {fileID: 0}
+--- !u!1 &991149740
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 1987754019992582, guid: b37deb4345b713441acabd2cd52f0116,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 991149741}
+  - component: {fileID: 991149743}
+  - component: {fileID: 991149742}
+  m_Layer: 5
+  m_Name: Text (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &991149741
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 224786948836626164, guid: b37deb4345b713441acabd2cd52f0116,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 991149740}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -184, y: -30.799988, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1479487034}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -184, y: -30.799988}
+  m_SizeDelta: {x: 430.8, y: 300}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &991149742
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 114032587130540322, guid: b37deb4345b713441acabd2cd52f0116,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 991149740}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 14
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 10
+    m_MaxSize: 40
+    m_Alignment: 5
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: details
+--- !u!222 &991149743
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 222737920796281796, guid: b37deb4345b713441acabd2cd52f0116,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 991149740}
 --- !u!1001 &1002999993
 Prefab:
   m_ObjectHideFlags: 0
@@ -2744,37 +2848,84 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b7630443a39dcdd42988fac60c982cf5, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &1163729336 stripped
+--- !u!1 &1251811241
 GameObject:
-  m_PrefabParentObject: {fileID: 1483335362386668, guid: 5742984c959059740b847dee9f738df0,
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 1573734769483982, guid: b37deb4345b713441acabd2cd52f0116,
     type: 2}
-  m_PrefabInternal: {fileID: 1002999993}
---- !u!114 &1163729338
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1251811242}
+  - component: {fileID: 1251811244}
+  - component: {fileID: 1251811243}
+  m_Layer: 5
+  m_Name: Text
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1251811242
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 224794795528715368, guid: b37deb4345b713441acabd2cd52f0116,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1251811241}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -184, y: -8, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1479487034}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -184, y: -8}
+  m_SizeDelta: {x: 430.8, y: 40.6}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1251811243
 MonoBehaviour:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
+  m_PrefabParentObject: {fileID: 114927517677890126, guid: b37deb4345b713441acabd2cd52f0116,
+    type: 2}
   m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1163729336}
+  m_GameObject: {fileID: 1251811241}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9de1c1ab42a84c042960a48b90212d59, type: 3}
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spellPlayerId: 1
-  spellId: 3
-  spellEnabled: 0
-  spellTransitionTime: 5
-  spellRandomizeTime: 10
-  displacementBias: {x: 0, y: 1, z: 0}
-  magnitudeMin: {x: 0.15, y: 0.1, z: 0.15}
-  magnitudeMax: {x: 0.3, y: 0.2, z: 0.3}
-  speedMin: {x: 0.4, y: 0.4, z: 0.4}
-  speedMax: {x: 0.6, y: 0.6, z: 0.6}
-  magnitude2Min: {x: 0.1, y: 0.05, z: 0.1}
-  magnitude2Max: {x: 0.2, y: 0.1, z: 0.2}
-  speed2Min: {x: 0.2, y: 0.2, z: 0.2}
-  speed2Max: {x: 0.5, y: 0.5, z: 0.5}
-  animator: {fileID: 0}
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 30
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 3
+    m_MaxSize: 40
+    m_Alignment: 5
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: Your opponent is under 0 spell
+--- !u!222 &1251811244
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 222351552687747840, guid: b37deb4345b713441acabd2cd52f0116,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1251811241}
 --- !u!1001 &1257209788
 Prefab:
   m_ObjectHideFlags: 0
@@ -2995,37 +3146,6 @@ Transform:
   m_PrefabParentObject: {fileID: 4729691317078298, guid: 2aa8b3685d56c2b46a708adb9035d4e0,
     type: 2}
   m_PrefabInternal: {fileID: 1382226709}
---- !u!1 &1416775195 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1807839462332838, guid: 5742984c959059740b847dee9f738df0,
-    type: 2}
-  m_PrefabInternal: {fileID: 1002999993}
---- !u!114 &1416775197
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1416775195}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9de1c1ab42a84c042960a48b90212d59, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  spellPlayerId: 1
-  spellId: 3
-  spellEnabled: 0
-  spellTransitionTime: 5
-  spellRandomizeTime: 10
-  displacementBias: {x: 0, y: 1, z: 0}
-  magnitudeMin: {x: 0.15, y: 0.1, z: 0.15}
-  magnitudeMax: {x: 0.3, y: 0.2, z: 0.3}
-  speedMin: {x: 0.4, y: 0.4, z: 0.4}
-  speedMax: {x: 0.6, y: 0.6, z: 0.6}
-  magnitude2Min: {x: 0.1, y: 0.05, z: 0.1}
-  magnitude2Max: {x: 0.2, y: 0.1, z: 0.2}
-  speed2Min: {x: 0.2, y: 0.2, z: 0.2}
-  speed2Max: {x: 0.5, y: 0.5, z: 0.5}
-  animator: {fileID: 0}
 --- !u!1001 &1419320598
 Prefab:
   m_ObjectHideFlags: 0
@@ -3166,6 +3286,60 @@ Prefab:
 Transform:
   m_PrefabParentObject: {fileID: 400000, guid: 48ad52966d3289245864a8b5cdcb000c, type: 3}
   m_PrefabInternal: {fileID: 1460012174}
+--- !u!1 &1479487033
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 1025255461978048, guid: b37deb4345b713441acabd2cd52f0116,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1479487034}
+  - component: {fileID: 1479487035}
+  m_Layer: 5
+  m_Name: OpponentSpells
+  m_TagString: AFK
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1479487034
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 224517247332463970, guid: b37deb4345b713441acabd2cd52f0116,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1479487033}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 476.5, y: 305.4, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1251811242}
+  - {fileID: 991149741}
+  m_Father: {fileID: 916500244}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 1, y: 1}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -49.5, y: -19.100006}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1479487035
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 114842243424425770, guid: b37deb4345b713441acabd2cd52f0116,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1479487033}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea76fed103e75cc48834760aafe7ea9f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  colorPlayers:
+  - {r: 0.18039216, g: 0.56078434, b: 0.8078432, a: 1}
+  - {r: 1, g: 0.24705884, b: 0.2901961, a: 1}
+  spellPlayerId: -2
 --- !u!1001 &1534420414
 Prefab:
   m_ObjectHideFlags: 0
@@ -3212,37 +3386,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2ed3b8dc473f25b4b87dd97f84d40f91, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &1596564658 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1799239749430782, guid: 5742984c959059740b847dee9f738df0,
-    type: 2}
-  m_PrefabInternal: {fileID: 1002999993}
---- !u!114 &1596564660
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1596564658}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9de1c1ab42a84c042960a48b90212d59, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  spellPlayerId: 1
-  spellId: 3
-  spellEnabled: 0
-  spellTransitionTime: 5
-  spellRandomizeTime: 10
-  displacementBias: {x: 0, y: 1, z: 0}
-  magnitudeMin: {x: 0.15, y: 0.1, z: 0.15}
-  magnitudeMax: {x: 0.3, y: 0.2, z: 0.3}
-  speedMin: {x: 0.4, y: 0.4, z: 0.4}
-  speedMax: {x: 0.6, y: 0.6, z: 0.6}
-  magnitude2Min: {x: 0.1, y: 0.05, z: 0.1}
-  magnitude2Max: {x: 0.2, y: 0.1, z: 0.2}
-  speed2Min: {x: 0.2, y: 0.2, z: 0.2}
-  speed2Max: {x: 0.5, y: 0.5, z: 0.5}
-  animator: {fileID: 0}
 --- !u!1001 &1608983314
 Prefab:
   m_ObjectHideFlags: 0
@@ -3380,37 +3523,6 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1661334723}
---- !u!1 &1661497341 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1806350969740072, guid: 5742984c959059740b847dee9f738df0,
-    type: 2}
-  m_PrefabInternal: {fileID: 1002999993}
---- !u!114 &1661497343
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1661497341}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9de1c1ab42a84c042960a48b90212d59, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  spellPlayerId: 1
-  spellId: 3
-  spellEnabled: 0
-  spellTransitionTime: 5
-  spellRandomizeTime: 10
-  displacementBias: {x: 0, y: 1, z: 0}
-  magnitudeMin: {x: 0.15, y: 0.1, z: 0.15}
-  magnitudeMax: {x: 0.3, y: 0.2, z: 0.3}
-  speedMin: {x: 0.4, y: 0.4, z: 0.4}
-  speedMax: {x: 0.6, y: 0.6, z: 0.6}
-  magnitude2Min: {x: 0.1, y: 0.05, z: 0.1}
-  magnitude2Max: {x: 0.2, y: 0.1, z: 0.2}
-  speed2Min: {x: 0.2, y: 0.2, z: 0.2}
-  speed2Max: {x: 0.5, y: 0.5, z: 0.5}
-  animator: {fileID: 0}
 --- !u!1001 &1698335890
 Prefab:
   m_ObjectHideFlags: 0
@@ -3571,99 +3683,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeBetweenDots: 0.5
---- !u!1 &1787281154 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1715869724304044, guid: 5742984c959059740b847dee9f738df0,
-    type: 2}
-  m_PrefabInternal: {fileID: 1002999993}
---- !u!114 &1787281156
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1787281154}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9de1c1ab42a84c042960a48b90212d59, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  spellPlayerId: 1
-  spellId: 3
-  spellEnabled: 0
-  spellTransitionTime: 5
-  spellRandomizeTime: 10
-  displacementBias: {x: 0, y: 1, z: 0}
-  magnitudeMin: {x: 0.15, y: 0.1, z: 0.15}
-  magnitudeMax: {x: 0.3, y: 0.2, z: 0.3}
-  speedMin: {x: 0.4, y: 0.4, z: 0.4}
-  speedMax: {x: 0.6, y: 0.6, z: 0.6}
-  magnitude2Min: {x: 0.1, y: 0.05, z: 0.1}
-  magnitude2Max: {x: 0.2, y: 0.1, z: 0.2}
-  speed2Min: {x: 0.2, y: 0.2, z: 0.2}
-  speed2Max: {x: 0.5, y: 0.5, z: 0.5}
-  animator: {fileID: 0}
---- !u!1 &1804031716 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1968653468692464, guid: 5742984c959059740b847dee9f738df0,
-    type: 2}
-  m_PrefabInternal: {fileID: 1002999993}
---- !u!114 &1804031718
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1804031716}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9de1c1ab42a84c042960a48b90212d59, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  spellPlayerId: 1
-  spellId: 3
-  spellEnabled: 0
-  spellTransitionTime: 5
-  spellRandomizeTime: 10
-  displacementBias: {x: 0, y: 1, z: 0}
-  magnitudeMin: {x: 0.15, y: 0.1, z: 0.15}
-  magnitudeMax: {x: 0.3, y: 0.2, z: 0.3}
-  speedMin: {x: 0.4, y: 0.4, z: 0.4}
-  speedMax: {x: 0.6, y: 0.6, z: 0.6}
-  magnitude2Min: {x: 0.1, y: 0.05, z: 0.1}
-  magnitude2Max: {x: 0.2, y: 0.1, z: 0.2}
-  speed2Min: {x: 0.2, y: 0.2, z: 0.2}
-  speed2Max: {x: 0.5, y: 0.5, z: 0.5}
-  animator: {fileID: 0}
---- !u!1 &1836959194 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1041827157775350, guid: 5742984c959059740b847dee9f738df0,
-    type: 2}
-  m_PrefabInternal: {fileID: 1002999993}
---- !u!114 &1836959196
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1836959194}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9de1c1ab42a84c042960a48b90212d59, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  spellPlayerId: 1
-  spellId: 3
-  spellEnabled: 0
-  spellTransitionTime: 5
-  spellRandomizeTime: 10
-  displacementBias: {x: 0, y: 1, z: 0}
-  magnitudeMin: {x: 0.15, y: 0.1, z: 0.15}
-  magnitudeMax: {x: 0.3, y: 0.2, z: 0.3}
-  speedMin: {x: 0.4, y: 0.4, z: 0.4}
-  speedMax: {x: 0.6, y: 0.6, z: 0.6}
-  magnitude2Min: {x: 0.1, y: 0.05, z: 0.1}
-  magnitude2Max: {x: 0.2, y: 0.1, z: 0.2}
-  speed2Min: {x: 0.2, y: 0.2, z: 0.2}
-  speed2Max: {x: 0.5, y: 0.5, z: 0.5}
-  animator: {fileID: 0}
 --- !u!1001 &1914643760
 Prefab:
   m_ObjectHideFlags: 0
@@ -3799,7 +3818,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1927386809}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 416.6, y: -290, z: 0}
+  m_LocalPosition: {x: 454.1, y: -312.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 437964911}
@@ -3824,37 +3843,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   setActiveTo: 1
---- !u!1 &1927669747 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1930734348138522, guid: 5742984c959059740b847dee9f738df0,
-    type: 2}
-  m_PrefabInternal: {fileID: 1002999993}
---- !u!114 &1927669749
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1927669747}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9de1c1ab42a84c042960a48b90212d59, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  spellPlayerId: 1
-  spellId: 3
-  spellEnabled: 0
-  spellTransitionTime: 5
-  spellRandomizeTime: 10
-  displacementBias: {x: 0, y: 1, z: 0}
-  magnitudeMin: {x: 0.15, y: 0.1, z: 0.15}
-  magnitudeMax: {x: 0.3, y: 0.2, z: 0.3}
-  speedMin: {x: 0.4, y: 0.4, z: 0.4}
-  speedMax: {x: 0.6, y: 0.6, z: 0.6}
-  magnitude2Min: {x: 0.1, y: 0.05, z: 0.1}
-  magnitude2Max: {x: 0.2, y: 0.1, z: 0.2}
-  speed2Min: {x: 0.2, y: 0.2, z: 0.2}
-  speed2Max: {x: 0.5, y: 0.5, z: 0.5}
-  animator: {fileID: 0}
 --- !u!1001 &1940684011
 Prefab:
   m_ObjectHideFlags: 0
@@ -3912,37 +3900,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0c5e21d6a5f8c3a48a16806cee06a147, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &1982209076 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1083040782809494, guid: 5742984c959059740b847dee9f738df0,
-    type: 2}
-  m_PrefabInternal: {fileID: 1002999993}
---- !u!114 &1982209078
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1982209076}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9de1c1ab42a84c042960a48b90212d59, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  spellPlayerId: 1
-  spellId: 3
-  spellEnabled: 0
-  spellTransitionTime: 5
-  spellRandomizeTime: 10
-  displacementBias: {x: 0, y: 1, z: 0}
-  magnitudeMin: {x: 0.15, y: 0.1, z: 0.15}
-  magnitudeMax: {x: 0.3, y: 0.2, z: 0.3}
-  speedMin: {x: 0.4, y: 0.4, z: 0.4}
-  speedMax: {x: 0.6, y: 0.6, z: 0.6}
-  magnitude2Min: {x: 0.1, y: 0.05, z: 0.1}
-  magnitude2Max: {x: 0.2, y: 0.1, z: 0.2}
-  speed2Min: {x: 0.2, y: 0.2, z: 0.2}
-  speed2Max: {x: 0.5, y: 0.5, z: 0.5}
-  animator: {fileID: 0}
 --- !u!1001 &2022514766
 Prefab:
   m_ObjectHideFlags: 0
@@ -4242,37 +4199,6 @@ Prefab:
 Transform:
   m_PrefabParentObject: {fileID: 400004, guid: 25191ae6797a5984e82b86d0c70136f4, type: 3}
   m_PrefabInternal: {fileID: 2037301281}
---- !u!1 &2040759997 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1348462277942778, guid: 5742984c959059740b847dee9f738df0,
-    type: 2}
-  m_PrefabInternal: {fileID: 1002999993}
---- !u!114 &2040759999
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2040759997}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9de1c1ab42a84c042960a48b90212d59, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  spellPlayerId: 1
-  spellId: 3
-  spellEnabled: 0
-  spellTransitionTime: 5
-  spellRandomizeTime: 10
-  displacementBias: {x: 0, y: 1, z: 0}
-  magnitudeMin: {x: 0.15, y: 0.1, z: 0.15}
-  magnitudeMax: {x: 0.3, y: 0.2, z: 0.3}
-  speedMin: {x: 0.4, y: 0.4, z: 0.4}
-  speedMax: {x: 0.6, y: 0.6, z: 0.6}
-  magnitude2Min: {x: 0.1, y: 0.05, z: 0.1}
-  magnitude2Max: {x: 0.2, y: 0.1, z: 0.2}
-  speed2Min: {x: 0.2, y: 0.2, z: 0.2}
-  speed2Max: {x: 0.5, y: 0.5, z: 0.5}
-  animator: {fileID: 0}
 --- !u!1001 &2071408683
 Prefab:
   m_ObjectHideFlags: 0

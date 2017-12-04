@@ -7,25 +7,29 @@ using UnityEngine.UI;
 
 public class ButtonPlayNow : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
-    private Text buttonText;
+  private Text buttonText;
 
-    public void Play()
-    {
-        SceneManager.LoadScene("PrototypeScene");
-    }
+  [SerializeField]
+  Text nameText;
 
-    protected void Awake()
-    {
-        this.buttonText = this.GetComponentInChildren<Text>();
-    }
+  public void Play()
+  {
+    GameManager.instance.name = nameText.text;
+    SceneManager.LoadScene("PrototypeScene");
+  }
 
-    public void OnPointerEnter(PointerEventData eventData)
-    {
-        this.buttonText.color = Color.white;
-    }
+  protected void Awake()
+  {
+    this.buttonText = this.GetComponentInChildren<Text>();
+  }
 
-    public void OnPointerExit(PointerEventData eventData)
-    {
-        this.buttonText.color = Color.gray;
-    }
+  public void OnPointerEnter(PointerEventData eventData)
+  {
+    this.buttonText.color = Color.white;
+  }
+
+  public void OnPointerExit(PointerEventData eventData)
+  {
+    this.buttonText.color = Color.gray;
+  }
 }

@@ -81,7 +81,7 @@ public class BallThrower : MonoBehaviour
 
   void TurnController_onTurnChange()
   {
-    if (player.isMyTurn)
+    if (player.isMyTurn && photonView.isMine)
     {
       Reload();
     }

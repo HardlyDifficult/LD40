@@ -8,6 +8,8 @@ public class GameManager : MonoBehaviour
 
   public SharedData sharedData;
 
+  public string name;
+
   public GameObject currentBallPrefab
   {
     get
