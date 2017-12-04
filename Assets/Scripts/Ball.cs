@@ -5,7 +5,8 @@ public class Ball : MonoBehaviour
 {
   TurnController turnController;
 
-  GameObject visuals;
+  [HideInInspector]
+  public GameObject visuals;
 
   /// <summary>
   /// Set on spawn
@@ -19,8 +20,9 @@ public class Ball : MonoBehaviour
 
     visuals = transform.GetChild(player.isPlayer0 ? 0 : 1).gameObject;
     visuals.SetActive(true);
+    visuals.transform.position = new Vector3(1000, 1000, 10009);
     turnController.onTurnChange += TurnController_onTurnChange;
-    TurnController_onTurnChange();
+    //TurnController_onTurnChange();
   }
 
   protected void OnDestroy()
@@ -30,6 +32,7 @@ public class Ball : MonoBehaviour
 
   void TurnController_onTurnChange()
   {
-    visuals.SetActive(player.isMyTurn);
+    visuals.transform.position = Vector3.zero;
+    //visuals.SetActive(player.isMyTurn);
   }
 }

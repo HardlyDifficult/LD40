@@ -60,7 +60,6 @@ public class BallThrower : MonoBehaviour
     player = GetComponentInParent<Player>();
     turnController = GameObject.FindObjectOfType<TurnController>();
     turnController.onTurnChange += TurnController_onTurnChange;
-    TurnController_onTurnChange();
     photonView = GetComponent<PhotonView>();
 
     if (photonView.isMine)
@@ -154,7 +153,7 @@ public class BallThrower : MonoBehaviour
     }
   }
 
-  private void Reload()
+  void Reload()
   {
     holdingBall = true;
 
@@ -162,7 +161,9 @@ public class BallThrower : MonoBehaviour
     ballBody.useGravity = false;
     whenBallWasReleased = null;
 
-    ParticleSystem ballParticleSystem = ball.GetComponentInChildren<ParticleSystem>();
+    var visuals = ball.GetComponent<Ball>().visuals;
+    visuals.transform.localPosition = Vector3.zero;
+    ParticleSystem ballParticleSystem = visuals.GetComponent<ParticleSystem>();
     //if (ballParticleSystem)
     {
       ballParticleSystem.Simulate(player.isPlayer0 ? 1.5f : 0, true, true);
