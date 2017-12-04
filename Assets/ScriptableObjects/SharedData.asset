@@ -13,4 +13,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ballPrefabList:
   - {fileID: 1098487601202060, guid: 991fdad31f1775341a7be6b17f7000f3, type: 2}
-  - {fileID: 1634191047186162, guid: 40c100c996fbdb3429fe08ed6690d564, type: 2}
+  - {fileID: 0}
+  spellList:
+  - name: butterbeer
+  - name: inverso
+  - name: imprecio
+  - name: animatio
+  - name: snitchio
+  - name: disillusio
+  - name: cloudio
+  - name: twisto

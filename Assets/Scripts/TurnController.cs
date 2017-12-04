@@ -3,37 +3,57 @@ using UnityEngine;
 
 public class TurnController : MonoBehaviour
 {
+  #region Constants
   const int actionPointsPerTurn = 3;
+
+  const int pointsToWin = 8; 
+  #endregion
+
+  #region Data
+  public event Action<Player> onWin;
+   
+  public event Action onActionPointsChange;
 
   public event Action onTurnChange;
 
-  public event Action onActionPointsChange;
+  public int player1Score, player2Score;
 
   int _numberOfActionsRemaining = actionPointsPerTurn;
 
-  bool _isCurrentlyPlayer0sTurn = true;
+  bool _isCurrentlyFirstPlayersTurn = true;
 
+  /// <summary>
+  /// Owned by the scene. Support RPC calls.
+  /// </summary>
   PhotonView photonView;
+  #endregion
 
-  public bool isCurrentlyPlayer0sTurn
+  #region Properties
+  /// <summary>
+  /// Changing the turn resets action points and fires event.
+  /// </summary>
+  public bool isCurrentlyFirstPlayersTurn
   {
     get
     {
-      return _isCurrentlyPlayer0sTurn;
+      return _isCurrentlyFirstPlayersTurn;
     }
-    set
+    private set
     {
-      if(isCurrentlyPlayer0sTurn == value)
+      if (isCurrentlyFirstPlayersTurn == value)
       {
         return;
       }
 
-      _isCurrentlyPlayer0sTurn = value;
+      _isCurrentlyFirstPlayersTurn = value;
       _numberOfActionsRemaining = actionPointsPerTurn;
       onTurnChange?.Invoke();
     }
   }
 
+  /// <summary>
+  /// Setting action points to 0 triggers a turn change via RPC.
+  /// </summary>
   public int numberOfActionsRemaining
   {
     get
@@ -42,7 +62,7 @@ public class TurnController : MonoBehaviour
     }
     set
     {
-      if(numberOfActionsRemaining == value)
+      if (numberOfActionsRemaining == value)
       {
         return;
       }
@@ -50,12 +70,42 @@ public class TurnController : MonoBehaviour
       photonView.RPC("SetActionPoints", PhotonTargets.All, value);
     }
   }
+  #endregion
 
+  #region Init
   protected void Awake()
   {
     photonView = GetComponent<PhotonView>();
   }
+  #endregion
 
+  public void Score(
+    int scoringPlayerId)
+  {
+    if (scoringPlayerId == 0)
+    {
+      player1Score++;
+      if(player1Score >= pointsToWin)
+      {
+        onWin?.Invoke(Player.player1);
+      }
+    }
+    else
+    {
+      player2Score++;
+      if (player2Score >= pointsToWin)
+      {
+        onWin?.Invoke(Player.player2);
+      }
+    }
+  }
+
+  #region Private
+  /// <summary>
+  /// Used by the smart property above.
+  /// 
+  /// RPC call.
+  /// </summary>
   [PunRPC]
   void SetActionPoints(
     int value)
@@ -64,7 +114,8 @@ public class TurnController : MonoBehaviour
     onActionPointsChange?.Invoke();
     if (numberOfActionsRemaining <= 0)
     {
-      isCurrentlyPlayer0sTurn = !isCurrentlyPlayer0sTurn;
+      isCurrentlyFirstPlayersTurn = !isCurrentlyFirstPlayersTurn;
     }
   }
+  #endregion
 }

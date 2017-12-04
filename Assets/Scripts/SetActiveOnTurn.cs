@@ -27,7 +27,7 @@ public class SetActiveOnTurn : MonoBehaviour
 
   void Refresh()
   {
-    bool active = (PhotonNetwork.isMasterClient == turnController.isCurrentlyPlayer0sTurn) == onMyTurnSetActiveTo;
+    bool active = (PhotonNetwork.isMasterClient == turnController.isCurrentlyFirstPlayersTurn) == onMyTurnSetActiveTo;
     gameObject.SetActive(active);
   }
 }

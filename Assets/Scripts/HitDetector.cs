@@ -15,13 +15,41 @@ public class HitDetector : MonoBehaviour
   [SerializeField]
   MeshRenderer[] objectsScaleDownOnHit;
 
-  void Start()
+  [SerializeField]
+  public int spellOnHitPlayerId = -1; // -1 = local player
+  [SerializeField]
+  public int spellOnHitId = -1; // -1 = no spell linked to this detector
+
+#if UNITY_EDITOR
+    public bool editorHit;
+#endif
+
+  bool hasHit;
+
+  TurnController turnController;
+
+  protected void Awake()
   {
-    // enable this for quick tests
-    //winCheckRoutine = StartCoroutine(WinCheck());
+    turnController = GameObject.FindObjectOfType<TurnController>();
   }
 
-  protected void OnTriggerEnter(
+  //void Start()
+  //{
+  //  // enable this for quick tests
+  //  //winCheckRoutine = StartCoroutine(WinCheck());
+  //}
+
+#if UNITY_EDITOR
+  void Update()
+  {
+    if (editorHit && winCheckRoutine == null)
+    {
+      winCheckRoutine = StartCoroutine(WinCheck());
+    }
+  }
+#endif
+
+    protected void OnTriggerEnter(
     Collider collider)
   {
     if (winCheckRoutine != null)
@@ -33,9 +61,19 @@ public class HitDetector : MonoBehaviour
 
   IEnumerator WinCheck()
   {
+    if(hasHit)
+    {
+      yield break;
+    }
     yield return new WaitForSeconds(1);
+    hasHit = true;
     print("Nailed it!");
+    turnController.Score(spellOnHitPlayerId == 0 ? 1 : 0);
     winCheckRoutine = null;
+    if (spellOnHitId != -1)
+    {
+      PlayerSpellsManager.instance.SetPlayerSpellStatus(spellOnHitPlayerId, spellOnHitId, true);
+    }
     for (int i = 0; i < particlesPlayOnHit.Length; i++)
     {
       particlesPlayOnHit[i]?.Play();

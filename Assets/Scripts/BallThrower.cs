@@ -6,13 +6,9 @@ using UnityEngine;
 public class BallThrower : MonoBehaviour
 {
   #region Data
-  public delegate void OnPlayerSpawn(PhotonView photonView);
-  public static event OnPlayerSpawn onPlayerSpawn;
-
   [SerializeField]
   float throwStrength;
 
-  // Could probably be automatic somehow
   [Header("Screen positions")]
   [SerializeField]
   float minX;
@@ -26,21 +22,28 @@ public class BallThrower : MonoBehaviour
   [SerializeField]
   float maxY;
 
-  // Ball
-  GameObject ball;
+  /// <summary>
+  /// Adjust to change the feel of the throw.
+  /// </summary>
+  [SerializeField]
+  int maxPositionListLength = 10;
 
-  Rigidbody ballBody;
+  /// <summary>
+  /// Used to reject small (e.g. accidental) movements / launches.
+  /// </summary>
+  [SerializeField]
+  float minThrowMag = .05f;
+
+  [SerializeField]
+  float minTimeTillReset = 1;
+
+  Ball ball;
 
   bool holdingBall;
 
-  Vector3 originalBallPosition;
-
   readonly LinkedList<Vector3> positionList = new LinkedList<Vector3>();
 
-  LineRenderer line;
-
-  Coroutine indicatorRoutine;
-
+  // TODO
   [SerializeField]
   GameObject wand;
 
@@ -51,11 +54,11 @@ public class BallThrower : MonoBehaviour
 
   PhotonView photonView;
 
-  ParticleSystem ballParticleSystem;
-
   TurnController turnController;
 
   Player player;
+
+  Coroutine shotRoutine;
   #endregion
 
   #region Init
@@ -63,38 +66,21 @@ public class BallThrower : MonoBehaviour
   {
     player = GetComponentInParent<Player>();
     turnController = GameObject.FindObjectOfType<TurnController>();
+    turnController.onTurnChange += TurnController_onTurnChange;
     photonView = GetComponent<PhotonView>();
 
     if (photonView.isMine)
     {
-      ball = PhotonNetwork.Instantiate(GameManager.instance.currentBallPrefab.name, transform.position, transform.rotation, 0);
+      ball = PhotonNetwork.Instantiate(GameManager.instance.currentBallPrefab.name, transform.position, transform.rotation, 0).GetComponent<Ball>();
+      ball.player = player;
       PhotonView ballsView = ball.GetComponent<PhotonView>();
       ballsView.RequestOwnership();
-      ball.GetComponent<Rigidbody>().useGravity = false;
-      ballBody = ball.GetComponent<Rigidbody>();
-      ballParticleSystem = ball.GetComponent<ParticleSystem>();
     }
-    onPlayerSpawn?.Invoke(photonView);
-
-    if (wand != null)
-    {
-      //ballBody.gameObject.SetActive(false);
-    }
-
-    line = GetComponent<LineRenderer>();
   }
 
-  protected void Start()
+  protected void OnDestroy()
   {
-    if (photonView.isMine)
-    {
-      if (wand != null)
-      {
-        ballBody.transform.position = wand.transform.position;
-      }
-    }
-
-    originalBallPosition = ball != null ? ball.transform.position : Vector3.zero;
+    turnController.onTurnChange -= TurnController_onTurnChange;
   }
   #endregion
 
@@ -102,131 +88,135 @@ public class BallThrower : MonoBehaviour
   protected void Update()
   {
     if (photonView.isMine == false
-      || player.isMyTurn == false)
-    {
+      || player.isMyTurn == false
+      || shotRoutine != null)
+    { // Busy
       return;
     }
-    ConsiderReloading();
 
-    if (whenBallWasReleased == null)
+    ConsiderReload();
+
+    if (holdingBall)
     {
-      //UIController.instance.arcMeter.UpdateArc();
+      Aim();
+      Shoot();
     }
+  }
 
-    Aim();
-
-    Shoot();
+  void TurnController_onTurnChange()
+  {
+    if (player.isMyTurn && photonView.isMine)
+    {
+      Reload();
+    }
   }
   #endregion
 
+  #region Private Write
+  void ConsiderReload()
+  {
+    if (holdingBall
+      || Time.timeSinceLevelLoad - whenBallWasReleased < minTimeTillReset)
+    {
+      return;
+    }
+
+    if (Input.GetMouseButton(0)
+      || Time.timeSinceLevelLoad - whenBallWasReleased > timeTillBallReset
+      || Input.GetMouseButtonDown(1))
+    {
+      Reload();
+    }
+  }
+
+  void Reload()
+  {
+    holdingBall = true;
+    whenBallWasReleased = null;
+    ball.ShowBall();
+  }
 
   void Aim()
   {
-    if (Input.GetMouseButton(0))
+    Debug.Assert(holdingBall);
+
+    SetBallPosition(Input.mousePosition);
+    positionList.AddFirst(ball.transform.position);
+
+    if (positionList.Count > maxPositionListLength)
     {
-      if (!holdingBall)
-      {
-        holdingBall = true;
-
-        ballBody.velocity = Vector3.zero;
-        ballBody.useGravity = false;
-      }
-      else
-      {
-        SetBallPosition(Input.mousePosition);
-        positionList.AddFirst(ball.transform.position);
-
-        // Only store the last 10 positions - play with this value for results
-        if (positionList.Count > 10)
-        {
-          positionList.RemoveLast();
-        }
-      }
+      positionList.RemoveLast();
     }
   }
 
   void Shoot()
   {
-    if (Input.GetMouseButtonUp(0))
-    {
-      if (holdingBall)
-      {
-        Vector3 direction;
-        if (GetThrowMagnitude(out direction) == false)
-        {
-          ball.transform.position = originalBallPosition;
-          // NOT THROWN STUFF
-        }
-        else
-        {
-          ThrowBall(direction);
-        }
+    Debug.Assert(holdingBall);
 
-        holdingBall = false;
-        positionList.Clear();
-      }
-    }
-  }
-
-  void ConsiderReloading()
-  {
-    return; // TODO
-    if (whenBallWasReleased == null)
+    if (Input.GetMouseButtonUp(0) == false)
     {
       return;
     }
 
-    if (Time.timeSinceLevelLoad - whenBallWasReleased > timeTillBallReset
-      || Input.GetMouseButtonDown(1))
+    Vector3 direction;
+    if (GetThrowMagnitude(out direction))
     {
-      whenBallWasReleased = null;
-      ballBody.transform.position = originalBallPosition;
-      ballBody.useGravity = false;
-      ballBody.velocity = Vector3.zero;
-      if (wand != null)
-      {
-        //ballBody.gameObject.SetActive(false);
-        if (ballParticleSystem)
-        {
-          ballParticleSystem.Simulate(1, true, true);
-          ballParticleSystem.Play();
-        }
-      }
-      UIController.instance.EnableThrowUI();
+      ThrowBall(direction);
     }
+
+    positionList.Clear();
   }
 
   void ThrowBall(
     Vector3 direction)
   {
-    Debug.Assert(ballBody != null);
-
     direction += transform.forward * direction.magnitude;
+    direction = (direction + transform.forward * direction.magnitude) * throwStrength;
+
+    if (player.isFirstPlayer == false)
+    {
+      direction.z = -direction.z;
+    }
 
     Debug.DrawRay(ball.transform.position, direction);
 
-    ballBody.useGravity = true;
-    ballBody.AddForce((direction + transform.forward * direction.magnitude) * throwStrength, ForceMode.Impulse);
+    ball.Throw(direction);
 
-    // Show throw indicator
-    if (indicatorRoutine != null) StopCoroutine(indicatorRoutine);
-    indicatorRoutine = StartCoroutine(ShowThrowIndicator());
-
-    turnController.numberOfActionsRemaining--;
+    whenBallWasReleased = Time.timeSinceLevelLoad;
+    holdingBall = false;
+    shotRoutine = StartCoroutine(Shot());
   }
 
-  IEnumerator ShowThrowIndicator()
+  IEnumerator Shot()
   {
-    line.enabled = true;
-
-    line.SetPosition(0, positionList.Last.Value);
-    line.SetPosition(1, positionList.First.Value);
-
-    yield return new WaitForSeconds(2);
-
-    line.enabled = false;
+    yield return new WaitForSeconds(3);
+    turnController.numberOfActionsRemaining--;
+    shotRoutine = null;
   }
 
+  void SetBallPosition(
+    Vector2 mousePosition)
+  {
+    float maxX = this.maxX;
+    float minX = this.minX;
+
+    if (player.isFirstPlayer == false)
+    {
+      maxX = this.minX;
+      minX = this.maxX;
+    }
+
+    float percentX = mousePosition.x / Screen.width;
+    percentX = Mathf.Clamp01(percentX);
+    float percentY = mousePosition.y / Screen.height;
+    percentY = Mathf.Clamp01(percentY);
+
+    Vector3 ballPosition = new Vector3(minX + percentX * (maxX - minX), minY + percentY * (maxY - minY), ball.homeZPosition);
+    ball.transform.position = ballPosition;
+  }
+  #endregion
+
+  #region Private Read
   bool GetThrowMagnitude(
     out Vector3 direction)
   {
@@ -234,26 +224,19 @@ public class BallThrower : MonoBehaviour
 
     // Need to hold for at least two frames
     if (positionList.Count < 2)
+    {
       return false;
+    }
 
     direction = positionList.First.Value - positionList.Last.Value;
 
     // Minimum strength of throw - Play with this value for results
-    if (direction.magnitude < .25)
+    if (direction.magnitude < minThrowMag)
+    {
       return false;
-
-    Debug.Log(direction.magnitude);
+    }
 
     return true;
   }
-
-  void SetBallPosition(
-    Vector2 mousePosition)
-  {
-    float percentX = mousePosition.x / Screen.width;
-    float percentY = mousePosition.y / Screen.height;
-
-    Vector3 ballPosition = new Vector3(minX + percentX * (maxX - minX), minY + percentY * (maxY - minY), originalBallPosition.z);
-    ball.transform.position = ballPosition;
-  }
+  #endregion
 }

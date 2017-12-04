@@ -3,30 +3,87 @@ using System;
 
 public class Ball : MonoBehaviour
 {
-  TurnController turnController;
-  GameObject visuals;
-  Player player;
+  #region Data
+  // TODO
+  /// <summary>
+  /// Must be set when this is spawned
+  /// </summary>
+  public Player player;
 
+  /// <summary>
+  /// Differs for each team.
+  /// </summary>
+  GameObject ballModel;
+
+  TurnController turnController;
+
+  Rigidbody body;
+
+  ParticleSystem[] particles;
+
+  Vector3 originalBallPosition;
+  #endregion
+
+  #region Properties
+  public float homeZPosition
+  {
+    get
+    {
+      return originalBallPosition.z;
+    }
+  }
+  #endregion
+
+  #region Init
   protected void Awake()
   {
-    player = GetComponentInParent<Player>();
-    visuals = transform.GetChild(0).gameObject;
     turnController = GameObject.FindObjectOfType<TurnController>();
-    turnController.onTurnChange += TurnController_onTurnChange;
+    body = GetComponent<Rigidbody>();
   }
 
   protected void Start()
   {
-    TurnController_onTurnChange();
+    if (player == null)
+    {
+      player = Player.remotePlayer;
+    }
+    if (player.isFirstPlayer == false)
+    {
+      Vector3 position = transform.position;
+      position.z = -position.z;
+      transform.position = position;
+    }
+
+    ballModel = transform.GetChild(player.isFirstPlayer ? 0 : 1).gameObject;
+    particles = ballModel.GetComponentsInChildren<ParticleSystem>();
+    originalBallPosition = transform.position;
+  }
+  #endregion
+
+  #region Write
+  public void ShowBall()
+  {
+    transform.position = originalBallPosition;
+    ballModel.SetActive(true);
+    body.useGravity = false;
+    body.velocity = Vector3.zero;
+    for (int i = 0; i < particles.Length; i++)
+    {
+      particles[i].Simulate(player.isFirstPlayer ? 1.5f : 0, true, true);
+      particles[i].Play();
+    }
   }
 
-  protected void OnDestroy()
+  public void HideBall()
   {
-    turnController.onTurnChange -= TurnController_onTurnChange;
+    ballModel.SetActive(false);
   }
 
-  void TurnController_onTurnChange()
+  public void Throw(
+    Vector3 direction)
   {
-    visuals.SetActive(player.isMyTurn);
+    body.useGravity = true;
+    body.AddForce(direction, ForceMode.Impulse);
   }
+  #endregion
 }

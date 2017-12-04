@@ -8,6 +8,8 @@ public class GameManager : MonoBehaviour
 
   public SharedData sharedData;
 
+  public string name;
+
   public GameObject currentBallPrefab
   {
     get
@@ -16,12 +18,21 @@ public class GameManager : MonoBehaviour
     }
   }
   public int currentBallIndex;
+    
+  public SpellInfo[] spells
+  {
+    get
+    {
+      return sharedData.spellList;
+    }
+  }
 
   protected void Awake()
   {
     if(instance != null)
     {
       Destroy(gameObject);
+      return;
     }
 
     DontDestroyOnLoad(gameObject);
