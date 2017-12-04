@@ -425,11 +425,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d206f492140538c48aeb76bc4bfdeda9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  throwStrength: 10
+  throwStrength: 3
   minX: -2
   maxX: 2
-  minY: 0
-  maxY: 1
+  minY: 0.5
+  maxY: 2.5
+  minThrowMag: 0.05
+  minTimeTillReset: 1
   wand: {fileID: 1302372387979692}
   timeTillBallReset: 6
 --- !u!114 &114815932758630666
@@ -470,7 +472,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c8d201e39126dc499fd7f8fe37f4351, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isPlayer0: 0
 --- !u!120 &120466792355540960
 LineRenderer:
   m_ObjectHideFlags: 1

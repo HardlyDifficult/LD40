@@ -23,12 +23,6 @@ public class BallThrower : MonoBehaviour
   float maxY;
 
   /// <summary>
-  /// Adjust to change the feel of the throw.
-  /// </summary>
-  [SerializeField]
-  int maxPositionListLength = 10;
-
-  /// <summary>
   /// Used to reject small (e.g. accidental) movements / launches.
   /// </summary>
   [SerializeField]
@@ -40,8 +34,6 @@ public class BallThrower : MonoBehaviour
   Ball ball;
 
   bool holdingBall;
-
-  readonly LinkedList<Vector3> positionList = new LinkedList<Vector3>();
 
   // TODO
   [SerializeField]
@@ -59,6 +51,13 @@ public class BallThrower : MonoBehaviour
   Player player;
 
   Coroutine shotRoutine;
+
+  /// <summary>
+  /// Min y.
+  /// X we had when min y was found.
+  /// z is ignored.
+  /// </summary>
+  Vector3? minPositionOfThrow;
   #endregion
 
   #region Init
@@ -134,6 +133,7 @@ public class BallThrower : MonoBehaviour
     holdingBall = true;
     whenBallWasReleased = null;
     ball.ShowBall();
+    Cursor.visible = false;
   }
 
   void Aim()
@@ -141,11 +141,10 @@ public class BallThrower : MonoBehaviour
     Debug.Assert(holdingBall);
 
     SetBallPosition(Input.mousePosition);
-    positionList.AddFirst(ball.transform.position);
 
-    if (positionList.Count > maxPositionListLength)
+    if (minPositionOfThrow == null || minPositionOfThrow.Value.y >= ball.transform.position.y)
     {
-      positionList.RemoveLast();
+      minPositionOfThrow = ball.transform.position;
     }
   }
 
@@ -164,13 +163,20 @@ public class BallThrower : MonoBehaviour
       ThrowBall(direction);
     }
 
-    positionList.Clear();
+    minPositionOfThrow = null;
   }
+
+  public static float Sigmoid(double value) { return 1.0f / (1.0f + (float)Math.Exp(-value)); }
 
   void ThrowBall(
     Vector3 direction)
   {
-    direction += transform.forward * direction.magnitude;
+    float mag = direction.magnitude;
+    mag = Sigmoid(mag);
+    print(mag);
+    mag = Mathf.Clamp(mag, .25f, 1);
+
+    direction += transform.forward * mag;
     direction = (direction + transform.forward * direction.magnitude) * throwStrength;
 
     if (player.isFirstPlayer == false)
@@ -184,6 +190,7 @@ public class BallThrower : MonoBehaviour
 
     whenBallWasReleased = Time.timeSinceLevelLoad;
     holdingBall = false;
+    Cursor.visible = true;
     shotRoutine = StartCoroutine(Shot());
   }
 
@@ -222,13 +229,12 @@ public class BallThrower : MonoBehaviour
   {
     direction = Vector3.zero;
 
-    // Need to hold for at least two frames
-    if (positionList.Count < 2)
+    if (minPositionOfThrow == null)
     {
       return false;
     }
 
-    direction = positionList.First.Value - positionList.Last.Value;
+    direction = ball.transform.position - minPositionOfThrow.Value;
 
     // Minimum strength of throw - Play with this value for results
     if (direction.magnitude < minThrowMag)
