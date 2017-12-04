@@ -17,6 +17,14 @@ public class Player : MonoBehaviour
   #endregion
 
   #region Property
+  public static bool isPlayer1
+  {
+    get
+    {
+      return PhotonNetwork.isMasterClient;
+    }
+  }
+
   public static Player localPlayer
   {
     get

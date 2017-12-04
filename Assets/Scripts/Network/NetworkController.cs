@@ -115,10 +115,13 @@ public class NetworkController : MonoBehaviour
     Vector3 position = playerPrefab.transform.position;
     position.z = zPositionPlayer;
 
-    GameObject ball = PhotonNetwork.Instantiate(playerPrefab.name, position, transform.rotation, 0);
-    PhotonView view = ball.GetComponent<PhotonView>();
+    GameObject player = PhotonNetwork.Instantiate(playerPrefab.name, position, transform.rotation, 0);
+    PhotonView view = player.GetComponent<PhotonView>();
     view.RequestOwnership();
     Debug.Assert(view.isMine);
+    Wizards wizards = GameObject.FindObjectOfType<Wizards>();
+    player.transform.SetParent((Player.isPlayer1 ? wizards.player1WandBone : wizards.player2WandBone).transform);
+    player.transform.localPosition = Vector3.zero;
 
     onGameBegin?.Invoke();
   }

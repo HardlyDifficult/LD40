@@ -5,7 +5,9 @@ using UnityEngine;
 public class Wizards : MonoBehaviour
 {
   [SerializeField]
-  GameObject player1WandBone;
+  public GameObject player1WandBone;
   [SerializeField]
-  GameObject player2WandBone;
+  public GameObject player2WandBone;
+
+  
 }
