@@ -27,7 +27,7 @@ public class HoverButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
         Debug.Log(this.hoverColor);
 
         this.buttonText.color = this.hoverColor; // this doesnt work
-        this.buttonText.color = Color.white; // this works
+        //this.buttonText.color = Color.white; // this works
     }
 
     public void OnPointerExit(PointerEventData eventData)
@@ -35,7 +35,7 @@ public class HoverButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
         Debug.Log("Changing color to foreColor");
         Debug.Log(this.foreColor);
         this.buttonText.color = this.foreColor; // this doesnt work
-        this.buttonText.color = Color.gray; // this works
+        //this.buttonText.color = Color.gray; // this works
     }
 
     public void OnPointerClick(PointerEventData eventData)
