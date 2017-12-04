@@ -15,13 +15,32 @@ public class HitDetector : MonoBehaviour
   [SerializeField]
   MeshRenderer[] objectsScaleDownOnHit;
 
+  [SerializeField]
+  public int spellOnHitPlayerId = -1; // -1 = local player
+  [SerializeField]
+  public int spellOnHitId = -1; // -1 = no spell linked to this detector
+
+#if UNITY_EDITOR
+    public bool editorHit;
+#endif
+
   void Start()
   {
     // enable this for quick tests
     //winCheckRoutine = StartCoroutine(WinCheck());
   }
 
-  protected void OnTriggerEnter(
+#if UNITY_EDITOR
+  void Update()
+  {
+    if (editorHit && winCheckRoutine == null)
+    {
+      winCheckRoutine = StartCoroutine(WinCheck());
+    }
+  }
+#endif
+
+    protected void OnTriggerEnter(
     Collider collider)
   {
     if (winCheckRoutine != null)
@@ -36,6 +55,10 @@ public class HitDetector : MonoBehaviour
     yield return new WaitForSeconds(1);
     print("Nailed it!");
     winCheckRoutine = null;
+    if (spellOnHitId != -1)
+    {
+      PlayerSpellsManager.instance.SetPlayerSpellStatus(spellOnHitPlayerId, spellOnHitId, true);
+    }
     for (int i = 0; i < particlesPlayOnHit.Length; i++)
     {
       particlesPlayOnHit[i]?.Play();
