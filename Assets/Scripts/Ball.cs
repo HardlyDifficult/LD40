@@ -3,36 +3,84 @@ using System;
 
 public class Ball : MonoBehaviour
 {
-  TurnController turnController;
-
-  [HideInInspector]
-  public GameObject visuals;
+  #region Data
+  // TODO
+  /// <summary>
+  /// Must be set when this is spawned
+  /// </summary>
+  public Player player;
 
   /// <summary>
-  /// Set on spawn
+  /// Differs for each team.
   /// </summary>
-  Player player;
+  GameObject ballModel;
+
+  TurnController turnController;
+
+  Rigidbody body;
+
+  ParticleSystem particles;
+
+  Vector3 originalBallPosition;
+  #endregion
+
+  #region Properties
+  public float homeZPosition
+  {
+    get
+    {
+      return originalBallPosition.z;
+    }
+  }
+  #endregion
+
+  #region Init
+  protected void Awake()
+  {
+    turnController = GameObject.FindObjectOfType<TurnController>();
+    body = GetComponent<Rigidbody>();
+  }
 
   protected void Start()
   {
-    turnController = GameObject.FindObjectOfType<TurnController>();
-    player = PhotonNetwork.isMasterClient ? turnController.player1 : turnController.player2;
+    if(player == null)
+    {
+      player = Player.remotePlayer;
+    }
+    if(player.isFirstPlayer == false)
+    {
+      Vector3 position = transform.position;
+      position.z = -position.z;
+      transform.position = position;
+    }
 
-    visuals = transform.GetChild(player.isPlayer0 ? 0 : 1).gameObject;
-    visuals.SetActive(true);
-    visuals.transform.position = new Vector3(1000, 1000, 10009);
-    turnController.onTurnChange += TurnController_onTurnChange;
-    //TurnController_onTurnChange();
+    ballModel = transform.GetChild(player.isFirstPlayer ? 0 : 1).gameObject;
+    particles = ballModel.GetComponent<ParticleSystem>();
+    originalBallPosition = transform.position;
   }
+  #endregion
 
-  protected void OnDestroy()
+  #region Write
+  public void ShowBall()
   {
-    turnController.onTurnChange -= TurnController_onTurnChange;
+    transform.position = originalBallPosition;
+    ballModel.SetActive(true);
+    body.useGravity = false;
+    body.velocity = Vector3.zero;
+    particles.Simulate(player.isFirstPlayer ? 1.5f : 0, true, true);
+    particles.Play();
   }
 
-  void TurnController_onTurnChange()
+  public void HideBall()
   {
-    visuals.transform.position = Vector3.zero;
-    //visuals.SetActive(player.isMyTurn);
+    ballModel.SetActive(false);
   }
+
+  public void Throw(
+    Vector3 direction)
+  {
+    body.useGravity = true;
+    body.AddForce(direction, ForceMode.Impulse);
+  }
+  #endregion
 }

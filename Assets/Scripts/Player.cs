@@ -3,54 +3,112 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-  public bool isPlayer0;
+  #region Data
+  public static Player player1, player2;
 
   TurnController turnController;
 
   PhotonView photonView;
 
+  /// <summary>
+  /// Cached.
+  /// </summary>
+  NetworkController network;
+  #endregion
+
+  #region Property
+  public static Player localPlayer
+  {
+    get
+    {
+      if (PhotonNetwork.isMasterClient)
+      {
+        return player1;
+      }
+      else
+      {
+        return player2;
+      }
+    }
+  }
+
+  public static Player remotePlayer
+  {
+    get
+    {
+      if (PhotonNetwork.isMasterClient)
+      {
+        return player2;
+      }
+      else
+      {
+        return player1;
+      }
+    }
+  }
+
+  public bool isFirstPlayer
+  {
+    get
+    {
+      if (PhotonNetwork.isMasterClient)
+      {
+        return photonView.isMine;
+      }
+      else
+      {
+        return photonView.isMine == false;
+      }
+    }
+  }
+
   public bool isMyTurn
   {
     get
     {
-      return turnController.isCurrentlyPlayer0sTurn == isPlayer0;
+      return turnController.isCurrentlyFirstPlayersTurn == isFirstPlayer;
     }
   }
+  #endregion
 
+  #region Init
   protected void Awake()
   {
     turnController = GameObject.FindObjectOfType<TurnController>();
-    turnController.Register(PhotonNetwork.isMasterClient, this);
     photonView = GetComponent<PhotonView>();
-    NetworkController network = GameObject.FindObjectOfType<NetworkController>();
+
+    if (isFirstPlayer)
+    {
+      player1 = this;
+    }
+    else
+    {
+      player2 = this;
+    }
+
+    network = GameObject.FindObjectOfType<NetworkController>();
     network.onGameBegin += Network_onGameBegin;
   }
 
   protected void OnDestroy()
   {
-    NetworkController network = GameObject.FindObjectOfType<NetworkController>();
+    network = GameObject.FindObjectOfType<NetworkController>();
     if (network != null)
     {
       network.onGameBegin -= Network_onGameBegin;
     }
   }
+  #endregion
 
+  #region Events
   void Network_onGameBegin()
   {
-    if (PhotonNetwork.isMasterClient)
-    {
-      isPlayer0 = photonView.isMine;
-    }
-    else
-    {
-      isPlayer0 = !photonView.isMine;
-    }
-
-    if (isPlayer0 == false && photonView.isMine)
+    if (isFirstPlayer == false && photonView.isMine)
     { // Player 2 goes to the other side of the table
       Vector3 position = transform.position;
       position.z = -position.z;
       transform.position = position;
     }
   }
+  #endregion
 }

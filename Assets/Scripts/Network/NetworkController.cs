@@ -1,23 +1,21 @@
 ﻿using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class NetworkController : MonoBehaviour
 {
+  #region Data
   public event Action onGameBegin;
 
   [SerializeField]
   GameObject showThisOnDisconnectBeforeReloadingTheScene;
 
+  /// <summary>
+  /// Player 2 will use this negated
+  /// </summary>
   [SerializeField]
-  float zPositionPlayer1;
-
-  [SerializeField]
-  float zPositionPlayer2;
-
-  RoomOptions roomOptions;
+  float zPositionPlayer;
 
   /// <summary>
   /// Must be in Resources
@@ -25,6 +23,13 @@ public class NetworkController : MonoBehaviour
   [SerializeField]
   BallThrower playerPrefab;
 
+  /// <summary>
+  /// Cached
+  /// </summary>
+  RoomOptions roomOptions;
+  #endregion
+
+  #region Init
   protected void Awake()
   {
     roomOptions = new RoomOptions()
@@ -39,32 +44,20 @@ public class NetworkController : MonoBehaviour
   {
     PhotonNetwork.Disconnect();
   }
+  #endregion
 
+  #region Events
+  /// <summary>
+  /// Step 1
+  /// </summary>
   protected void OnJoinedLobby()
   {
     PhotonNetwork.JoinRandomRoom(roomOptions.CustomRoomProperties, roomOptions.MaxPlayers);
   }
 
-  protected void OnPhotonRandomJoinFailed(object[] codeAndMsg)
-  {
-    print($"{nameof(OnPhotonRandomJoinFailed)} code {codeAndMsg[0]} message {codeAndMsg[1]}");
-
-    PhotonNetwork.CreateRoom(null, roomOptions, TypedLobby.Default);
-  }
-
-  void OnPhotonJoinRoomFailed()
-  {
-    Debug.LogError("Join failed");
-  }
-
-  protected void OnPhotonPlayerConnected(
-    PhotonPlayer newPlayer)
-  {
-    Debug.Assert(PhotonNetwork.room.PlayerCount == 2);
-
-    OnGameBegin();
-  }
-
+  /// <summary>
+  /// Step 2 success
+  /// </summary>
   protected void OnJoinedRoom()
   {
     print($"Welcome!  There are a total of {PhotonNetwork.room.PlayerCount} players in the room");
@@ -75,10 +68,52 @@ public class NetworkController : MonoBehaviour
     }
   }
 
+  /// <summary>
+  /// Step 2 fail path.
+  /// There are no rooms with a spot open
+  /// </summary>
+  protected void OnPhotonRandomJoinFailed(
+    object[] codeAndMsg)
+  {
+    print($"{nameof(OnPhotonRandomJoinFailed)} code {codeAndMsg[0]} message {codeAndMsg[1]}");
+
+    PhotonNetwork.CreateRoom(null, roomOptions, TypedLobby.Default);
+  }
+
+  /// <summary>
+  /// Step 3: Someone joined our room.
+  /// 
+  /// This should always be a second player and trigger the start of a game.
+  /// </summary>
+  protected void OnPhotonPlayerConnected(
+    PhotonPlayer newPlayer)
+  {
+    Debug.Assert(PhotonNetwork.room.PlayerCount == 2);
+
+    OnGameBegin();
+  }
+
+  /// <summary>
+  /// Your opponent rage quit.  Start a new game.
+  /// </summary>
+  /// <param name="otherPlayer"></param>
+  void OnPhotonPlayerDisconnected(
+    PhotonPlayer otherPlayer)
+  {
+    print($"{nameof(OnPhotonPlayerDisconnected)}: {otherPlayer}");
+
+    StartCoroutine(ReloadScene());
+  }
+  #endregion
+
+  #region Private
+  /// <summary>
+  /// Each player creates their ball and the gameBegin event is fired.
+  /// </summary>
   void OnGameBegin()
   {
     Vector3 position = playerPrefab.transform.position;
-    position.z = zPositionPlayer1;
+    position.z = zPositionPlayer;
 
     GameObject ball = PhotonNetwork.Instantiate(playerPrefab.name, position, transform.rotation, 0);
     PhotonView view = ball.GetComponent<PhotonView>();
@@ -88,6 +123,25 @@ public class NetworkController : MonoBehaviour
     onGameBegin?.Invoke();
   }
 
+  /// <summary>
+  /// Show a message for 3 seconds and then reload.
+  /// </summary>
+  /// <returns></returns>
+  IEnumerator ReloadScene()
+  {
+    print("Reloading scene...");
+    showThisOnDisconnectBeforeReloadingTheScene.SetActive(true);
+    yield return new WaitForSeconds(3);
+    SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+  }
+  #endregion
+
+  #region For Debugging
+  void OnPhotonJoinRoomFailed()
+  {
+    Debug.LogError("Join failed");
+  }
+  
   void OnLeftRoom()
   {
     print(nameof(OnLeftRoom));
@@ -118,29 +172,16 @@ public class NetworkController : MonoBehaviour
     print(nameof(OnDisconnectedFromPhoton));
   }
 
-  void OnConnectionFail(DisconnectCause cause)
+  void OnConnectionFail(
+    DisconnectCause cause)
   {
     print($"{nameof(OnConnectionFail)} cause: {cause}");
   }
 
-  void OnFailedToConnectToPhoton(DisconnectCause cause)
+  void OnFailedToConnectToPhoton(
+    DisconnectCause cause)
   {
     print($"{nameof(OnFailedToConnectToPhoton)} cause: {cause}");
-  }
-
-  void OnPhotonPlayerDisconnected(PhotonPlayer otherPlayer)
-  {
-    print($"{nameof(OnPhotonPlayerDisconnected)}: {otherPlayer}");
-
-    StartCoroutine(ReloadScene());
-  }
-
-  IEnumerator ReloadScene()
-  {
-    print("Reloading scene...");
-    showThisOnDisconnectBeforeReloadingTheScene.SetActive(true);
-    yield return new WaitForSeconds(3);
-    SceneManager.LoadScene(SceneManager.GetActiveScene().name);
   }
 
   void OnPhotonMaxCccuReached()
@@ -148,8 +189,10 @@ public class NetworkController : MonoBehaviour
     print(nameof(OnPhotonMaxCccuReached));
   }
 
-  void OnCustomAuthenticationFailed(string debugMessage)
+  void OnCustomAuthenticationFailed(
+    string debugMessage)
   {
     print(nameof(OnCustomAuthenticationFailed) + " " + debugMessage);
   }
+  #endregion
 }
