@@ -4,14 +4,17 @@ using UnityEngine;
 
 public class HitDetector : MonoBehaviour
 {
+  public delegate void OnHit(HitDetector hitDetectorWhichWasHit, Player scoringPlayer);
+  public static OnHit onHit;
+
   Coroutine winCheckRoutine;
 
   [SerializeField]
   ParticleSystem[] particlesPlayOnHit;
-    
+
   [SerializeField]
   ParticleSystem[] particlesStopOnHit;
-    
+
   [SerializeField]
   MeshRenderer[] objectsScaleDownOnHit;
 
@@ -21,7 +24,7 @@ public class HitDetector : MonoBehaviour
   public int spellOnHitId = -1; // -1 = no spell linked to this detector
 
 #if UNITY_EDITOR
-    public bool editorHit;
+  public bool editorHit;
 #endif
 
   bool hasHit;
@@ -49,8 +52,8 @@ public class HitDetector : MonoBehaviour
   }
 #endif
 
-    protected void OnTriggerEnter(
-    Collider collider)
+  protected void OnTriggerEnter(
+  Collider collider)
   {
     if (winCheckRoutine != null)
     {
@@ -61,11 +64,13 @@ public class HitDetector : MonoBehaviour
 
   IEnumerator WinCheck()
   {
-    if(hasHit)
+    if (hasHit)
     {
       yield break;
     }
     yield return new WaitForSeconds(1);
+
+
     hasHit = true;
     print("Nailed it!");
     turnController.Score(spellOnHitPlayerId == 0 ? 1 : 0);
@@ -90,6 +95,9 @@ public class HitDetector : MonoBehaviour
         objectsScaleDownOnHit[i].transform.localScale *= 0.99f;
       }
     }
+
+    onHit?.Invoke(this, spellOnHitPlayerId == 0 ? Player.player2 : Player.player1);
+
     for (int i = 0; i < objectsScaleDownOnHit.Length; i++)
     {
       objectsScaleDownOnHit[i].gameObject.SetActive(false);
