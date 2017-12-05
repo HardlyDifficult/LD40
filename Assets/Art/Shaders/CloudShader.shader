@@ -168,7 +168,7 @@ float getClosestDistance(float3 p, float3 dir)
 {
 	float d = 0.0;
 #if D_MAX_STEP_LENGTH_ENABLE
-	float minD = 0.1; // restrict max step for better scattering evaluation
+	float minD = 1.0; // restrict max step for better scattering evaluation
 #else
 	float minD = 10000000.0;
 #endif
