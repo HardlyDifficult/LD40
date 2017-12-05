@@ -196,7 +196,7 @@ public class BallThrower : MonoBehaviour
     {
       float mag = direction.magnitude;
       mag = Sigmoid(mag);
-      mag = Mathf.Clamp(mag, .25f, 1);
+      mag = Mathf.Clamp(mag, .25f, .75f);
 
       Vector3 forward = player1Forward;
 

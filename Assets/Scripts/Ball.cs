@@ -70,7 +70,7 @@ public class Ball : MonoBehaviour
     body.velocity = Vector3.zero;
     for (int i = 0; i < particles.Length; i++)
     {
-      particles[i].Simulate(player.isFirstPlayer ? 1.5f : 0, true, true);
+      particles[i].Simulate(player.isFirstPlayer ? 0 : 1.5f, true, true);
       particles[i].Play();
     }
   }

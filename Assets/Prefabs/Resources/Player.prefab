@@ -425,14 +425,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d206f492140538c48aeb76bc4bfdeda9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  throwStrength: 3
+  throwStrength: 2
   minX: -2
   maxX: 2
   minY: 0.5
   maxY: 2.5
   minThrowMag: 0.05
   minTimeTillReset: 1
-  wand: {fileID: 1302372387979692}
   timeTillBallReset: 6
 --- !u!114 &114815932758630666
 MonoBehaviour:
