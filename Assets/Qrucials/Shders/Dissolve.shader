@@ -39,9 +39,6 @@
             #pragma vertex vert
             #pragma fragment frag
  
-            // Change "shader_feature" with "pragma_compile" if you want set this keyword from c# code
-            #pragma shader_feature __ _SPEC_ON
- 
             #include "UnityCG.cginc"
             // Change path if needed
 
@@ -135,22 +132,13 @@
  
                 fixed4 light = dif + amb;
  
-                // Compute the specular lighting
-                #if _SPEC_ON
-                float3 refl = normalize(reflect(-lightDir, worldNormal));
-                float RdotV = max(0., dot(refl, viewDir));
-                fixed4 spec = pow(RdotV, _Shininess) * _LightColor0 * ceil(NdotL) * _SpecColor;
- 
-                light += spec;
-                #endif
- 
                 c.rgb *= light.rgb;
  
                 // Compute emission
                 fixed4 emi = tex2D(_EmissionTex, i.uv).r * _EmiColor * _EmiVal;
                 c.rgb += emi.rgb;
  
-                if(noise(i.pos) < _DisVal)
+                if(noise(i.worldPos) < _DisVal)
                     discard;
  
                 return c;
