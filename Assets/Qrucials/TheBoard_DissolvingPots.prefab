@@ -8288,7 +8288,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9de1c1ab42a84c042960a48b90212d59, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spellPlayerId: 1
+  spellPlayerId: 0
   spellId: 3
   spellEnabled: 0
   spellTransitionTime: 5
@@ -8314,7 +8314,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9de1c1ab42a84c042960a48b90212d59, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spellPlayerId: 1
+  spellPlayerId: 0
   spellId: 3
   spellEnabled: 0
   spellTransitionTime: 5
@@ -8452,7 +8452,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9de1c1ab42a84c042960a48b90212d59, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spellPlayerId: 0
+  spellPlayerId: 1
   spellId: 3
   spellEnabled: 0
   spellTransitionTime: 5
@@ -8502,7 +8502,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9de1c1ab42a84c042960a48b90212d59, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spellPlayerId: 0
+  spellPlayerId: 1
   spellId: 3
   spellEnabled: 0
   spellTransitionTime: 5
@@ -8612,7 +8612,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9de1c1ab42a84c042960a48b90212d59, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spellPlayerId: 0
+  spellPlayerId: 1
   spellId: 3
   spellEnabled: 0
   spellTransitionTime: 5
@@ -8658,7 +8658,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9de1c1ab42a84c042960a48b90212d59, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spellPlayerId: 0
+  spellPlayerId: 1
   spellId: 3
   spellEnabled: 0
   spellTransitionTime: 5
@@ -8684,7 +8684,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9de1c1ab42a84c042960a48b90212d59, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spellPlayerId: 0
+  spellPlayerId: 1
   spellId: 3
   spellEnabled: 0
   spellTransitionTime: 5
@@ -8747,7 +8747,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9de1c1ab42a84c042960a48b90212d59, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spellPlayerId: 0
+  spellPlayerId: 1
   spellId: 3
   spellEnabled: 0
   spellTransitionTime: 5
@@ -8810,7 +8810,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9de1c1ab42a84c042960a48b90212d59, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spellPlayerId: 1
+  spellPlayerId: 0
   spellId: 3
   spellEnabled: 0
   spellTransitionTime: 5
@@ -8836,7 +8836,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9de1c1ab42a84c042960a48b90212d59, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spellPlayerId: 1
+  spellPlayerId: 0
   spellId: 3
   spellEnabled: 0
   spellTransitionTime: 5
@@ -8889,7 +8889,7 @@ MonoBehaviour:
   objectsScaleDownOnHit:
   - {fileID: 23805158714309696}
   spellOnHitPlayerId: 0
-  spellOnHitId: 7
+  spellOnHitId: 6
   editorHit: 0
 --- !u!114 &114540837193045178
 MonoBehaviour:
@@ -8968,7 +8968,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9de1c1ab42a84c042960a48b90212d59, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spellPlayerId: 1
+  spellPlayerId: 0
   spellId: 3
   spellEnabled: 0
   spellTransitionTime: 5
@@ -8994,7 +8994,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9de1c1ab42a84c042960a48b90212d59, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spellPlayerId: 0
+  spellPlayerId: 1
   spellId: 3
   spellEnabled: 0
   spellTransitionTime: 5
@@ -9059,7 +9059,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9de1c1ab42a84c042960a48b90212d59, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spellPlayerId: 0
+  spellPlayerId: 1
   spellId: 3
   spellEnabled: 0
   spellTransitionTime: 5
@@ -9116,7 +9116,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9de1c1ab42a84c042960a48b90212d59, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spellPlayerId: 1
+  spellPlayerId: 0
   spellId: 3
   spellEnabled: 0
   spellTransitionTime: 5
@@ -9175,7 +9175,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9de1c1ab42a84c042960a48b90212d59, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spellPlayerId: 1
+  spellPlayerId: 0
   spellId: 3
   spellEnabled: 0
   spellTransitionTime: 5
@@ -9232,7 +9232,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9de1c1ab42a84c042960a48b90212d59, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spellPlayerId: 1
+  spellPlayerId: 0
   spellId: 3
   spellEnabled: 0
   spellTransitionTime: 5

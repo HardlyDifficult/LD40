@@ -196,7 +196,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b14201be56d74be4d8005b63c9a1ee6d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spellPlayerId: 1
+  spellPlayerId: 0
   spellId: 6
   spellEnabled: 0
   spellTransitionTime: 5
@@ -216,7 +216,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b14201be56d74be4d8005b63c9a1ee6d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spellPlayerId: 0
+  spellPlayerId: 1
   spellId: 6
   spellEnabled: 0
   spellTransitionTime: 5
