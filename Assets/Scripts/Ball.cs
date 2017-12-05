@@ -37,6 +37,7 @@ public class Ball : MonoBehaviour
   #region Init
   protected void Awake()
   {
+    print(transform.position);
     turnController = GameObject.FindObjectOfType<TurnController>();
     body = GetComponent<Rigidbody>();
   }

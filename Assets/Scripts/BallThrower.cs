@@ -6,6 +6,12 @@ using UnityEngine;
 public class BallThrower : MonoBehaviour
 {
   #region Data
+  static readonly Vector3
+    player1BallPosition = new Vector3(0, 1, -8);
+
+  static readonly Vector3
+    player1Forward = new Vector3(0, 0, 1);
+
   [SerializeField]
   float throwStrength;
 
@@ -34,10 +40,6 @@ public class BallThrower : MonoBehaviour
   Ball ball;
 
   bool holdingBall;
-
-  // TODO
-  [SerializeField]
-  GameObject wand;
 
   float? whenBallWasReleased;
 
@@ -70,7 +72,8 @@ public class BallThrower : MonoBehaviour
 
     if (photonView.isMine)
     {
-      ball = PhotonNetwork.Instantiate(GameManager.instance.currentBallPrefab.name, transform.position, transform.rotation, 0).GetComponent<Ball>();
+      ball = PhotonNetwork.Instantiate(GameManager.instance.currentBallPrefab.name,
+        player1BallPosition , transform.rotation, 0).GetComponent<Ball>();
       ball.player = player;
       PhotonView ballsView = ball.GetComponent<PhotonView>();
       ballsView.RequestOwnership();
@@ -193,11 +196,12 @@ public class BallThrower : MonoBehaviour
     {
       float mag = direction.magnitude;
       mag = Sigmoid(mag);
-      print(mag);
       mag = Mathf.Clamp(mag, .25f, 1);
 
-      direction += transform.forward * mag;
-      direction = (direction + transform.forward * direction.magnitude) * throwStrength;
+      Vector3 forward = player1Forward;
+
+      direction += forward * mag;
+      direction = (direction + forward * direction.magnitude) * throwStrength;
 
       if (player.isFirstPlayer == false)
       {
