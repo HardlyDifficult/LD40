@@ -244,6 +244,11 @@ public class BallThrower : MonoBehaviour
     float percentY = mousePosition.y / Screen.height;
     percentY = Mathf.Clamp01(percentY);
 
+      // inverso spell
+    if (PlayerSpellsManager.instance.GetPlayerSpellStatus(-1, 1))
+    {
+      percentX = 1 - percentX;
+    }
     Vector3 ballPosition = new Vector3(minX + percentX * (maxX - minX), minY + percentY * (maxY - minY), ball.homeZPosition);
     ball.transform.position = ballPosition;
   }
