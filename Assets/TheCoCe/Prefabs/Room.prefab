@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4617883051746626}
   - component: {fileID: 33013427830227234}
   - component: {fileID: 23993114456244578}
-  m_Layer: 0
+  m_Layer: 4
   m_Name: Walls
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38,7 +38,7 @@ GameObject:
   - component: {fileID: 4650438764561584}
   - component: {fileID: 33015623461236912}
   - component: {fileID: 23954282659899818}
-  m_Layer: 0
+  m_Layer: 4
   m_Name: Room
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -55,7 +55,7 @@ GameObject:
   - component: {fileID: 4000639882793716}
   - component: {fileID: 33818569199777492}
   - component: {fileID: 23297261928334668}
-  m_Layer: 0
+  m_Layer: 4
   m_Name: Floor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -72,7 +72,7 @@ GameObject:
   - component: {fileID: 4063336586198050}
   - component: {fileID: 33717145458806330}
   - component: {fileID: 23847463147898228}
-  m_Layer: 0
+  m_Layer: 4
   m_Name: Ceiling
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -89,7 +89,7 @@ GameObject:
   - component: {fileID: 4271461536383812}
   - component: {fileID: 33271744235741414}
   - component: {fileID: 23317776565342350}
-  m_Layer: 0
+  m_Layer: 4
   m_Name: Connectors
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -104,7 +104,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4324851272866144}
-  m_Layer: 0
+  m_Layer: 4
   m_Name: FloorAndWalls
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -131,7 +131,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1376985057866842}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0, y: 0, z: 0}
+  m_LocalPosition: {x: -0.09, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4324851272866144}
@@ -185,7 +185,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1160555723783806}
-  m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
+  m_LocalRotation: {x: -0, y: -0.7071068, z: -0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: -5.5, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children:

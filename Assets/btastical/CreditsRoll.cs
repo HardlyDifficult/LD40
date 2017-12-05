@@ -8,10 +8,13 @@ public class CreditsRoll : MonoBehaviour
 {
     private List<Contributor> contributors;
     private Vector3 velocity = Vector3.zero;
+    private Color foreColor;
     public float smoothTime = 0.3f;
 
     protected void Awake()
     {
+        var didItWork = ColorUtility.TryParseHtmlString("#E7E8E7FF", out this.foreColor);
+
         contributors = new List<Contributor>();
         this.contributors.Add(new Contributor("Potion Pong", string.Empty, 130, 0, 5f));
         this.contributors.Add(new Contributor("HardlyDifficult", "Code, Management & wizardry", 90, 50, 3f));
@@ -55,13 +58,13 @@ public class CreditsRoll : MonoBehaviour
         Text contributorText = contributorGameObject.AddComponent<Text>();
         contributorText.text = contributor.Name;
         contributorText.alignment = TextAnchor.MiddleCenter;
-        contributorText.color = new Color(.3f, .3f, .3f);
+
+        contributorText.color = this.foreColor;
         contributorText.fontSize = contributor.NameSize;
         contributorText.font = Resources.Load<Font>("wizzta");
         contributorText.rectTransform.localPosition = new Vector3(10, -155, 0);
         contributorText.horizontalOverflow = HorizontalWrapMode.Overflow;
         contributorText.verticalOverflow = VerticalWrapMode.Overflow;
-
         Text responsibleForText = responsibleForGameObject.AddComponent<Text>();
         responsibleForText.text = contributor.ResponsibleFor;
         responsibleForText.alignment = TextAnchor.MiddleCenter;
