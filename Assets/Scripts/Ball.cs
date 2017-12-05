@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System;
+using System.Collections;
 
 public class Ball : MonoBehaviour
 {
@@ -39,6 +40,7 @@ public class Ball : MonoBehaviour
   {
     print(transform.position);
     turnController = GameObject.FindObjectOfType<TurnController>();
+    turnController.onTurnChange += TurnController_onTurnChange;
     body = GetComponent<Rigidbody>();
   }
 
@@ -60,6 +62,21 @@ public class Ball : MonoBehaviour
     originalBallPosition = transform.position;
   }
   #endregion
+
+
+  private void TurnController_onTurnChange()
+  {
+    if(player.isMyTurn == false)
+    {
+      StartCoroutine(Hide());
+    }
+  }
+
+  IEnumerator Hide()
+  {
+    yield return new WaitForSeconds(1);
+    HideBall();
+  }
 
   #region Write
   public void ShowBall()

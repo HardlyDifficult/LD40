@@ -54,5 +54,7 @@ public class Dissolve : MonoBehaviour
       }
       yield return null;
     }
+
+    gameObject.SetActive(false);
   }
 }

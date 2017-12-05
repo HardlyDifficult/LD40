@@ -73,7 +73,7 @@ public class BallThrower : MonoBehaviour
     if (photonView.isMine)
     {
       ball = PhotonNetwork.Instantiate(GameManager.instance.currentBallPrefab.name,
-        player1BallPosition , transform.rotation, 0).GetComponent<Ball>();
+        player1BallPosition, transform.rotation, 0).GetComponent<Ball>();
       ball.player = player;
       PhotonView ballsView = ball.GetComponent<PhotonView>();
       ballsView.RequestOwnership();
@@ -134,6 +134,7 @@ public class BallThrower : MonoBehaviour
   void Reload()
   {
     holdingBall = true;
+    minPositionOfThrow = null;
     whenBallWasReleased = null;
     ball.ShowBall();
     Cursor.visible = false;
@@ -145,9 +146,12 @@ public class BallThrower : MonoBehaviour
 
     SetBallPosition(Input.mousePosition);
 
-    if (minPositionOfThrow == null || minPositionOfThrow.Value.y >= ball.transform.position.y)
+    if (Input.GetMouseButton(0))
     {
-      minPositionOfThrow = ball.transform.position;
+      if (minPositionOfThrow == null || minPositionOfThrow.Value.y >= ball.transform.position.y)
+      {
+        minPositionOfThrow = ball.transform.position;
+      }
     }
   }
 
@@ -212,6 +216,7 @@ public class BallThrower : MonoBehaviour
 
       whenBallWasReleased = Time.timeSinceLevelLoad;
       holdingBall = false;
+      minPositionOfThrow = null;
       Cursor.visible = true;
     }
     yield return new WaitForSeconds(3);
